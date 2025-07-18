@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractional CTO Blog | Technology Leadership Insights</title>
+  <meta name="description" content="Insights on technology leadership, avoiding tech scams, and building sustainable systems from a verified US-based Fractional CTO.">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { 
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="h-8 w-auto">
+            <img src="../FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
+          <a href="index.html" class="text-brand-red font-semibold">Blog</a>
+          <a href="../about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
+          <a href="../index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="pt-24 pb-12 bg-gradient-to-r from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Fractional CTO <span class="text-brand-red">Insights</span></h1>
+      <p class="text-lg text-gray-600 max-w-3xl">
+        Real talk about technology leadership, avoiding industry scams, and building systems that actually work. No fluff, no sales pitch - just honest insights from the trenches.
+      </p>
+    </div>
+  </header>
+
+  <!-- Blog Posts -->
+  <main class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Blog Post 1 - Business Continuity -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Business Continuity</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="business-continuity-bus-factor.html" class="hover:text-brand-red transition">
+                The Bus Factor: When Your IT Guy Gets Hit By One
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              What happens when key people die? Learn from a real disaster where zero documentation led to months of recovery and $400K in costs.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">July 18, 2025</span>
+              <a href="business-continuity-bus-factor.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Blog Post 2 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Technology Assessment</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="mid-year-tech-reality-check.html" class="hover:text-brand-red transition">
+                Mid-Year Reality Check: Is Your Tech Holding You Back?
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              6-month technology audit checklist. Signs you're being left behind by competitors. When to bring in fractional leadership to catch up.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">July 15, 2025</span>
+              <a href="mid-year-tech-reality-check.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Leadership Strategy</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="fractional-cto-advantage.html" class="hover:text-brand-red transition">
+                The Fractional CTO Advantage: Leadership Without the Politics
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              How fractional CTOs provide objective truth without empire building. Why external leadership delivers results when internal politics fail.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">June 3, 2025</span>
+              <a href="fractional-cto-advantage.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 4 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Legal Compliance</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="tcpa-gdpr-compliance-matters.html" class="hover:text-brand-red transition">
+                TCPA, GDPR, and You: Why Compliance Knowledge Matters
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              Real fines that killed real companies. Why 'move fast and break things' breaks your bank account. Tech leaders who understand legal frameworks vs cowboys.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">May 1, 2025</span>
+              <a href="tcpa-gdpr-compliance-matters.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 4 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Platform Economics</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="build-vs-buy-vs-white-label.html" class="hover:text-brand-red transition">
+                Build vs. Buy vs. White-Label: The Hidden Truth About 'Custom' Solutions
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              When agencies sell $50 templates for $5,000. Learn the truth about white-label platforms and why custom development still matters.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">April 10, 2025</span>
+              <a href="build-vs-buy-vs-white-label.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 5 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Industry Patterns</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="serial-expert-phenomenon.html" class="hover:text-brand-red transition">
+                From Crypto to AI: The Serial 'Expert' Phenomenon
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              Tracking the rebrand cycle of fake experts who jump from Solar to Crypto to NFT to AI. Why domain expertise takes years, not weekends.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">March 20, 2025</span>
+              <a href="serial-expert-phenomenon.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 6 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Fraud Detection</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="red-flags-fake-us-developer.html" class="hover:text-brand-red transition">
+                Red Flags: When Your 'US-Based' Developer Isn't
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              How to spot fake US-based developers using VPNs, fake profiles, and rented addresses. Learn the tactics and protect your business.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">March 6, 2025</span>
+              <a href="red-flags-fake-us-developer.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 7 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Code Quality</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="technical-debt-silent-company-killer.html" class="hover:text-brand-red transition">
+                Technical Debt: The Silent Company Killer
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              How shortcuts today become million-dollar problems tomorrow. Learn why technical debt compounds like credit card interest.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">February 19, 2025</span>
+              <a href="technical-debt-silent-company-killer.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 8 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Industry Analysis</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="ai-gold-rush-fake-experts.html" class="hover:text-brand-red transition">
+                The Great AI Gold Rush: Spotting Real Experts vs. Bandwagon Jumpers
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              How yesterday's blockchain experts became today's AI gurus overnight. Learn to spot fake AI expertise and protect your business.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">February 5, 2025</span>
+              <a href="ai-gold-rush-fake-experts.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 9 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Offshore Disasters</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="the-250000-lesson-offshore-savings-bankruptcy.html" class="hover:text-brand-red transition">
+                The $250,000 Lesson: When Offshore 'Savings' Become Bankruptcy
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              Real case studies of offshore development disasters. Learn why the lowest bid is often the most expensive choice.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">January 22, 2025</span>
+              <a href="the-250000-lesson-offshore-savings-bankruptcy.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 10 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Technical Leadership</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="why-your-next-tech-hire-could-kill-your-company.html" class="hover:text-brand-red transition">
+                Why Your Next Tech Hire Could Kill Your Company
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              The critical difference between hiring a coding monkey and a strategic tech partner. Learn why bad technical decisions compound.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">January 8, 2025</span>
+              <a href="why-your-next-tech-hire-could-kill-your-company.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 11 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6">
+            <div class="text-sm text-brand-red font-semibold mb-2">Industry Warnings</div>
+            <h2 class="text-xl font-bold mb-3 text-brand-dark">
+              <a href="ai-bot-farm-scams.html" class="hover:text-brand-red transition">
+                The Rise of AI Bot Farm Scams: How to Spot Fake Tech Experts
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              From "Solar King" to "AI King" - exposing the serial rebrand artists who mock TCPA compliance while pushing white-label platforms.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">January 18, 2025</span>
+              <a href="ai-bot-farm-scams.html" class="text-brand-red font-semibold text-sm hover:underline">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-brand-dark text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center">
+        <p>&copy; 2025 BIGDEALIO, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

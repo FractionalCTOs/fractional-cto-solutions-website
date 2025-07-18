@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bus Factor: When Your IT Guy Gets Hit By One | Fractional CTO</title>
+  <meta name="description" content="Business continuity planning for tech. What happens when key people die? Learn from a real disaster where zero documentation led to months of recovery.">
+  <meta name="keywords" content="business continuity, bus factor, IT documentation, disaster recovery, tech succession planning, password management">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { 
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="h-8 w-auto">
+            <img src="../FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
+          <a href="index.html" class="text-brand-red font-semibold">Blog</a>
+          <a href="../about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
+          <a href="../index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Business Continuity</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">The Bus Factor: When Your IT Guy Gets Hit By One</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-07-18">July 18, 2025</time>
+        </div>
+      </header>
+
+      <p class="text-sm text-gray-600 italic mb-8">
+        *Examples in this article are based on real incidents with details modified for privacy and clarity.*
+      </p>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          The call came on a Tuesday. "Our IT director was in a car accident. He didn't make it. We can't access anything—servers, domains, email admin, cloud accounts. Everything was in his head. Can you help?"
+        </p>
+
+        <p class="mb-6">
+          What followed was a 6-month nightmare that cost the company $400,000 and nearly ended their business. All because they never asked: "What if?"
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The $400,000 Password</h2>
+        
+        <p class="mb-6">
+          Here's what we discovered in the days after the tragedy:
+        </p>
+
+        <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4 text-red-900">The Digital Lockout:</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li>• <strong>AWS Root Account:</strong> Personal email, no documentation</li>
+            <li>• <strong>Domain Registrar:</strong> His Gmail, 2FA on his destroyed phone</li>
+            <li>• <strong>SSL Certificates:</strong> Expiring in 2 weeks, no renewal info</li>
+            <li>• <strong>Database Passwords:</strong> Changed monthly, never written down</li>
+            <li>• <strong>API Keys:</strong> Hardcoded, no backup copies</li>
+            <li>• <strong>Vendor Accounts:</strong> All under personal emails</li>
+            <li>• <strong>Server Access:</strong> SSH keys on his laptop (encrypted)</li>
+          </ul>
+          <p class="mt-4 font-semibold">Time to regain full access: 6 months. Cost: $400,000+</p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Recovery Nightmare</h2>
+        
+        <p class="mb-6">
+          You'd think tech companies would have processes for this. You'd be wrong. Here's what it actually takes:
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Death Certificates Aren't Magic Keys</h3>
+        <p class="mb-6">
+          AWS wanted: Death certificate, corporate documents, notarized letters, legal opinions, and 3-6 weeks. Meanwhile, your servers are running, billing continues, and you can't change anything.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">2FA Becomes 2F-Screwed</h3>
+        <p class="mb-6">
+          That secure two-factor authentication? When the second factor is in a destroyed phone or a dead person's biometrics, you're locked out. Forever. No override. No exception.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Personal Emails = Legal Nightmares</h3>
+        <p class="mb-6">
+          When critical accounts are tied to personal Gmail addresses, you need court orders to access them. That's months of legal work while your business burns.
+        </p>
+
+        <div class="bg-gray-100 p-6 rounded-xl mb-8">
+          <h3 class="text-xl font-bold mb-4">The Terrible Timeline:</h3>
+          <ul class="space-y-2 font-mono text-sm">
+            <li>Week 1-2: Realize the extent of lockout</li>
+            <li>Week 3-4: Gather legal documents</li>
+            <li>Week 5-8: Submit to vendors, get rejected</li>
+            <li>Week 9-12: Hire lawyers, file paperwork</li>
+            <li>Week 13-16: Some accounts recovered</li>
+            <li>Week 17-24: Rebuild what can't be recovered</li>
+            <li>Month 7+: Still finding locked accounts</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bus Factor Assessment</h2>
+        
+        <p class="mb-6">
+          "Bus factor" is tech speak for: How many people need to be hit by a bus before your project is doomed? If it's one, you're already doomed.
+        </p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4 text-blue-900">Calculate Your Bus Factor:</h3>
+          <p class="mb-4">For each critical system, ask:</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>☐ Who has admin access?</li>
+            <li>☐ Where are passwords stored?</li>
+            <li>☐ Who knows the architecture?</li>
+            <li>☐ Who has vendor relationships?</li>
+            <li>☐ Who can approve changes?</li>
+            <li>☐ Who understands the code?</li>
+          </ul>
+          <p class="mt-4 font-semibold">
+            If any answer is "one person," you have a bus factor of 1. That's a crisis waiting to happen.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Business Continuity Plan You Need</h2>
+        
+        <p class="mb-6">
+          Here's what should exist BEFORE someone gets hit by that metaphorical (or literal) bus:
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">1. The Digital Vault</h3>
+        <div class="bg-gray-100 p-6 rounded-xl mb-6">
+          <h4 class="font-bold mb-3">Critical Items to Document:</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>✓ All admin credentials (use a password manager)</li>
+            <li>✓ Account recovery information</li>
+            <li>✓ Vendor contact details</li>
+            <li>✓ System architecture diagrams</li>
+            <li>✓ API keys and certificates</li>
+            <li>✓ Domain and hosting details</li>
+            <li>✓ License keys and subscriptions</li>
+            <li>✓ Emergency procedures</li>
+          </ul>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">2. The Access Matrix</h3>
+        <p class="mb-6">
+          Create a simple spreadsheet: System, Primary Admin, Backup Admin, Documentation Location. No single points of failure.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">3. The Succession Protocol</h3>
+        <ul class="list-disc pl-6 mb-6 space-y-2">
+          <li>Designate backup admins for everything</li>
+          <li>Use company emails, not personal</li>
+          <li>Enable account recovery options</li>
+          <li>Document decision-making authority</li>
+          <li>Test the handover process quarterly</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Implementation: The 30-Day Plan</h2>
+        
+        <div class="bg-green-50 border-l-4 border-green-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4 text-green-900">Week 1: Discovery</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>☐ List all critical systems</li>
+            <li>☐ Identify single points of failure</li>
+            <li>☐ Document current access</li>
+            <li>☐ Assess documentation gaps</li>
+          </ul>
+          
+          <h3 class="text-xl font-bold mb-4 mt-6 text-green-900">Week 2: Documentation</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>☐ Set up enterprise password manager</li>
+            <li>☐ Document all credentials</li>
+            <li>☐ Create architecture diagrams</li>
+            <li>☐ Write emergency procedures</li>
+          </ul>
+          
+          <h3 class="text-xl font-bold mb-4 mt-6 text-green-900">Week 3: Implementation</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>☐ Migrate to company emails</li>
+            <li>☐ Add backup administrators</li>
+            <li>☐ Enable recovery options</li>
+            <li>☐ Share documentation securely</li>
+          </ul>
+          
+          <h3 class="text-xl font-bold mb-4 mt-6 text-green-900">Week 4: Testing</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>☐ Simulate key person absence</li>
+            <li>☐ Test recovery procedures</li>
+            <li>☐ Update documentation</li>
+            <li>☐ Schedule quarterly reviews</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Tools That Save Companies</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h4 class="font-bold mb-3">Password Management</h4>
+            <ul class="space-y-1 text-sm text-gray-700">
+              <li>• 1Password Business</li>
+              <li>• Bitwarden Enterprise</li>
+              <li>• LastPass Teams</li>
+              <li>• Keeper Business</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h4 class="font-bold mb-3">Documentation</h4>
+            <ul class="space-y-1 text-sm text-gray-700">
+              <li>• Confluence</li>
+              <li>• Notion</li>
+              <li>• SharePoint</li>
+              <li>• Git repositories</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Hard Conversation</h2>
+        
+        <p class="mb-6">
+          Nobody wants to talk about death. But here's the thing: Not talking about it doesn't prevent it. It just ensures maximum damage when it happens.
+        </p>
+
+        <div class="bg-brand-dark text-white p-8 rounded-xl mb-8">
+          <h3 class="text-2xl font-bold mb-4">Questions to Ask Today:</h3>
+          <ul class="space-y-3">
+            <li>• If our IT lead disappeared today, could we access our systems tomorrow?</li>
+            <li>• Do we know where all our passwords are?</li>
+            <li>• Can someone else make critical decisions?</li>
+            <li>• Have we tested our continuity plan?</li>
+            <li>• Are we one tragedy away from closure?</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        
+        <p class="mb-6">
+          Every day you operate with a bus factor of 1 is a day you're gambling with your company's existence. The fix isn't complicated. It's not expensive. It just requires facing an uncomfortable truth:
+        </p>
+
+        <p class="mb-6 text-xl font-semibold">
+          People die. Systems should survive.
+        </p>
+
+        <p class="mb-6">
+          That IT director who died? He was brilliant. He was dedicated. He was irreplaceable as a person. But the technical knowledge should have been replaceable. The access should have been shared. The documentation should have existed.
+        </p>
+
+        <p class="mb-6">
+          Don't let your legacy be the company that died because you did.
+        </p>
+
+        <div class="bg-gray-100 p-6 rounded-xl mt-12">
+          <p class="font-semibold text-lg mb-2">Need Help Building Business Continuity?</p>
+          <p class="mb-4">Get a fractional CTO who builds redundancy into everything. No single points of failure.</p>
+          <a href="../index.html#contact" class="inline-block px-6 py-3 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition font-semibold">
+            Protect Your Business →
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="bg-brand-dark text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center">
+        <p>&copy; 2025 BIGDEALIO, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
