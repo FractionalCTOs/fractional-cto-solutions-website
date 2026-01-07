@@ -20,7 +20,7 @@ This is a static website for BIGDEALIO, an AI-powered micro-SaaS solutions compa
 - `about-jeff.html` - Detailed biography and professional timeline for Jeff Wray
 - `fractional-cto.html` - Dedicated page for Fractional CTO services
 - Logo files: `logo-for-light-bg.svg`, `logo-for-dark-bg.svg`, `FRACTIONALCTOLOGO-blk.svg`
-- Images: `jw.jpg` (Jeff's photo), other supporting assets
+- Images: `jeff-wray-fractional-cto-florida.jpg` (Jeff's photo), other supporting assets
 
 ## Key Features
 
