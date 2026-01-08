@@ -1,3 +1,6 @@
+---
+activePage: blog
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,26 +42,9 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- Navigation -->
-  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <a href="/" class="h-8 w-auto">
-            <img src="../FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
-          </a>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="../index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
-          <a href="index.html" class="text-brand-red font-semibold">Blog</a>
-          <a href="../about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
-          <a href="../index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+{% include "header.liquid" %}
 
-  <!-- Header -->
+<!-- Header -->
   <header class="pt-24 pb-12 bg-gradient-to-r from-gray-50 to-gray-100">
     <div class="max-w-7xl mx-auto px-6">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Fractional CTO <span class="text-brand-red">Insights</span></h1>
@@ -329,12 +315,7 @@
     </div>
   </main>
 
-  <footer class="bg-brand-dark text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center">
-        <p>&copy; 2025 BIGDEALIO, LLC. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+{% include "footer.liquid" %}
+
 </body>
 </html>
