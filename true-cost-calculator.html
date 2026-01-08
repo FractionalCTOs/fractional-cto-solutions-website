@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True Cost of Technology Calculator | Fractional CTO Solutions</title>
+  <meta name="description" content="Calculate the real cost of your technology including hidden expenses: developer inefficiency, technical debt, downtime, and poor decisions. See your 3-year projection.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://fractionalctosolutions.com/true-cost-calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="True Cost of Technology Calculator">
+  <meta property="og:description" content="Discover the hidden costs of poor technology leadership. Calculate visible + invisible expenses over 3 years.">
+  <meta property="og:url" content="https://fractionalctosolutions.com/true-cost-calculator.html">
+  <meta property="og:image" content="https://fractionalctosolutions.com/og-image.jpg">
+  <meta property="og:site_name" content="Fractional CTO Solutions">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="True Cost of Technology Calculator">
+  <meta name="twitter:description" content="Calculate the real cost of your technology including hidden expenses.">
+  <meta name="twitter:image" content="https://fractionalctosolutions.com/og-image.jpg">
+
+  <!-- Fonts & Scripts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "True Cost of Technology Calculator",
+    "description": "Calculate the real cost of your technology including hidden expenses like technical debt, downtime, and poor decisions.",
+    "url": "https://fractionalctosolutions.com/true-cost-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fractionalctosolutions.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "True Cost Calculator",
+        "item": "https://fractionalctosolutions.com/true-cost-calculator.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="h-8 w-auto">
+            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
+          <a href="fractional-cto.html" class="text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
+          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
+          <a href="blog/index.html" class="text-gray-600 hover:text-brand-red transition">Blog</a>
+          <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button @click="open = !open" class="text-gray-600 hover:text-brand-red">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div x-show="open" class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Home</a>
+          <a href="fractional-cto.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Fractional CTO</a>
+          <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">About Jeff</a>
+          <a href="blog/index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Blog</a>
+          <a href="index.html#contact" class="block px-3 py-2 bg-brand-red text-white rounded-md">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-12 bg-gradient-to-br from-brand-dark via-gray-900 to-brand-dark text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-6">
+        <a href="index.html" class="text-gray-400 hover:text-white text-sm">← Back to Home</a>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        What's Your Technology <span class="text-brand-red">Really</span> Costing You?
+      </h1>
+
+      <p class="text-xl text-gray-300 leading-relaxed mb-8">
+        Most business owners only see their monthly developer bills. The real cost includes missed deadlines, technical debt, poor decisions, downtime, and opportunity loss. Calculate your true 3-year technology cost.
+      </p>
+
+      <div class="bg-red-900/30 border border-red-500 rounded-lg p-6">
+        <p class="text-lg font-semibold text-red-200 mb-2">Fair Warning:</p>
+        <p class="text-gray-200">
+          The numbers you're about to see might be uncomfortable. Most companies discover they're spending 2-3x more than they thought on technology—and getting less than half the value they should.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <article class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Interactive Calculator -->
+      <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12" x-data="{
+        // Input values
+        monthlyDevCost: 10000,
+        bugFixHours: 10,
+        downtimeHours: 2,
+        decisionDelay: 3,
+        customerChurn: 5,
+
+        init() {
+          // Track calculator load
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'calculator_loaded', {
+              calculator_name: 'true_cost_technology',
+              page: 'true_cost_calculator'
+            });
+          }
+
+          // Watch all inputs for changes
+          ['monthlyDevCost', 'bugFixHours', 'downtimeHours', 'decisionDelay', 'customerChurn'].forEach(prop => {
+            this.$watch(prop, () => this.trackCalculation());
+          });
+        },
+
+        // Visible costs
+        get annualDevCost() {
+          return this.monthlyDevCost * 12;
+        },
+
+        // Hidden costs calculations
+        get bugFixCost() {
+          // Hours per week * $150/hr * 52 weeks
+          return this.bugFixHours * 150 * 52;
+        },
+
+        get downtimeCost() {
+          // Hours per month * $500/hr (revenue lost) * 12 months
+          return this.downtimeHours * 500 * 12;
+        },
+
+        get badDecisionCost() {
+          // Weeks of delay * $5000 per week (opportunity cost) * incidents per year
+          const incidentsPerYear = this.decisionDelay * 4; // Quarterly
+          return this.decisionDelay * 5000 * incidentsPerYear;
+        },
+
+        get churnCost() {
+          // Customers lost * $2000 LTV * 12 months
+          return this.customerChurn * 2000 * 12;
+        },
+
+        get technicalDebtCost() {
+          // Estimate: 20% of dev cost goes to working around bad decisions
+          return this.annualDevCost * 0.20;
+        },
+
+        get totalHiddenCosts() {
+          return this.bugFixCost + this.downtimeCost + this.badDecisionCost +
+                 this.churnCost + this.technicalDebtCost;
+        },
+
+        get totalAnnualCost() {
+          return this.annualDevCost + this.totalHiddenCosts;
+        },
+
+        get threeYearCost() {
+          // Assume hidden costs compound 15% annually
+          const year1 = this.totalAnnualCost;
+          const year2 = this.annualDevCost + (this.totalHiddenCosts * 1.15);
+          const year3 = this.annualDevCost + (this.totalHiddenCosts * 1.32);
+          return year1 + year2 + year3;
+        },
+
+        get hiddenPercent() {
+          return Math.round((this.totalHiddenCosts / this.totalAnnualCost) * 100);
+        },
+
+        get painLevel() {
+          if (this.totalAnnualCost < 150000) return 'moderate';
+          if (this.totalAnnualCost < 300000) return 'significant';
+          if (this.totalAnnualCost < 500000) return 'severe';
+          return 'critical';
+        },
+
+        get painLevelText() {
+          const levels = {
+            moderate: 'Manageable with proper oversight',
+            significant: 'Needs immediate attention',
+            severe: 'Serious business risk',
+            critical: 'CRISIS MODE - Act now'
+          };
+          return levels[this.painLevel];
+        },
+
+        get painLevelColor() {
+          const colors = {
+            moderate: 'text-yellow-700',
+            significant: 'text-orange-700',
+            severe: 'text-red-700',
+            critical: 'text-red-900'
+          };
+          return colors[this.painLevel];
+        },
+
+        trackCalculation() {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'true_cost_calculated', {
+              calculator_name: 'true_cost_technology',
+              visible_cost: this.annualDevCost,
+              hidden_cost: this.totalHiddenCosts,
+              total_annual_cost: this.totalAnnualCost,
+              three_year_cost: this.threeYearCost,
+              hidden_percent: this.hiddenPercent,
+              pain_level: this.painLevel
+            });
+
+            // Track high-intent signals
+            if (this.totalAnnualCost >= 300000) {
+              gtag('event', 'high_intent_signal', {
+                signal_type: 'high_cost_revelation',
+                total_cost: this.totalAnnualCost,
+                hidden_cost: this.totalHiddenCosts,
+                pain_level: this.painLevel
+              });
+            }
+
+            // Track severe pain points
+            if (this.painLevel === 'severe' || this.painLevel === 'critical') {
+              gtag('event', 'severe_pain_detected', {
+                pain_level: this.painLevel,
+                total_cost: this.totalAnnualCost,
+                hidden_percent: this.hiddenPercent
+              });
+            }
+          }
+        }
+      }" x-init="init()">
+
+        <h2 class="text-3xl font-bold text-brand-dark mb-8 text-center">Calculate Your True Technology Cost</h2>
+
+        <!-- Input Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Your Current Situation</h3>
+
+            <!-- Monthly Developer Cost -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="font-semibold text-gray-700">Monthly Developer Costs:</label>
+                <span class="text-2xl font-bold text-brand-red" x-text="'$' + monthlyDevCost.toLocaleString()"></span>
+              </div>
+              <input
+                type="range"
+                min="2000"
+                max="50000"
+                step="1000"
+                x-model.number="monthlyDevCost"
+                class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                style="accent-color: #EF4136;"
+              >
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>$2K</span>
+                <span>$50K</span>
+              </div>
+              <p class="text-xs text-gray-600 mt-1">Salaries, contractors, agencies combined</p>
+            </div>
+
+            <!-- Bug Fix Hours -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="font-semibold text-gray-700">Hours/Week Fixing Bugs:</label>
+                <span class="text-2xl font-bold text-brand-red" x-text="bugFixHours + ' hrs'"></span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="40"
+                step="1"
+                x-model.number="bugFixHours"
+                class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                style="accent-color: #EF4136;"
+              >
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>0</span>
+                <span>40</span>
+              </div>
+              <p class="text-xs text-gray-600 mt-1">Time spent on rework, patches, firefighting</p>
+            </div>
+
+            <!-- Downtime Hours -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="font-semibold text-gray-700">Hours/Month of Downtime:</label>
+                <span class="text-2xl font-bold text-brand-red" x-text="downtimeHours + ' hrs'"></span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="24"
+                step="1"
+                x-model.number="downtimeHours"
+                class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                style="accent-color: #EF4136;"
+              >
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>0</span>
+                <span>24</span>
+              </div>
+              <p class="text-xs text-gray-600 mt-1">Site/app outages, unavailability</p>
+            </div>
+
+            <!-- Decision Delays -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="font-semibold text-gray-700">Weeks Lost to Bad Decisions:</label>
+                <span class="text-2xl font-bold text-brand-red" x-text="decisionDelay + ' weeks'"></span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="12"
+                step="1"
+                x-model.number="decisionDelay"
+                class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                style="accent-color: #EF4136;"
+              >
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>0</span>
+                <span>12</span>
+              </div>
+              <p class="text-xs text-gray-600 mt-1">Per incident: Wrong tech choice, architecture mistakes</p>
+            </div>
+
+            <!-- Customer Churn -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="font-semibold text-gray-700">Customers Lost Due to Tech:</label>
+                <span class="text-2xl font-bold text-brand-red" x-text="customerChurn"></span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="20"
+                step="1"
+                x-model.number="customerChurn"
+                class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                style="accent-color: #EF4136;"
+              >
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>0</span>
+                <span>20/year</span>
+              </div>
+              <p class="text-xs text-gray-600 mt-1">Bugs, slow performance, missing features</p>
+            </div>
+          </div>
+
+          <!-- Results Display -->
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">The Reality</h3>
+
+            <!-- Visible Costs -->
+            <div class="bg-gray-100 rounded-lg p-6">
+              <p class="text-sm text-gray-600 mb-2">What You See (Annual)</p>
+              <p class="text-3xl font-bold text-gray-800" x-text="'$' + annualDevCost.toLocaleString()"></p>
+              <p class="text-xs text-gray-600 mt-1">Developer costs you're aware of</p>
+            </div>
+
+            <!-- Hidden Costs Breakdown -->
+            <div class="bg-red-50 rounded-lg p-6 border-2 border-red-200">
+              <p class="text-sm text-red-900 font-semibold mb-3">Hidden Costs (Annual)</p>
+              <div class="space-y-2 text-sm mb-4">
+                <div class="flex justify-between">
+                  <span class="text-gray-700">Bug fixes & rework:</span>
+                  <span class="font-semibold" x-text="'$' + bugFixCost.toLocaleString()"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-700">Downtime losses:</span>
+                  <span class="font-semibold" x-text="'$' + downtimeCost.toLocaleString()"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-700">Bad decisions:</span>
+                  <span class="font-semibold" x-text="'$' + badDecisionCost.toLocaleString()"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-700">Customer churn:</span>
+                  <span class="font-semibold" x-text="'$' + churnCost.toLocaleString()"></span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-700">Technical debt tax:</span>
+                  <span class="font-semibold" x-text="'$' + technicalDebtCost.toLocaleString()"></span>
+                </div>
+                <div class="border-t-2 border-red-300 pt-2 mt-2 flex justify-between">
+                  <span class="font-bold text-red-900">Total Hidden:</span>
+                  <span class="font-bold text-red-700 text-lg" x-text="'$' + totalHiddenCosts.toLocaleString()"></span>
+                </div>
+              </div>
+              <p class="text-xs text-red-800">
+                <span class="font-bold" x-text="hiddenPercent + '%'"></span> of your true cost is invisible
+              </p>
+            </div>
+
+            <!-- Total Annual Cost -->
+            <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border-2 border-orange-300">
+              <p class="text-sm text-orange-900 font-semibold mb-2">True Annual Technology Cost</p>
+              <p class="text-4xl font-bold text-red-700 mb-2" x-text="'$' + totalAnnualCost.toLocaleString()"></p>
+              <p class="text-sm font-medium" :class="painLevelColor" x-text="painLevelText"></p>
+            </div>
+
+            <!-- 3-Year Projection -->
+            <div class="bg-gradient-to-r from-brand-dark to-gray-900 text-white rounded-lg p-6">
+              <p class="text-sm text-gray-300 mb-2">3-Year Cost Projection</p>
+              <p class="text-4xl font-bold mb-2" x-text="'$' + threeYearCost.toLocaleString()"></p>
+              <p class="text-xs text-gray-400">Assuming 15% annual compound of hidden costs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Section -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 border-2 border-blue-300">
+          <h3 class="text-2xl font-bold text-brand-dark mb-4">What This Means</h3>
+          <p class="text-gray-700 mb-4">
+            If you're seeing 6-figure hidden costs, you don't have a developer problem—you have a <strong>leadership problem</strong>. Technology decisions are being made without proper oversight, strategic direction is missing, and technical debt is compounding.
+          </p>
+          <p class="text-gray-700 mb-6">
+            <strong>Fractional CTO services typically cost $48K-$120K/year</strong> and eliminate 60-80% of hidden costs through proper architecture, accountability, and strategic guidance. If your hidden costs exceed $100K annually, fractional CTO services pay for themselves in 3-6 months.
+          </p>
+          <div class="text-center">
+            <a href="index.html#contact" class="inline-block px-8 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-opacity-90 transition text-lg">
+              Get a Free Technology Assessment
+            </a>
+            <p class="text-sm text-gray-600 mt-3">30-minute call. We'll identify your top 3 cost drivers and give you a roadmap—even if you don't hire us.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-white font-semibold mb-4">Fractional CTO Solutions</h3>
+          <p class="text-sm">Strategic technology leadership for growing businesses. No empire building, no vendor lock-in, just honest guidance.</p>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="fractional-cto.html" class="hover:text-white transition">Fractional CTO Services</a></li>
+            <li><a href="about-jeff.html" class="hover:text-white transition">About Jeff</a></li>
+            <li><a href="blog/index.html" class="hover:text-white transition">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="how-to-choose-fractional-cto.html" class="hover:text-white transition">How to Choose a Fractional CTO</a></li>
+            <li><a href="developer-accountability-checklist.html" class="hover:text-white transition">Developer Accountability Checklist</a></li>
+            <li><a href="mythical-man-month-explained.html" class="hover:text-white transition">Mythical Man-Month Explained</a></li>
+            <li><a href="true-cost-calculator.html" class="hover:text-white transition">True Cost Calculator</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center border-t border-gray-700 pt-8">
+        <p>&copy; 2026 BIGDEALIO, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
