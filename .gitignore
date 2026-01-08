@@ -13,6 +13,3 @@ _site/
 # IDE
 .vscode/
 .idea/
-
-# npm
-package-lock.json
