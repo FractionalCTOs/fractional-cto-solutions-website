@@ -246,33 +246,137 @@
           <p class="text-center text-gray-600 text-sm">Where n = number of developers</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6 mb-6">
-          <div class="bg-green-50 border border-green-200 rounded-lg p-6">
-            <h4 class="text-lg font-bold text-green-900 mb-3">2 Developers</h4>
-            <p class="text-3xl font-bold text-green-700 mb-2">1</p>
-            <p class="text-sm text-gray-700">communication path</p>
-            <p class="text-xs text-gray-600 mt-2">Manageable. Direct communication.</p>
+        <!-- Interactive Calculator -->
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 mb-6 border-2 border-gray-200" x-data="{
+          devs: 6,
+          lastTrackedDevs: 6,
+          init() {
+            // Track calculator load
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'calculator_loaded', {
+                calculator_name: 'communication_overhead',
+                page: 'mythical_man_month'
+              });
+            }
+
+            // Watch for significant changes (every 2 developers or severity level change)
+            this.$watch('devs', (newVal, oldVal) => {
+              const newSeverity = this.severity;
+              const oldSeverity = this.getSeverity(oldVal);
+
+              // Track every 2 developer change or severity level change
+              if (Math.abs(newVal - this.lastTrackedDevs) >= 2 || newSeverity !== oldSeverity) {
+                this.trackCalculation();
+                this.lastTrackedDevs = newVal;
+              }
+            });
+          },
+          get paths() { return (this.devs * (this.devs - 1)) / 2; },
+          get severity() { return this.getSeverity(this.devs); },
+          getSeverity(devCount) {
+            if (devCount <= 3) return 'manageable';
+            if (devCount <= 6) return 'moderate';
+            if (devCount <= 10) return 'significant';
+            return 'critical';
+          },
+          trackCalculation() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'calculator_interaction', {
+                calculator_name: 'communication_overhead',
+                team_size: this.devs,
+                communication_paths: this.paths,
+                severity: this.severity,
+                overhead_multiplier: Math.round((this.paths / this.devs) * 10) / 10
+              });
+
+              // Track high-intent signals
+              if (this.devs >= 12) {
+                gtag('event', 'high_intent_signal', {
+                  signal_type: 'large_team_calculation',
+                  team_size: this.devs,
+                  severity: 'critical',
+                  paths: this.paths
+                });
+              }
+            }
+          },
+          get bgColor() {
+            if (this.devs <= 3) return 'bg-green-50 border-green-300';
+            if (this.devs <= 6) return 'bg-yellow-50 border-yellow-300';
+            if (this.devs <= 10) return 'bg-orange-50 border-orange-300';
+            return 'bg-red-50 border-red-300';
+          },
+          get textColor() {
+            if (this.devs <= 3) return 'text-green-900';
+            if (this.devs <= 6) return 'text-yellow-900';
+            if (this.devs <= 10) return 'text-orange-900';
+            return 'text-red-900';
+          },
+          get pathColor() {
+            if (this.devs <= 3) return 'text-green-700';
+            if (this.devs <= 6) return 'text-yellow-700';
+            if (this.devs <= 10) return 'text-orange-700';
+            return 'text-red-700';
+          },
+          get message() {
+            if (this.devs <= 3) return 'Manageable. Direct communication works well.';
+            if (this.devs <= 6) return 'Getting complicated. Need daily standups and clear processes.';
+            if (this.devs <= 10) return 'Significant overhead. More time coordinating than coding.';
+            return 'Critical mass. Communication overhead dominates productive work.';
+          }
+        }" x-init="init()">
+          <h3 class="text-2xl font-bold text-brand-dark mb-6 text-center">Interactive Calculator</h3>
+
+          <div class="mb-8">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-lg font-semibold text-gray-700">Number of Developers:</label>
+              <span class="text-3xl font-bold text-brand-red" x-text="devs"></span>
+            </div>
+            <input
+              type="range"
+              min="2"
+              max="20"
+              step="1"
+              x-model.number="devs"
+              class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer slider"
+              style="accent-color: #EF4136;"
+            >
+            <div class="flex justify-between text-xs text-gray-500 mt-1">
+              <span>2</span>
+              <span>20</span>
+            </div>
           </div>
 
-          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-            <h4 class="text-lg font-bold text-yellow-900 mb-3">4 Developers</h4>
-            <p class="text-3xl font-bold text-yellow-700 mb-2">6</p>
-            <p class="text-sm text-gray-700">communication paths</p>
-            <p class="text-xs text-gray-600 mt-2">Getting complicated. Daily standups help.</p>
+          <div class="rounded-lg p-6 border-2 transition-all duration-300" :class="bgColor">
+            <div class="text-center mb-4">
+              <p class="text-sm font-semibold mb-2" :class="textColor">Communication Paths Required:</p>
+              <p class="text-6xl font-bold mb-2" :class="pathColor" x-text="paths"></p>
+              <p class="text-sm text-gray-600">
+                <span class="font-mono" x-text="`${devs} × (${devs}-1) ÷ 2 = ${paths}`"></span>
+              </p>
+            </div>
+            <div class="text-center">
+              <p class="text-sm font-medium" :class="textColor" x-text="message"></p>
+            </div>
           </div>
 
-          <div class="bg-orange-50 border border-orange-200 rounded-lg p-6">
-            <h4 class="text-lg font-bold text-orange-900 mb-3">8 Developers</h4>
-            <p class="text-3xl font-bold text-orange-700 mb-2">28</p>
-            <p class="text-sm text-gray-700">communication paths</p>
-            <p class="text-xs text-gray-600 mt-2">Significant overhead. Need structured processes.</p>
-          </div>
-
-          <div class="bg-red-50 border border-red-200 rounded-lg p-6">
-            <h4 class="text-lg font-bold text-red-900 mb-3">12 Developers</h4>
-            <p class="text-3xl font-bold text-red-700 mb-2">66</p>
-            <p class="text-sm text-gray-700">communication paths</p>
-            <p class="text-xs text-gray-600 mt-2">Critical mass. More time coordinating than coding.</p>
+          <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+            <div>
+              <p class="font-bold text-gray-700">2 devs</p>
+              <p class="text-green-700 font-semibold">1 path</p>
+            </div>
+            <div>
+              <p class="font-bold text-gray-700">5 devs</p>
+              <p class="text-yellow-700 font-semibold">10 paths</p>
+            </div>
+            <div>
+              <p class="font-bold text-gray-700">10 devs</p>
+              <p class="text-orange-700 font-semibold">45 paths</p>
+            </div>
+            <div>
+              <p class="font-bold text-gray-700">15 devs</p>
+              <p class="text-red-700 font-semibold">105 paths</p>
+            </div>
           </div>
         </div>
 
