@@ -1,0 +1,27 @@
+{
+  "name": "fractional-cto-solutions-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FractionalCTOs/fractional-cto-solutions-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FractionalCTOs/fractional-cto-solutions-website/issues"
+  },
+  "homepage": "https://github.com/FractionalCTOs/fractional-cto-solutions-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

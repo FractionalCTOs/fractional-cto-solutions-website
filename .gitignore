@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Eleventy build output
+_site/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# npm
+package-lock.json
