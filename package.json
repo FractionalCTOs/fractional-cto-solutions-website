@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy && node flatten-build.js",
+    "build:eleventy": "eleventy",
+    "flatten": "node flatten-build.js",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,3 +1,6 @@
+---
+activePage: 
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,41 +115,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Navigation -->
-  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <a href="index.html" class="h-8 w-auto">
-            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
-          </a>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html#what-is-fractional-cto" class="text-gray-600 hover:text-brand-red transition">What is Fractional CTO</a>
-          <a href="index.html#expertise" class="text-gray-600 hover:text-brand-red transition">Services</a>
-          <a href="index.html#pricing" class="text-gray-600 hover:text-brand-red transition">Pricing</a>
-          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
-          <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div x-show="open" class="md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-md">
-        <a href="index.html#what-is-fractional-cto" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">What is Fractional CTO</a>
-        <a href="index.html#expertise" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Services</a>
-        <a href="index.html#pricing" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Pricing</a>
-        <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">About Jeff</a>
-        <a href="index.html#contact" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Contact</a>
-      </div>
-    </div>
-  </nav>
+{% include "header.liquid" %}
+
 
   <!-- Hero Section -->
   <header class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-r from-brand-dark to-gray-800 text-white">
@@ -831,35 +801,8 @@
     </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-brand-dark text-white py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <img src="FRACTIONALCTOLOGO-blk.svg" alt="Fractional CTO Solutions Logo" class="h-8 mb-4">
-          <p class="text-gray-400">Strategic technology leadership that prevents disasters and drives growth.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold mb-4">Resources</h3>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="index.html#what-is-fractional-cto" class="hover:text-white transition">What is Fractional CTO</a></li>
-            <li><a href="developer-accountability-checklist.html" class="hover:text-white transition">Developer Accountability Checklist</a></li>
-            <li><a href="index.html#pricing" class="hover:text-white transition">Pricing</a></li>
-            <li><a href="about-jeff.html" class="hover:text-white transition">About Jeff</a></li>
-            <li><a href="for-development-teams.html" class="hover:text-white transition">For Development Teams</a></li>
-            <li><a href="blog/index.html" class="hover:text-white transition">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold mb-4">Contact</h3>
-          <p class="text-gray-400">Email: <a href="mailto:jwray@fractionalctosolutions.com" class="text-brand-red hover:underline">jwray@fractionalctosolutions.com</a></p>
-        </div>
-      </div>
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2026 Fractional CTO Solutions. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+{% include "footer.liquid" %}
+
 
 </body>
 </html>

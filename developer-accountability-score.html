@@ -1,3 +1,6 @@
+---
+activePage: 
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,40 +107,8 @@
 
 <body class="bg-gray-50">
   <!-- Navigation -->
-  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <a href="/" class="h-8 w-auto">
-            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
-          </a>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
-          <a href="fractional-cto.html" class="text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
-          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
-          <a href="blog/index.html" class="text-gray-600 hover:text-brand-red transition">Blog</a>
-          <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button @click="open = !open" class="text-gray-600 hover:text-brand-red">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div x-show="open" class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Home</a>
-          <a href="fractional-cto.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Fractional CTO</a>
-          <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">About Jeff</a>
-          <a href="blog/index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Blog</a>
-          <a href="index.html#contact" class="block px-3 py-2 bg-brand-red text-white rounded-md">Get Started</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+{% include "header.liquid" %}
+
 
   <!-- Hero Section -->
   <section class="pt-24 pb-12 bg-gradient-to-br from-brand-dark via-gray-900 to-brand-dark text-white">
@@ -625,40 +596,8 @@
     </div>
   </article>
 
-  <!-- Footer -->
-  <footer class="bg-brand-dark text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8 mb-8">
-        <div>
-          <h3 class="text-white font-semibold mb-4">Fractional CTO Solutions</h3>
-          <p class="text-sm">Strategic technology leadership for growing businesses. No empire building, no vendor lock-in, just honest guidance.</p>
-        </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
-            <li><a href="fractional-cto.html" class="hover:text-white transition">Fractional CTO Services</a></li>
-            <li><a href="about-jeff.html" class="hover:text-white transition">About Jeff</a></li>
-            <li><a href="blog/index.html" class="hover:text-white transition">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4">Resources</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="how-to-choose-fractional-cto.html" class="hover:text-white transition">How to Choose a Fractional CTO</a></li>
-            <li><a href="developer-accountability-checklist.html" class="hover:text-white transition">Developer Accountability Checklist</a></li>
-            <li><a href="mythical-man-month-explained.html" class="hover:text-white transition">Mythical Man-Month Explained</a></li>
-            <li><a href="true-cost-calculator.html" class="hover:text-white transition">True Cost Calculator</a></li>
-            <li><a href="developer-accountability-score.html" class="hover:text-white transition">Accountability Score</a></li>
-            <li><a href="for-development-teams.html" class="hover:text-white transition">For Development Teams</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="text-center border-t border-gray-700 pt-8">
-        <p>&copy; 2026 BIGDEALIO, LLC. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+{% include "footer.liquid" %}
+
 
 </body>
 </html>

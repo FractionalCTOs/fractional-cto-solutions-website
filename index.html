@@ -1,3 +1,6 @@
+---
+activePage: home
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -496,46 +499,8 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- Navigation -->
-  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <div class="h-8 w-auto">
-            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
-          </div>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#what-is-fractional-cto" class="text-gray-600 hover:text-brand-red transition">What is Fractional CTO</a>
-          <a href="#expertise" class="text-gray-600 hover:text-brand-red transition">Services</a>
-          <a href="#pricing" class="text-gray-600 hover:text-brand-red transition">Pricing</a>
-          <a href="#industries" class="text-gray-600 hover:text-brand-red transition">Industries</a>
-          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
-          <a href="blog/index.html" class="text-gray-600 hover:text-brand-red transition">Blog</a>
-          <a href="#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div x-show="open" class="md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-md">
-        <a href="#what-is-fractional-cto" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">What is Fractional CTO</a>
-        <a href="#expertise" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Services</a>
-        <a href="#pricing" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Pricing</a>
-        <a href="#industries" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Industries</a>
-        <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">About Jeff</a>
-        <a href="blog/index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Blog</a>
-        <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Contact</a>
-      </div>
-    </div>
-  </nav>
+{% include "header-home.liquid" %}
+
 
   <!-- Hero Section -->
   <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-gray-50 to-gray-100">
@@ -1796,56 +1761,8 @@
     </section>
   </main>
 
-  <footer class="bg-brand-dark text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between">
-        <div class="mb-8 md:mb-0">
-          <div class="h-8 w-auto mb-4">
-            <img src="FRACTIONALCTOLOGO-blk.svg" alt="Fractional CTO Solutions Logo" class="h-8">
-          </div>
-          <p class="max-w-sm">Professional Fractional CTO Services - Verified US-Based Technology Leadership Without the Full-Time Cost</p>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-4">Fractional CTO Services</h3>
-            <ul class="space-y-2">
-              <li><a href="#what-is-fractional-cto" class="hover:text-brand-red transition">What is Fractional CTO</a></li>
-              <li><a href="#expertise" class="hover:text-brand-red transition">Our Services</a></li>
-              <li><a href="#pricing" class="hover:text-brand-red transition">Pricing Plans</a></li>
-              <li><a href="#industries" class="hover:text-brand-red transition">Industries</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-4">Resources</h3>
-            <ul class="space-y-2">
-              <li><a href="how-to-choose-fractional-cto.html" class="hover:text-brand-red transition">How to Choose a Fractional CTO</a></li>
-              <li><a href="developer-accountability-checklist.html" class="hover:text-brand-red transition">Developer Accountability Checklist</a></li>
-              <li><a href="mythical-man-month-explained.html" class="hover:text-brand-red transition">Mythical Man-Month Explained</a></li>
-              <li><a href="true-cost-calculator.html" class="hover:text-brand-red transition">True Cost Calculator</a></li>
-            <li><a href="developer-accountability-score.html" class="hover:text-white transition">Accountability Score</a></li>
-              <li><a href="for-development-teams.html" class="hover:text-brand-red transition">For Development Teams</a></li>
-              <li><a href="blog/index.html" class="hover:text-brand-red transition">Blog</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-4">Connect</h3>
-            <ul class="space-y-2">
-              <li><a href="#contact" class="hover:text-brand-red transition">Get Started</a></li>
-              <li><a href="about-jeff.html" class="hover:text-brand-red transition">About Jeff</a></li>
-              <li><a href="#" class="hover:text-brand-red transition">LinkedIn</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center md:text-left md:flex justify-between items-center">
-        <p>&copy; 2025 BIGDEALIO, LLC. All rights reserved.</p>
-        <div class="mt-4 md:mt-0">
-          <a href="#" class="text-sm hover:text-brand-red transition mr-6">Privacy Policy</a>
-          <a href="#" class="text-sm hover:text-brand-red transition">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+{% include "footer.liquid" %}
+
 
   <!-- Cloudflare Turnstile Script -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>

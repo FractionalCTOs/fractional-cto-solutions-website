@@ -31,6 +31,9 @@ module.exports = function(eleventyConfig) {
       output: "_site",
       includes: "_includes",
       data: "_data"
-    }
+    },
+
+    // Keep .html file extensions (don't use directory-based URLs)
+    htmlOutputSuffix: ".html"
   };
 };

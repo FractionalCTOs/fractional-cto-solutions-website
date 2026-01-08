@@ -1,3 +1,6 @@
+---
+activePage: developers
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,42 +103,8 @@
 </head>
 <body class="bg-gray-50">
 
-  <!-- Navigation -->
-  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <a href="index.html" class="h-8 w-auto">
-            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
-          </a>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
-          <a href="fractional-cto.html" class="text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
-          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
-          <a href="for-development-teams.html" class="text-brand-red transition font-semibold">For Developers</a>
-          <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Contact Us</a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div x-show="open" @click.away="open = false" class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Home</a>
-          <a href="fractional-cto.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
-          <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">About Jeff</a>
-          <a href="for-development-teams.html" class="block px-3 py-2 text-brand-red font-semibold">For Developers</a>
-          <a href="index.html#contact" class="block px-3 py-2 text-brand-red hover:text-gray-600 transition">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+{% include "header.liquid" %}
+
 
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-brand-dark to-brand-dark text-white py-16 md:py-24 pt-24 md:pt-32">
@@ -535,55 +504,8 @@
   </article>
 
   <!-- Footer -->
-  <footer class="bg-brand-dark text-gray-400">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <img src="FRACTIONALCTOLOGO-blk.svg" alt="Fractional CTO Solutions" class="h-8">
-          <p class="text-sm">
-            Strategic technology leadership for growing businesses across all 50 US states.
-          </p>
-        </div>
+{% include "footer.liquid" %}
 
-        <div>
-          <h3 class="text-white font-semibold mb-4">Services</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="fractional-cto.html" class="hover:text-white transition-colors">Fractional CTO</a></li>
-            <li><a href="fractional-cto.html#code-ownership" class="hover:text-white transition-colors">Code Ownership Accountability</a></li>
-            <li><a href="fractional-cto.html#pricing" class="hover:text-white transition-colors">Pricing</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-white font-semibold mb-4">Resources</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="how-to-choose-fractional-cto.html" class="hover:text-white transition-colors">How to Choose a Fractional CTO</a></li>
-            <li><a href="developer-accountability-checklist.html" class="hover:text-white transition-colors">Developer Accountability Checklist</a></li>
-            <li><a href="mythical-man-month-explained.html" class="hover:text-white transition-colors">Mythical Man-Month Explained</a></li>
-            <li><a href="true-cost-calculator.html" class="hover:text-white transition-colors">True Cost Calculator</a></li>
-            <li><a href="developer-accountability-score.html" class="hover:text-white transition-colors">Accountability Score</a></li>
-            <li><a href="for-development-teams.html" class="hover:text-white transition-colors">For Development Teams</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-white font-semibold mb-4">Company</h3>
-          <ul class="space-y-2 text-sm">
-            <li><a href="about-jeff.html" class="hover:text-white transition-colors">About Jeff</a></li>
-            <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center md:text-left md:flex justify-between items-center">
-        <p>&copy; 2025 BIGDEALIO, LLC. All rights reserved.</p>
-        <div class="mt-4 md:mt-0">
-          <a href="#" class="text-sm hover:text-brand-red transition mr-6">Privacy Policy</a>
-          <a href="#" class="text-sm hover:text-brand-red transition">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <script>
     // Track page view

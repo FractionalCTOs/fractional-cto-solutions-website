@@ -4,6 +4,9 @@ node_modules/
 # Eleventy build output
 _site/
 
+# Backup files
+*.backup
+
 # macOS
 .DS_Store
 
