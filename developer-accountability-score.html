@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Accountability Score | Is Your Developer Holding You Hostage?</title>
+  <meta name="description" content="Take this 2-minute assessment to discover if you truly own your code, or if you're locked into vendor dependency. Get your accountability score instantly.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://fractionalctosolutions.com/developer-accountability-score.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Developer Accountability Score - Free Assessment">
+  <meta property="og:description" content="7 questions to reveal if you're at risk of vendor lock-in, code hostage situations, or developer accountability gaps.">
+  <meta property="og:url" content="https://fractionalctosolutions.com/developer-accountability-score.html">
+  <meta property="og:image" content="https://fractionalctosolutions.com/og-image.jpg">
+  <meta property="og:site_name" content="Fractional CTO Solutions">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Developer Accountability Score">
+  <meta name="twitter:description" content="7 questions to reveal your code ownership risk level.">
+  <meta name="twitter:image" content="https://fractionalctosolutions.com/og-image.jpg">
+
+  <!-- Fonts & Scripts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Developer Accountability Score",
+    "description": "Free assessment tool to evaluate code ownership and developer accountability",
+    "url": "https://fractionalctosolutions.com/developer-accountability-score.html",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fractionalctosolutions.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer Accountability Score",
+        "item": "https://fractionalctosolutions.com/developer-accountability-score.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="h-8 w-auto">
+            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
+          <a href="fractional-cto.html" class="text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
+          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
+          <a href="blog/index.html" class="text-gray-600 hover:text-brand-red transition">Blog</a>
+          <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button @click="open = !open" class="text-gray-600 hover:text-brand-red">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div x-show="open" class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Home</a>
+          <a href="fractional-cto.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Fractional CTO</a>
+          <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">About Jeff</a>
+          <a href="blog/index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red">Blog</a>
+          <a href="index.html#contact" class="block px-3 py-2 bg-brand-red text-white rounded-md">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-12 bg-gradient-to-br from-brand-dark via-gray-900 to-brand-dark text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-6">
+        <a href="index.html" class="text-gray-400 hover:text-white text-sm">← Back to Home</a>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Developer Accountability Score
+      </h1>
+
+      <p class="text-xl text-gray-300 leading-relaxed mb-8">
+        Answer 7 quick questions to discover if you truly own your code, or if there are gaps in your ownership structure and accountability practices that should be addressed.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 text-center">
+        <div class="bg-white/10 rounded-lg p-4">
+          <p class="text-3xl font-bold text-brand-red">2 min</p>
+          <p class="text-sm text-gray-300">To complete</p>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <p class="text-3xl font-bold text-brand-red">7</p>
+          <p class="text-sm text-gray-300">Critical questions</p>
+        </div>
+        <div class="bg-white/10 rounded-lg p-4">
+          <p class="text-3xl font-bold text-brand-red">Instant</p>
+          <p class="text-sm text-gray-300">Results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Section -->
+  <article class="py-16">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <!-- Interactive Assessment -->
+      <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12" x-data="{
+        answers: {
+          q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null
+        },
+        showResults: false,
+
+        init() {
+          // Track assessment load
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'assessment_loaded', {
+              assessment_name: 'developer_accountability',
+              page: 'developer_accountability_score'
+            });
+          }
+        },
+
+        get allAnswered() {
+          return Object.values(this.answers).every(a => a !== null);
+        },
+
+        get score() {
+          // Each 'yes' is worth ~14.3 points (100/7)
+          const yesCount = Object.values(this.answers).filter(a => a === true).length;
+          return Math.round((yesCount / 7) * 100);
+        },
+
+        get riskLevel() {
+          if (this.score >= 85) return 'safe';
+          if (this.score >= 60) return 'warning';
+          return 'critical';
+        },
+
+        get riskLevelText() {
+          const levels = {
+            safe: 'SAFE - Good Accountability',
+            warning: 'WARNING - Moderate Risk',
+            critical: 'CRITICAL - High Risk'
+          };
+          return levels[this.riskLevel];
+        },
+
+        get riskLevelColor() {
+          const colors = {
+            safe: 'text-green-700',
+            warning: 'text-yellow-700',
+            critical: 'text-red-700'
+          };
+          return colors[this.riskLevel];
+        },
+
+        get riskLevelBg() {
+          const bgs = {
+            safe: 'from-green-50 to-emerald-50 border-green-400',
+            warning: 'from-yellow-50 to-orange-50 border-yellow-400',
+            critical: 'from-red-50 to-pink-50 border-red-400'
+          };
+          return bgs[this.riskLevel];
+        },
+
+        get criticalIssues() {
+          const issues = [];
+          if (this.answers.q1 === false) issues.push('repository_ownership');
+          if (this.answers.q2 === false) issues.push('daily_commits');
+          if (this.answers.q3 === false) issues.push('code_access');
+          if (this.answers.q4 === false) issues.push('vendor_lock_in');
+          if (this.answers.q5 === false) issues.push('documentation');
+          if (this.answers.q6 === false) issues.push('communication');
+          if (this.answers.q7 === false) issues.push('account_access');
+          return issues;
+        },
+
+        calculateScore() {
+          if (!this.allAnswered) {
+            alert('Please answer all questions before viewing your score.');
+            return;
+          }
+
+          this.showResults = true;
+
+          // Track assessment completion
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'assessment_completed', {
+              assessment_name: 'developer_accountability',
+              score: this.score,
+              risk_level: this.riskLevel,
+              critical_issues_count: this.criticalIssues.length,
+              owns_repo: this.answers.q1,
+              daily_commits: this.answers.q2
+            });
+
+            // Track critical red flags
+            if (this.riskLevel === 'critical') {
+              gtag('event', 'critical_red_flags_detected', {
+                score: this.score,
+                issues: this.criticalIssues.join(','),
+                worst_issue: this.criticalIssues[0]
+              });
+            }
+
+            // Track high-intent signals
+            if (!this.answers.q1 || !this.answers.q3) {
+              gtag('event', 'high_intent_signal', {
+                signal_type: 'vendor_lock_in_risk',
+                owns_repo: this.answers.q1,
+                can_download: this.answers.q3,
+                risk_level: this.riskLevel
+              });
+            }
+
+            // Track severe accountability gaps
+            if (this.criticalIssues.length >= 4) {
+              gtag('event', 'severe_accountability_gap', {
+                issues_count: this.criticalIssues.length,
+                score: this.score,
+                issues: this.criticalIssues.join(',')
+              });
+            }
+          }
+
+          // Scroll to results
+          setTimeout(() => {
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }" x-init="init()">
+
+        <h2 class="text-3xl font-bold text-brand-dark mb-8">Accountability Assessment</h2>
+
+        <!-- Questions -->
+        <div class="space-y-8 mb-8">
+          <!-- Question 1 -->
+          <div class="border-b border-gray-200 pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              1. Do you (or your company) own the GitHub/GitLab/Bitbucket repository where your code is stored?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              You should be the organization owner, not just a guest/collaborator on someone else's account.
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q1 = true"
+                :class="answers.q1 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q1 = false"
+                :class="answers.q1 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="border-b border-gray-200 pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              2. Can you see daily commits from your developers in the repository?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              Developers should commit code daily, not in bulk at the end of the week or project.
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q2 = true"
+                :class="answers.q2 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q2 = false"
+                :class="answers.q2 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="border-b border-gray-200 pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              3. Can you download the complete codebase anytime you want, without asking permission?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              You should have full clone/download access to all repositories at all times.
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q3 = true"
+                :class="answers.q3 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q3 = false"
+                :class="answers.q3 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="border-b border-gray-200 pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              4. Are all third-party accounts (AWS, hosting, domains) registered under YOUR company email?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              Developer's personal emails create vendor lock-in. You should own all accounts directly.
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q4 = true"
+                :class="answers.q4 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q4 = false"
+                :class="answers.q4 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="border-b border-gray-200 pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              5. Do you have written documentation explaining how your system works?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              README files, architecture docs, setup instructions—not just "ask the developer."
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q5 = true"
+                :class="answers.q5 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q5 = false"
+                :class="answers.q5 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="border-b border-gray-200 pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              6. Do your developers respond to messages within 4 business hours during working days?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              Professional accountability includes timely communication, not radio silence.
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q6 = true"
+                :class="answers.q6 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q6 = false"
+                :class="answers.q6 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="pb-6">
+            <p class="text-lg font-semibold text-gray-800 mb-4">
+              7. Could you hire a different developer tomorrow and give them full access to everything?
+            </p>
+            <p class="text-sm text-gray-600 mb-4">
+              True code ownership means zero dependency on any single person.
+            </p>
+            <div class="flex gap-4">
+              <button
+                @click="answers.q7 = true"
+                :class="answers.q7 === true ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✓ Yes
+              </button>
+              <button
+                @click="answers.q7 = false"
+                :class="answers.q7 === false ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                class="px-6 py-3 rounded-lg font-semibold transition">
+                ✗ No
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div class="text-center mb-8">
+          <button
+            @click="calculateScore()"
+            class="px-8 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-opacity-90 transition text-lg shadow-lg">
+            Calculate My Score
+          </button>
+        </div>
+
+        <!-- Results Section -->
+        <div x-show="showResults" id="results" class="mt-12 space-y-6" x-transition>
+          <!-- Score Display -->
+          <div class="bg-gradient-to-br rounded-xl p-8 border-2" :class="riskLevelBg">
+            <div class="text-center">
+              <p class="text-sm font-semibold mb-2 text-gray-700">Your Accountability Score</p>
+              <p class="text-6xl font-bold mb-2" :class="riskLevelColor" x-text="score + '/100'"></p>
+              <p class="text-xl font-semibold" :class="riskLevelColor" x-text="riskLevelText"></p>
+            </div>
+          </div>
+
+          <!-- Interpretation -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">What This Means:</h3>
+
+            <div x-show="riskLevel === 'safe'">
+              <p class="text-gray-700 mb-3">
+                <strong>Great news!</strong> You have strong accountability practices in place. You truly own your code and aren't dependent on any single developer.
+              </p>
+              <p class="text-gray-700">
+                <strong>Recommendation:</strong> Maintain these standards as you grow. Consider periodic audits to ensure nothing slips through the cracks.
+              </p>
+            </div>
+
+            <div x-show="riskLevel === 'warning'">
+              <p class="text-gray-700 mb-3">
+                <strong>Moderate risk detected.</strong> You have some accountability gaps that could become serious problems if not addressed.
+              </p>
+              <p class="text-gray-700 mb-3">
+                <strong>Critical issues found:</strong> <span x-text="criticalIssues.length"></span> out of 7 standards are not met.
+              </p>
+              <p class="text-gray-700">
+                <strong>Recommendation:</strong> Implement missing accountability standards within 30 days. These gaps compound over time.
+              </p>
+            </div>
+
+            <div x-show="riskLevel === 'critical'">
+              <p class="text-gray-700 mb-3">
+                <strong class="text-red-700">IMPORTANT TO ADDRESS:</strong> You have significant gaps in code ownership and accountability practices that create business continuity risk.
+              </p>
+              <p class="text-gray-700 mb-3">
+                <strong>Areas needing attention:</strong> <span x-text="criticalIssues.length"></span> out of 7 professional standards should be established.
+              </p>
+              <p class="text-gray-700 mb-4">
+                Without these standards in place, business continuity could be at risk if your developer became unavailable:
+              </p>
+              <ul class="list-disc pl-6 text-gray-700 space-y-1 mb-4">
+                <li x-show="!answers.q1">Your source code repository (you don't own it)</li>
+                <li x-show="!answers.q3">The ability to download your code</li>
+                <li x-show="!answers.q4">Critical third-party accounts (registered under their email)</li>
+                <li x-show="!answers.q5">Any understanding of how your system works (no docs)</li>
+                <li x-show="!answers.q7">The ability to bring in a replacement developer</li>
+              </ul>
+              <p class="text-red-700 font-semibold">
+                Establishing these professional standards helps protect your business and creates clarity for everyone involved.
+              </p>
+            </div>
+          </div>
+
+          <!-- Specific Recommendations -->
+          <div class="bg-white rounded-lg p-6 border-2 border-gray-200">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Your Specific Red Flags:</h3>
+            <div class="space-y-3">
+              <div x-show="!answers.q1" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">You don't own the repository</p>
+                  <p class="text-sm text-gray-700">ACTION: Create a GitHub/GitLab organization under your company, transfer all repos, make yourself owner.</p>
+                </div>
+              </div>
+
+              <div x-show="!answers.q2" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">No daily commits visible</p>
+                  <p class="text-sm text-gray-700">ACTION: Require developers to commit code daily. Weekly bulk commits hide what they're actually doing.</p>
+                </div>
+              </div>
+
+              <div x-show="!answers.q3" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">Can't download your own code</p>
+                  <p class="text-sm text-gray-700">ACTION: Request full repository access. This enables proper backup and business continuity planning.</p>
+                </div>
+              </div>
+
+              <div x-show="!answers.q4" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">Accounts under developer's email</p>
+                  <p class="text-sm text-gray-700">ACTION: Transfer all AWS, hosting, domain accounts to your company email TODAY. This is vendor lock-in.</p>
+                </div>
+              </div>
+
+              <div x-show="!answers.q5" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">No documentation</p>
+                  <p class="text-sm text-gray-700">ACTION: Require a README, setup guide, and architecture diagram within 2 weeks.</p>
+                </div>
+              </div>
+
+              <div x-show="!answers.q6" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">Poor communication</p>
+                  <p class="text-sm text-gray-700">ACTION: Set SLA: 4-hour response time during business hours. No exceptions.</p>
+                </div>
+              </div>
+
+              <div x-show="!answers.q7" class="flex items-start bg-red-50 p-4 rounded-lg">
+                <span class="text-red-600 mr-3 text-xl">⚠️</span>
+                <div>
+                  <p class="font-semibold text-red-900">Can't replace developer</p>
+                  <p class="text-sm text-gray-700">ACTION: Address the gaps above to ensure business continuity and professional accountability standards.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="bg-gradient-to-r from-brand-dark to-gray-900 text-white rounded-xl p-8">
+            <h3 class="text-2xl font-bold mb-4">Need Help Fixing These Issues?</h3>
+            <p class="text-gray-300 mb-6">
+              If you scored below 85, there are opportunities to strengthen your code ownership and accountability practices. A Fractional CTO can help assess your current setup, work collaboratively with your team to establish proper ownership structures, and align everyone on professional standards that protect the business.
+            </p>
+            <div class="text-center">
+              <a href="index.html#contact" class="inline-block px-8 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-opacity-90 transition text-lg">
+                Get a Free Code Ownership Audit
+              </a>
+              <p class="text-sm text-gray-400 mt-3">30-minute call. We'll identify your biggest risks and give you a specific action plan.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-white font-semibold mb-4">Fractional CTO Solutions</h3>
+          <p class="text-sm">Strategic technology leadership for growing businesses. No empire building, no vendor lock-in, just honest guidance.</p>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="fractional-cto.html" class="hover:text-white transition">Fractional CTO Services</a></li>
+            <li><a href="about-jeff.html" class="hover:text-white transition">About Jeff</a></li>
+            <li><a href="blog/index.html" class="hover:text-white transition">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="how-to-choose-fractional-cto.html" class="hover:text-white transition">How to Choose a Fractional CTO</a></li>
+            <li><a href="developer-accountability-checklist.html" class="hover:text-white transition">Developer Accountability Checklist</a></li>
+            <li><a href="mythical-man-month-explained.html" class="hover:text-white transition">Mythical Man-Month Explained</a></li>
+            <li><a href="true-cost-calculator.html" class="hover:text-white transition">True Cost Calculator</a></li>
+            <li><a href="developer-accountability-score.html" class="hover:text-white transition">Accountability Score</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center border-t border-gray-700 pt-8">
+        <p>&copy; 2026 BIGDEALIO, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
