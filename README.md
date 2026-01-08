@@ -117,18 +117,37 @@ To update the navigation or footer across all pages:
 
 ## Deployment
 
-### GitHub Pages
+### Production Build
 
-1. Build the site: `npm run build`
-2. The `_site/` directory contains the static files
-3. Deploy `_site/` to GitHub Pages or your hosting provider
+```bash
+npm run build
+```
 
-**Important:** Make sure to copy these files from the root to `_site/`:
+This command:
+1. Runs Eleventy to build all pages with templates
+2. Runs the flatten script to create `.html` files in the root for backwards compatibility
+3. Outputs everything to the `_site/` directory
+
+### What Gets Built
+
+The `_site/` directory contains:
+- All pages as both `/page-name/index.html` (Eleventy default) AND `/page-name.html` (flattened)
+- All static assets (images, logos, CNAME) copied via passthrough
+- Blog posts and other content
+- Index page at root
+
+### Deploying to GitHub Pages
+
+1. Run `npm run build`
+2. Deploy the entire `_site/` directory to GitHub Pages
+3. The site will work with both URL formats:
+   - `https://yourdomain.com/about-jeff.html` (backwards compatible)
+   - `https://yourdomain.com/about-jeff/` (modern, clean URLs)
+
+**Automatic passthrough files** (configured in `.eleventy.js`):
 - `CNAME` (for custom domain)
-- `sitemap.xml`
-- All image/logo files (`.svg`, `.png`, `.jpg`)
-
-These are automatically copied via the `.eleventy.js` configuration.
+- All image/logo files (`.svg`, `.png`, `.jpg`, `.jpeg`, `.gif`)
+- All static assets are automatically copied to `_site/`
 
 ## File Naming Conventions
 
