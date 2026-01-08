@@ -7,6 +7,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("*.gif");
   eleventyConfig.addPassthroughCopy("*.ico");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("sitemap.xml");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // Watch for changes to CSS/JS (if you add any local files later)
   eleventyConfig.addWatchTarget("./assets/");
