@@ -469,11 +469,220 @@
           </div>
         </div>
 
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-          <p class="font-bold text-blue-900 mb-2">Compare to Full-Time CTO:</p>
-          <p class="text-blue-800">
-            Full-time CTO salary: <strong>$200K-$400K/year</strong> + benefits + equity. That's $16K-$33K/month for someone you may not need 40 hours/week. Fractional CTO provides executive-level expertise at 1/3 to 1/10 the cost.
-          </p>
+        <!-- Interactive Pricing Calculator -->
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-6 border-2 border-blue-200" x-data="{
+          employees: 15,
+          revenue: 2,
+          init() {
+            // Track calculator load
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'calculator_loaded', {
+                calculator_name: 'pricing_comparison',
+                page: 'how_to_choose_fractional_cto'
+              });
+            }
+
+            // Watch for calculations
+            this.$watch('employees', () => this.trackCalculation());
+            this.$watch('revenue', () => this.trackCalculation());
+          },
+          get fulltimeSalary() {
+            // Scale salary based on company size
+            if (this.employees < 10) return 200000;
+            if (this.employees < 25) return 250000;
+            if (this.employees < 50) return 300000;
+            return 350000;
+          },
+          get fulltimeBenefits() {
+            return Math.round(this.fulltimeSalary * 0.30); // 30% for benefits
+          },
+          get fulltimeEquity() {
+            return Math.round(this.fulltimeSalary * 0.25); // 25% equity value
+          },
+          get fulltimeTotal() {
+            return this.fulltimeSalary + this.fulltimeBenefits + this.fulltimeEquity;
+          },
+          get fulltimeMonthly() {
+            return Math.round(this.fulltimeTotal / 12);
+          },
+          get recommendedTier() {
+            // Recommend tier based on company size and revenue
+            if (this.employees < 10 && this.revenue < 2) return 'advisory';
+            if (this.employees < 25 || this.revenue < 5) return 'hands-on';
+            return 'full-service';
+          },
+          get fractionalMonthly() {
+            if (this.recommendedTier === 'advisory') return 1500;
+            if (this.recommendedTier === 'hands-on') return 5000;
+            return 10000;
+          },
+          get fractionalAnnual() {
+            return this.fractionalMonthly * 12;
+          },
+          get annualSavings() {
+            return this.fulltimeTotal - this.fractionalAnnual;
+          },
+          get savingsPercent() {
+            return Math.round((this.annualSavings / this.fulltimeTotal) * 100);
+          },
+          get tierName() {
+            if (this.recommendedTier === 'advisory') return 'Strategic Advisory ($1-2K/mo)';
+            if (this.recommendedTier === 'hands-on') return 'Hands-On Leadership ($4-6K/mo)';
+            return 'Full CTO Services ($8-12K/mo)';
+          },
+          trackCalculation() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'pricing_calculated', {
+                calculator_name: 'pricing_comparison',
+                employees: this.employees,
+                revenue_millions: this.revenue,
+                recommended_tier: this.recommendedTier,
+                fulltime_cost: this.fulltimeTotal,
+                fractional_cost: this.fractionalAnnual,
+                annual_savings: this.annualSavings,
+                savings_percent: this.savingsPercent
+              });
+
+              // Track high-intent signals
+              if (this.annualSavings >= 200000) {
+                gtag('event', 'high_intent_signal', {
+                  signal_type: 'high_savings_calculation',
+                  annual_savings: this.annualSavings,
+                  recommended_tier: this.recommendedTier,
+                  company_size: this.employees
+                });
+              }
+
+              // Track enterprise prospects
+              if (this.recommendedTier === 'full-service') {
+                gtag('event', 'enterprise_prospect', {
+                  employees: this.employees,
+                  revenue: this.revenue,
+                  potential_value: this.fractionalAnnual
+                });
+              }
+            }
+          }
+        }" x-init="init()">
+          <h3 class="text-2xl font-bold text-brand-dark mb-6 text-center">Interactive Cost Comparison Calculator</h3>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <!-- Input Controls -->
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-lg font-semibold text-gray-700">Company Size:</label>
+                  <span class="text-2xl font-bold text-brand-red" x-text="employees + ' employees'"></span>
+                </div>
+                <input
+                  type="range"
+                  min="5"
+                  max="100"
+                  step="5"
+                  x-model.number="employees"
+                  class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                  style="accent-color: #EF4136;"
+                >
+                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                  <span>5</span>
+                  <span>100</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-lg font-semibold text-gray-700">Annual Revenue:</label>
+                  <span class="text-2xl font-bold text-brand-red" x-text="'$' + revenue + 'M'"></span>
+                </div>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="20"
+                  step="0.5"
+                  x-model.number="revenue"
+                  class="w-full h-3 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                  style="accent-color: #EF4136;"
+                >
+                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                  <span>$500K</span>
+                  <span>$20M</span>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-4 border-2 border-blue-300">
+                <p class="text-sm font-semibold text-blue-900 mb-1">Recommended for Your Company:</p>
+                <p class="text-lg font-bold text-brand-red" x-text="tierName"></p>
+              </div>
+            </div>
+
+            <!-- Results Display -->
+            <div class="space-y-4">
+              <!-- Full-Time CTO Cost -->
+              <div class="bg-white rounded-lg p-6 border-2 border-gray-300">
+                <h4 class="font-bold text-gray-800 mb-3">Full-Time CTO (Annual Cost)</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Base Salary:</span>
+                    <span class="font-semibold" x-text="'$' + fulltimeSalary.toLocaleString()"></span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Benefits (30%):</span>
+                    <span class="font-semibold" x-text="'$' + fulltimeBenefits.toLocaleString()"></span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Equity Value (25%):</span>
+                    <span class="font-semibold" x-text="'$' + fulltimeEquity.toLocaleString()"></span>
+                  </div>
+                  <div class="border-t-2 border-gray-300 pt-2 mt-2 flex justify-between">
+                    <span class="font-bold text-gray-800">Total Annual Cost:</span>
+                    <span class="font-bold text-red-600 text-lg" x-text="'$' + fulltimeTotal.toLocaleString()"></span>
+                  </div>
+                  <div class="flex justify-between text-xs text-gray-500">
+                    <span>Monthly:</span>
+                    <span x-text="'$' + fulltimeMonthly.toLocaleString()"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fractional CTO Cost -->
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border-2 border-green-400">
+                <h4 class="font-bold text-green-900 mb-3">Fractional CTO (Annual Cost)</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">Monthly Retainer:</span>
+                    <span class="font-semibold" x-text="'$' + fractionalMonthly.toLocaleString()"></span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">Benefits:</span>
+                    <span class="font-semibold">$0</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-700">Equity:</span>
+                    <span class="font-semibold">$0</span>
+                  </div>
+                  <div class="border-t-2 border-green-400 pt-2 mt-2 flex justify-between">
+                    <span class="font-bold text-gray-800">Total Annual Cost:</span>
+                    <span class="font-bold text-green-700 text-lg" x-text="'$' + fractionalAnnual.toLocaleString()"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Savings Display -->
+              <div class="bg-gradient-to-r from-brand-dark to-gray-900 text-white rounded-lg p-6">
+                <p class="text-sm mb-2">Your Annual Savings</p>
+                <p class="text-4xl font-bold mb-1" x-text="'$' + annualSavings.toLocaleString()"></p>
+                <p class="text-sm text-gray-300">
+                  Save <span class="font-bold text-brand-red" x-text="savingsPercent + '%'"></span> annually with fractional CTO services
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-100 rounded-lg p-4 text-center">
+            <p class="text-sm text-blue-900">
+              <strong>Why fractional makes sense:</strong> Get executive-level technology leadership without the overhead of a full-time hire. Pay only for what you need, scale up or down as your business grows.
+            </p>
+          </div>
         </div>
       </section>
 
