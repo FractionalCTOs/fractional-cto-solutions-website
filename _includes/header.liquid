@@ -9,10 +9,12 @@
       </div>
       <div class="hidden md:flex items-center space-x-8">
         <a href="index.html" class="{% if activePage == 'home' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Home</a>
-        <a href="fractional-cto.html" class="{% if activePage == 'fractional-cto' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Fractional CTO</a>
+        <a href="index.html#expertise" class="{% if activePage == 'fractional-cto' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Services</a>
+        <a href="index.html#pricing" class="text-gray-600 hover:text-brand-red transition">Pricing</a>
         <a href="about-jeff.html" class="{% if activePage == 'about' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">About Jeff</a>
+        <a href="blog/index.html" class="{% if activePage == 'blog' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Blog</a>
         <a href="for-development-teams.html" class="{% if activePage == 'developers' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">For Developers</a>
-        <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Contact Us</a>
+        <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Get Started</a>
       </div>
       <div class="md:hidden flex items-center">
         <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">
@@ -24,12 +26,14 @@
     </div>
     <!-- Mobile Menu -->
     <div x-show="open" @click.away="open = false" class="md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-md">
         <a href="index.html" class="block px-3 py-2 {% if activePage == 'home' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Home</a>
-        <a href="fractional-cto.html" class="block px-3 py-2 {% if activePage == 'fractional-cto' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Fractional CTO</a>
+        <a href="index.html#expertise" class="block px-3 py-2 {% if activePage == 'fractional-cto' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Services</a>
+        <a href="index.html#pricing" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Pricing</a>
         <a href="about-jeff.html" class="block px-3 py-2 {% if activePage == 'about' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">About Jeff</a>
+        <a href="blog/index.html" class="block px-3 py-2 {% if activePage == 'blog' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">Blog</a>
         <a href="for-development-teams.html" class="block px-3 py-2 {% if activePage == 'developers' %}text-brand-red font-semibold{% else %}text-gray-600 hover:text-brand-red{% endif %} transition">For Developers</a>
-        <a href="index.html#contact" class="block px-3 py-2 text-brand-red hover:text-gray-600 transition">Contact Us</a>
+        <a href="index.html#contact" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Get Started</a>
       </div>
     </div>
   </div>
