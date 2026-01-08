@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Development Teams | Working with a Fractional CTO</title>
+  <meta name="description" content="Information for developers and development teams working with a fractional CTO. We're here to implement best practices and support professional growth, not replace your expertise.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="For Development Teams | Working with a Fractional CTO">
+  <meta property="og:description" content="Information for developers and development teams. A fractional CTO is here to implement best practices and support your professional growth.">
+  <meta property="og:url" content="https://fractionalctosolutions.com/for-development-teams.html">
+  <meta property="og:image" content="https://fractionalctosolutions.com/FRACTIONALCTOLOGO-pmg.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="For Development Teams | Working with a Fractional CTO">
+  <meta name="twitter:description" content="A fractional CTO is here to implement best practices and support professional growth, not replace your expertise.">
+  <meta name="twitter:image" content="https://fractionalctosolutions.com/FRACTIONALCTOLOGO-pmg.png">
+
+  <link rel="canonical" href="https://fractionalctosolutions.com/for-development-teams.html">
+  <link rel="icon" type="image/png" href="FRACTIONALCTOLOGO-pmg.png">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "For Development Teams: Working with a Fractional CTO",
+    "description": "Information for developers and development teams working with a fractional CTO. We're here to implement best practices and support professional growth.",
+    "author": {
+      "@type": "Person",
+      "name": "Jeff Wray",
+      "jobTitle": "Fractional CTO",
+      "url": "https://fractionalctosolutions.com/about-jeff.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Fractional CTO Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://fractionalctosolutions.com/FRACTIONALCTOLOGO-pmg.png"
+      }
+    },
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-01-15"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://fractionalctosolutions.com"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "For Development Teams",
+      "item": "https://fractionalctosolutions.com/for-development-teams.html"
+    }]
+  }
+  </script>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navigation -->
+  <nav class="bg-white fixed w-full z-10 shadow-sm" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="h-8 w-auto">
+            <img src="FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-600 hover:text-brand-red transition">Home</a>
+          <a href="fractional-cto.html" class="text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
+          <a href="about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
+          <a href="for-development-teams.html" class="text-brand-red transition font-semibold">For Developers</a>
+          <a href="index.html#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Contact Us</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div x-show="open" @click.away="open = false" class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Home</a>
+          <a href="fractional-cto.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Fractional CTO</a>
+          <a href="about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">About Jeff</a>
+          <a href="for-development-teams.html" class="block px-3 py-2 text-brand-red font-semibold">For Developers</a>
+          <a href="index.html#contact" class="block px-3 py-2 text-brand-red hover:text-gray-600 transition">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-brand-dark to-brand-dark text-white py-16 md:py-24 pt-24 md:pt-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          For Development Teams
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          If your client has hired a fractional CTO, you might be wondering what that means for you and your team. This page is for you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- Introduction -->
+    <section class="mb-16">
+      <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+        <p class="text-lg text-gray-800">
+          <strong>First, let's be clear:</strong> A fractional CTO is not here to replace you, criticize your work, or threaten your position. We're here to implement best practices, advise our clients on technology strategy, and help everyone succeed.
+        </p>
+      </div>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Is a Fractional CTO?</h2>
+      <p class="text-lg text-gray-700 mb-4">
+        A fractional CTO is an experienced technology executive who works with multiple clients part-time, typically because the client:
+      </p>
+      <ul class="list-disc list-inside text-lg text-gray-700 mb-6 space-y-2 ml-4">
+        <li>Doesn't have enough work to justify a full-time CTO</li>
+        <li>Needs strategic technology leadership but can't afford $200K-350K/year</li>
+        <li>Wants an experienced advisor to validate decisions and provide oversight</li>
+        <li>Is experiencing challenges with their current development situation</li>
+      </ul>
+
+      <p class="text-lg text-gray-700">
+        Think of it like a fractional CFO or fractional CMO - senior-level strategic guidance without the full-time commitment.
+      </p>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What to Expect When Working with a Fractional CTO</h2>
+
+      <div class="space-y-8">
+        <!-- Accountability Standards -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Professional Accountability Standards
+          </h3>
+          <p class="text-gray-700 mb-3">
+            We'll work to establish clear, professional standards that benefit everyone:
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+            <li><strong>Code ownership clarity:</strong> The client should have full access to their code repositories, credentials, and infrastructure</li>
+            <li><strong>Documentation:</strong> Clear documentation helps onboard new team members and ensures knowledge isn't siloed</li>
+            <li><strong>Communication norms:</strong> Regular updates, clear project status, and transparent timelines</li>
+            <li><strong>Quality standards:</strong> Testing, code review, and deployment processes that protect everyone</li>
+          </ul>
+          <p class="text-gray-700 mt-3">
+            <em>These standards aren't about micromanaging you - they're about protecting the business and creating clarity for everyone involved.</em>
+          </p>
+        </div>
+
+        <!-- Partnership Approach -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Collaborative, Not Combative
+          </h3>
+          <p class="text-gray-700 mb-3">
+            Good fractional CTOs don't come in swinging. We approach relationships with developers as partnerships:
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+            <li>We ask questions to understand your architecture, decisions, and constraints</li>
+            <li>We share best practices and industry standards gently, explaining the "why"</li>
+            <li>We work <em>with</em> you to implement changes over time, not demand immediate overhauls</li>
+            <li>We recognize you know the codebase better than we do - we're here to provide strategic guidance</li>
+          </ul>
+        </div>
+
+        <!-- Typical Timeline -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+            <svg class="w-6 h-6 text-purple-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Reasonable Timelines
+          </h3>
+          <p class="text-gray-700 mb-3">
+            Changes don't happen overnight. A typical engagement looks like:
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+            <li><strong>Weeks 1-2:</strong> Discovery - understanding the current setup, asking questions, reviewing documentation</li>
+            <li><strong>Weeks 3-4:</strong> Assessment - identifying areas for improvement, prioritizing what matters most</li>
+            <li><strong>Weeks 5-8:</strong> Collaboration - working together to implement priority improvements gradually</li>
+            <li><strong>Ongoing:</strong> Regular check-ins, strategic guidance, and continued refinement</li>
+          </ul>
+          <p class="text-gray-700 mt-3">
+            <em>We're not here to disrupt your work or demand everything change immediately. Professional standards are implemented gradually and collaboratively.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Concerns -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Common Concerns Addressed</h2>
+
+      <div class="space-y-6" x-data="{ openFaq: null }">
+
+        <!-- FAQ 1 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+          <button @click="openFaq = openFaq === 1 ? null : 1" class="w-full text-left px-6 py-4 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-900">
+              "Is the fractional CTO going to try to replace me?"
+            </h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" :class="{ 'rotate-180': openFaq === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="openFaq === 1" x-collapse class="px-6 pb-4">
+            <p class="text-gray-700">
+              <strong>No.</strong> A fractional CTO doesn't write production code - that's your job. We provide strategic guidance, architecture review, and best practice implementation. We're here to make your job <em>easier</em> by providing clear direction, protecting you from scope creep, and ensuring you have the resources you need.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+          <button @click="openFaq = openFaq === 2 ? null : 2" class="w-full text-left px-6 py-4 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-900">
+              "What if they criticize my code or decisions?"
+            </h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" :class="{ 'rotate-180': openFaq === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="openFaq === 2" x-collapse class="px-6 pb-4">
+            <p class="text-gray-700 mb-3">
+              Good fractional CTOs understand that <strong>every codebase has technical debt</strong> and architectural compromises. We've all made decisions under time pressure or budget constraints.
+            </p>
+            <p class="text-gray-700">
+              When we identify areas for improvement, we explain <em>why</em> it matters and work with you to prioritize fixes based on risk and business value. It's not about criticism - it's about continuous improvement.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+          <button @click="openFaq = openFaq === 3 ? null : 3" class="w-full text-left px-6 py-4 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-900">
+              "Will they demand access to everything immediately?"
+            </h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" :class="{ 'rotate-180': openFaq === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="openFaq === 3" x-collapse class="px-6 pb-4">
+            <p class="text-gray-700 mb-3">
+              We'll request access to understand the current state - code repositories, infrastructure, documentation, and credentials that the client owns. This is standard practice and benefits everyone:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li><strong>For the client:</strong> They should already have full access to assets they're paying for</li>
+              <li><strong>For you:</strong> Clear ownership protects you if the relationship ends</li>
+              <li><strong>For the business:</strong> Proper backups and disaster recovery planning</li>
+            </ul>
+            <p class="text-gray-700 mt-3">
+              If access is set up properly from the start, this is a quick conversation. If it needs restructuring, we'll work together over a few weeks to transition things properly.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+          <button @click="openFaq = openFaq === 4 ? null : 4" class="w-full text-left px-6 py-4 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-900">
+              "What if I disagree with their recommendations?"
+            </h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" :class="{ 'rotate-180': openFaq === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="openFaq === 4" x-collapse class="px-6 pb-4">
+            <p class="text-gray-700 mb-3">
+              <strong>Good!</strong> Healthy debate leads to better decisions. A fractional CTO should:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Listen to your perspective and understand the context</li>
+              <li>Explain the reasoning behind their recommendation</li>
+              <li>Consider trade-offs and constraints you raise</li>
+              <li>Sometimes change their mind when you make good points</li>
+            </ul>
+            <p class="text-gray-700 mt-3">
+              The goal is finding the best solution, not "winning" an argument. If you have valid technical reasons for your approach, a good fractional CTO will hear you out.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+          <button @click="openFaq = openFaq === 5 ? null : 5" class="w-full text-left px-6 py-4 flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-900">
+              "Will this slow down our development?"
+            </h3>
+            <svg class="w-5 h-5 text-gray-500 transform transition-transform" :class="{ 'rotate-180': openFaq === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="openFaq === 5" x-collapse class="px-6 pb-4">
+            <p class="text-gray-700 mb-3">
+              Initially, there may be some adjustment as we align on standards and processes. But long-term, good technical leadership actually <em>speeds up</em> development by:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+              <li>Preventing scope creep and feature bloat</li>
+              <li>Making architectural decisions that prevent future rework</li>
+              <li>Protecting your time from unrealistic client expectations</li>
+              <li>Establishing clear priorities so you work on what matters</li>
+            </ul>
+            <p class="text-gray-700 mt-3">
+              Think of it like investing time in tests and documentation - feels slower at first, but pays dividends over time.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Red Flags -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Red Flags: When a Fractional CTO Isn't Acting Professionally</h2>
+
+      <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-6">
+        <p class="text-gray-800 mb-4">
+          <strong>Most fractional CTOs are professionals,</strong> but if you encounter these behaviors, you should raise concerns with the client:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+          <li><strong>Immediate demands without discovery:</strong> Making major changes before understanding the current setup</li>
+          <li><strong>Dismissive attitude:</strong> Refusing to listen to your explanations or context</li>
+          <li><strong>Public criticism:</strong> Criticizing your work in front of the client rather than discussing privately</li>
+          <li><strong>Unrealistic timelines:</strong> Demanding complete rewrites or major refactors in days or weeks</li>
+          <li><strong>Going around you:</strong> Making technical decisions or changes without consulting you first</li>
+          <li><strong>Threatening your position:</strong> Suggesting you should be replaced rather than working to improve</li>
+        </ul>
+      </div>
+
+      <p class="text-gray-700">
+        These are <em>not</em> how professional fractional CTOs operate. If you experience this, you're dealing with someone who doesn't understand their role or lacks people skills.
+      </p>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Success Looks Like</h2>
+
+      <p class="text-lg text-gray-700 mb-6">
+        When the relationship works well, developers often find that working with a fractional CTO:
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">Reduces Stress</h3>
+          <p class="text-gray-700">
+            Clear priorities, realistic timelines, and someone to shield you from unreasonable client demands.
+          </p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">Improves Quality</h3>
+          <p class="text-gray-700">
+            Time allocated for proper testing, documentation, and technical debt reduction.
+          </p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">Provides Backup</h3>
+          <p class="text-gray-700">
+            Someone who understands the technical side when you need to take vacation or handle an emergency.
+          </p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">Offers Learning</h3>
+          <p class="text-gray-700">
+            Exposure to enterprise patterns, best practices, and strategic thinking you might not see otherwise.
+          </p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">Creates Clarity</h3>
+          <p class="text-gray-700">
+            Clear ownership, documented processes, and transparent expectations for everyone.
+          </p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">Protects Your Work</h3>
+          <p class="text-gray-700">
+            Proper version control, backups, and documentation that preserve your contributions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working Together -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">How to Make This Relationship Work</h2>
+
+      <p class="text-lg text-gray-700 mb-6">
+        From the developer's perspective, here's how to get the most value from working with a fractional CTO:
+      </p>
+
+      <div class="space-y-4">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mt-1">
+            1
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold text-gray-900 mb-1">Be Open and Transparent</h3>
+            <p class="text-gray-700">
+              Share context about your decisions, constraints you're working under, and challenges you're facing. The more we understand, the better we can help.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mt-1">
+            2
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold text-gray-900 mb-1">Ask Questions</h3>
+            <p class="text-gray-700">
+              If you don't understand why we're recommending something, ask. Good fractional CTOs should be able to explain the reasoning in a way that makes sense.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mt-1">
+            3
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold text-gray-900 mb-1">Speak Up About Concerns</h3>
+            <p class="text-gray-700">
+              If something doesn't feel right or seems unrealistic, say so. It's better to address concerns early than let them fester.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mt-1">
+            4
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold text-gray-900 mb-1">Embrace Professional Standards</h3>
+            <p class="text-gray-700">
+              Documentation, testing, code review - these things protect you as much as they protect the client. They make your life easier in the long run.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mt-1">
+            5
+          </div>
+          <div class="ml-4">
+            <h3 class="font-semibold text-gray-900 mb-1">See It as Learning</h3>
+            <p class="text-gray-700">
+              A fractional CTO has likely seen hundreds of codebases and worked with Fortune 500 companies. There's an opportunity to learn enterprise patterns and strategic thinking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-brand-dark to-brand-dark rounded-lg p-8 md:p-12 text-white text-center">
+      <h2 class="text-3xl font-bold mb-4">Questions or Concerns?</h2>
+      <p class="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
+        If you're a developer working with one of my clients and have questions about the process, timeline, or expectations, I'm happy to talk through it directly.
+      </p>
+      <p class="text-gray-300 mb-8">
+        Open communication and mutual respect are the foundation of successful partnerships.
+      </p>
+      <a href="index.html#contact" class="inline-block bg-brand-red text-white px-8 py-3 rounded-md hover:bg-opacity-90 transition font-semibold">
+        Get in Touch
+      </a>
+    </section>
+
+  </article>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <img src="FRACTIONALCTOLOGO-blk.svg" alt="Fractional CTO Solutions" class="h-8">
+          <p class="text-sm">
+            Strategic technology leadership for growing businesses across all 50 US states.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Services</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="fractional-cto.html" class="hover:text-white transition-colors">Fractional CTO</a></li>
+            <li><a href="fractional-cto.html#code-ownership" class="hover:text-white transition-colors">Code Ownership Accountability</a></li>
+            <li><a href="fractional-cto.html#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="how-to-choose-fractional-cto.html" class="hover:text-white transition-colors">How to Choose a Fractional CTO</a></li>
+            <li><a href="developer-accountability-checklist.html" class="hover:text-white transition-colors">Developer Accountability Checklist</a></li>
+            <li><a href="mythical-man-month-explained.html" class="hover:text-white transition-colors">Mythical Man-Month Explained</a></li>
+            <li><a href="true-cost-calculator.html" class="hover:text-white transition-colors">True Cost Calculator</a></li>
+            <li><a href="developer-accountability-score.html" class="hover:text-white transition-colors">Accountability Score</a></li>
+            <li><a href="for-development-teams.html" class="hover:text-white transition-colors">For Development Teams</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Company</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about-jeff.html" class="hover:text-white transition-colors">About Jeff</a></li>
+            <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center md:text-left md:flex justify-between items-center">
+        <p>&copy; 2025 BIGDEALIO, LLC. All rights reserved.</p>
+        <div class="mt-4 md:mt-0">
+          <a href="#" class="text-sm hover:text-brand-red transition mr-6">Privacy Policy</a>
+          <a href="#" class="text-sm hover:text-brand-red transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Track page view
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: 'For Development Teams',
+        page_location: window.location.href,
+        page_path: '/for-development-teams.html'
+      });
+    }
+  </script>
+
+</body>
+</html>
