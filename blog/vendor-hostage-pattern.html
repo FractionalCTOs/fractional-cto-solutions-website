@@ -1,0 +1,278 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vendor Hostage Pattern: Why You Don't Actually Own Your Infrastructure | Fractional CTO</title>
+  <meta name="description" content="Discover you don't control your own infrastructure? Here's the vendor lock-in pattern that costs businesses months and six figures to escape.">
+  <meta name="keywords" content="vendor lock-in, infrastructure control, cloud ownership, dev shop contracts, technical due diligence, vendor hostage">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+<!-- Article -->
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Infrastructure Control</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">The Vendor Hostage Pattern: Why You Don't Actually Own Your Infrastructure</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-08-15">August 15, 2025</time>
+        </div>
+      </header>
+
+      <p class="text-sm text-gray-600 italic mb-8">
+        *Examples in this article are based on real client engagements with identifying details modified for confidentiality.*
+      </p>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          "We want to bring development in-house, but our vendor says it'll take 3-4 months and cost $75K to transition everything." The CEO was stunned. "We've paid them $400K over two years. Don't we own this?"
+        </p>
+
+        <p class="mb-6">
+          Turns out: No. They didn't own any of it.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Pattern: How It Happens</h2>
+
+        <p class="mb-6">
+          You hire a development shop. They're professional, responsive, and deliver on time. The application works great. Everything seems fine. Then one day you need to make a change—hire a new developer, switch vendors, or bring things in-house—and you discover the trap.
+        </p>
+
+        <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4 text-red-900">What You Think You Own vs. What You Actually Control:</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <p class="font-semibold mb-2">What's in the vendor's control:</p>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li>✗ AWS/Azure/GCP admin console</li>
+                <li>✗ Production database</li>
+                <li>✗ CI/CD pipeline</li>
+                <li>✗ All API keys and secrets</li>
+                <li>✗ Domain/SSL certificates</li>
+                <li>✗ Monitoring and logs</li>
+                <li>✗ Third-party service accounts</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-semibold mb-2">What you have access to:</p>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li>✓ Read-only GitHub access</li>
+                <li>✓ Staging environment URL</li>
+                <li>✓ ...that's it</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The $75K Separation</h2>
+
+        <p class="mb-6">
+          When you finally decide to leave, here's what "transition" actually means:
+        </p>
+
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">1.</span>
+            <div>
+              <strong>Create new infrastructure from scratch</strong> - Can't just transfer their AWS account to you. Have to rebuild everything in your account. (4-6 weeks)
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">2.</span>
+            <div>
+              <strong>Migrate the database</strong> - Export, test, verify, switch over. Hope nothing breaks. (2-3 weeks)
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">3.</span>
+            <div>
+              <strong>Recreate all API integrations</strong> - New keys, new webhooks, new service accounts. (1-2 weeks)
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">4.</span>
+            <div>
+              <strong>Transfer the domain</strong> - Unlock, get auth codes, hope they cooperate. (1-2 weeks)
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">5.</span>
+            <div>
+              <strong>Document everything they never documented</strong> - Figure out what they built and how it works. (Ongoing nightmare)
+            </div>
+          </li>
+        </ul>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+          <p class="font-semibold mb-2">Timeline if they cooperate:</p>
+          <p class="mb-2">8-10 weeks, $50-75K in migration costs</p>
+          <p class="font-semibold mb-2 mt-4">Timeline if they don't cooperate:</p>
+          <p>3-4 months, $100K+, possible data loss, 2-4 weeks operational disruption</p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">How This Should Have Been Set Up</h2>
+
+        <p class="mb-6">
+          Professional development shops set things up the right way from day one. Here's what that looks like:
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">1. Infrastructure in Your AWS/Azure/GCP Account</h3>
+        <p class="mb-4">
+          The dev shop gets IAM roles to deploy and manage. You keep ownership. You pay the cloud bills directly. No markup, full transparency.
+        </p>
+        <p class="mb-6">
+          <strong>Separation cost if this is done right:</strong> Remove their IAM access. Done. (5 minutes)
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">2. Repository in Your GitHub Organization</h3>
+        <p class="mb-4">
+          Add dev shop team members as collaborators. They can commit and deploy. You can see everything. No "code handoff" needed later—you already have it.
+        </p>
+        <p class="mb-6">
+          <strong>Separation cost if this is done right:</strong> Remove their collaborator access. Done. (2 minutes)
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">3. Third-Party Services in Your Name</h3>
+        <p class="mb-4">
+          Stripe account? Your business entity. SendGrid? Your account. Google Analytics? Your property. The dev shop helps set them up, but they're registered to you.
+        </p>
+        <p class="mb-6">
+          <strong>Separation cost if this is done right:</strong> Change who has admin access. Done. (30 minutes)
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Questions You Should Have Asked</h2>
+
+        <div class="bg-blue-50 p-6 mb-8 rounded-lg">
+          <p class="font-semibold mb-4">Before you sign with a dev shop, ask:</p>
+          <ul class="space-y-3">
+            <li><strong>"Will the application run in my cloud account or yours?"</strong><br/>
+            <span class="text-sm text-gray-700">Good answer: "Yours." Bad answer: "Ours, for simplicity."</span></li>
+
+            <li><strong>"Will I have admin access to everything from day one?"</strong><br/>
+            <span class="text-sm text-gray-700">Good answer: "Yes, we'll set up your admin account first." Bad answer: "You don't need that."</span></li>
+
+            <li><strong>"If we part ways, what's involved in me taking over?"</strong><br/>
+            <span class="text-sm text-gray-700">Good answer: "Nothing, you already own it." Bad answer: "We'd need to migrate everything."</span></li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Why Dev Shops Do This</h2>
+
+        <p class="mb-6">
+          To be fair, it's not always malicious:
+        </p>
+
+        <ul class="space-y-3 mb-8">
+          <li><strong>Habit:</strong> "This is just how we've always done it"</li>
+          <li><strong>Convenience:</strong> Easier to use their existing accounts and infrastructure</li>
+          <li><strong>Control:</strong> Prevents clients from accidentally breaking things</li>
+          <li><strong>Revenue:</strong> Cloud markup and guaranteed ongoing engagement</li>
+          <li><strong>Leverage:</strong> Makes it harder for you to leave</li>
+        </ul>
+
+        <p class="mb-6">
+          But regardless of intent, the result is the same: You're locked in.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">If You're Already Locked In</h2>
+
+        <p class="mb-6">
+          Found yourself in this situation? Here's what to do:
+        </p>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Option 1: Negotiate a transition</p>
+            <p class="text-sm text-gray-700">Budget 8-10 weeks and $50-75K. Get it in writing. Expect it to take longer.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Option 2: Gradual migration</p>
+            <p class="text-sm text-gray-700">Set up new infrastructure alongside old. Migrate piece by piece. Slower but less risky.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Option 3: Accept the relationship</p>
+            <p class="text-sm text-gray-700">If they're good and prices are fair, sometimes the devil you know is better than the migration nightmare.</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+
+        <p class="mb-6">
+          You can't manage what you don't control. You can't control what you don't own.
+        </p>
+
+        <p class="mb-6">
+          If your vendor relationship ended tomorrow—amicably or otherwise—could you:
+        </p>
+
+        <ul class="space-y-2 mb-8">
+          <li>• Deploy an update to your application?</li>
+          <li>• Access your production database?</li>
+          <li>• Renew your SSL certificate?</li>
+          <li>• View your application logs?</li>
+          <li>• Hire a new developer and give them access?</li>
+        </ul>
+
+        <p class="mb-8">
+          If the answer to any of these is "no" or "I think so, maybe?" you're in the hostage pattern.
+        </p>
+
+        <div class="bg-brand-dark text-white p-8 rounded-lg text-center">
+          <h3 class="text-2xl font-bold mb-4">Need Help Evaluating or Escaping Vendor Lock-In?</h3>
+          <p class="text-gray-300 mb-6">
+            A fractional CTO can audit your current setup, identify dependencies, and plan your path to independence—before it becomes a crisis.
+          </p>
+          <a href="/index.html#contact" class="inline-block bg-brand-red text-white px-8 py-3 rounded-md hover:bg-opacity-90 transition font-semibold">
+            Schedule a Free Consultation
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Chasing Trends: When NOT to Copy What Big Tech Does | Fractional CTO</title>
+  <meta name="description" content="Netflix uses microservices, so should you! Wrong. Learn why copying big tech's architecture choices can sink your startup.">
+  <meta name="keywords" content="microservices, monolith, architecture, technical trends, big tech, scalability, premature optimization, YAGNI">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+<!-- Article -->
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Technical Architecture</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Stop Chasing Trends: When NOT to Copy What Big Tech Does</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-11-05">November 5, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          "Netflix uses microservices." "Google built on Kubernetes." "Facebook runs React at scale." Your developer wants to rebuild your application the same way. After all, if it's good enough for companies worth billions, it's good enough for your startup with 12 customers, right?
+        </p>
+
+        <p class="mb-8">
+          Wrong. Spectacularly, expensively wrong.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Big Tech Cargo Cult</h2>
+
+        <p class="mb-6">
+          Big tech companies publish blog posts about their infrastructure. Developers read these posts, attend conference talks, and come back excited to implement the same solutions. Nobody stops to ask: "Do we actually have the same problems?"
+        </p>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4">The Pattern:</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li><strong>1. Big tech solves a problem at massive scale</strong> → 10 million requests per second</li>
+            <li><strong>2. They write a blog post about their solution</strong> → "How We Handle Scale"</li>
+            <li><strong>3. Developers read it and think it's best practice</strong> → "This is how real engineering is done"</li>
+            <li><strong>4. Small companies adopt the same approach</strong> → For 100 requests per second</li>
+            <li><strong>5. Result: Massive complexity, zero benefit</strong> → Solving problems you don't have</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Microservices Trap</h2>
+
+        <p class="mb-6">
+          This is the classic example. Your developer comes to you with a proposal:
+        </p>
+
+        <div class="bg-blue-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3">"We should split our monolith into microservices."</p>
+          <p class="text-gray-700 text-sm mb-2"><strong>Why?</strong> "That's what Amazon does. Microservices let different teams work independently."</p>
+          <p class="text-gray-700 text-sm mb-2"><strong>How many teams do you have?</strong> "Currently just me, but when we hire more..."</p>
+          <p class="text-gray-700 text-sm"><strong>How many customers do you have?</strong> "About 200. But we're planning to scale!"</p>
+        </div>
+
+        <p class="mb-6">
+          Amazon has 1.5 million employees and serves hundreds of millions of customers. You have one developer and 200 customers. You don't have Amazon's problems.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">What Microservices Actually Cost</h3>
+
+        <div class="bg-red-50 p-6 mb-8 rounded-lg">
+          <p class="font-semibold mb-3 text-red-900">Before (Simple Monolith):</p>
+          <ul class="space-y-2 text-gray-700 text-sm mb-6">
+            <li>• One codebase to understand</li>
+            <li>• One database to manage</li>
+            <li>• One deployment to worry about</li>
+            <li>• Bugs are easy to trace end-to-end</li>
+            <li>• Testing is straightforward</li>
+          </ul>
+
+          <p class="font-semibold mb-3 text-red-900">After (Microservices "Upgrade"):</p>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li>• 8 different services, each with their own repo</li>
+            <li>• 8 databases to keep in sync</li>
+            <li>• Service mesh configuration (Istio, Consul, whatever's trendy)</li>
+            <li>• Distributed tracing (because debugging now requires it)</li>
+            <li>• Service discovery, load balancing, circuit breakers</li>
+            <li>• Authentication between services</li>
+            <li>• Monitoring for each service</li>
+            <li>• Deployment orchestration (now you need Kubernetes!)</li>
+            <li>• Network latency and failures between services</li>
+          </ul>
+          <p class="mt-4 font-semibold">Result: 10x complexity, zero benefit at your scale</p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Kubernetes Obsession</h2>
+
+        <p class="mb-6">
+          "We need to deploy on Kubernetes." No, you need to deploy your application. Kubernetes is one way to do that—a way that makes sense if you're managing thousands of containers across hundreds of servers.
+        </p>
+
+        <p class="mb-6">
+          Are you? Or are you running 3 containers on 2 servers?
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-green-50 p-6 rounded-lg">
+            <p class="font-semibold mb-3 text-green-900">Your Actual Needs:</p>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>✓ Run some code</li>
+              <li>✓ Handle a few hundred requests/day</li>
+              <li>✓ Deploy updates occasionally</li>
+              <li>✓ Restart if it crashes</li>
+            </ul>
+            <p class="mt-4 font-semibold text-green-900">Solution: A $10/month VPS or Heroku</p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <p class="font-semibold mb-3 text-gray-900">What Kubernetes Provides:</p>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>• Auto-scaling across 1000+ nodes</li>
+              <li>• Complex networking configurations</li>
+              <li>• Multi-tenant isolation</li>
+              <li>• Service meshes</li>
+              <li>• Custom resource definitions</li>
+              <li>• Helm charts, operators, ingress controllers...</li>
+            </ul>
+            <p class="mt-4 font-semibold text-gray-900">Cost: $200K/year for a DevOps engineer who knows how to manage it</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">When Big Tech's Problems Became Your Developer's Resume</h2>
+
+        <p class="mb-6">
+          Here's the uncomfortable truth: Some developers push for complex architectures not because your business needs them, but because their resume does.
+        </p>
+
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">•</span>
+            <div>
+              <strong>"Scaled microservices architecture serving millions"</strong> sounds better on LinkedIn than <strong>"Built a monolith that works fine."</strong>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">•</span>
+            <div>
+              <strong>"Implemented Kubernetes clusters with Istio service mesh"</strong> gets interview callbacks. <strong>"Deployed to Heroku"</strong> doesn't.
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">•</span>
+            <div>
+              <strong>"Distributed systems engineer"</strong> commands a higher salary than <strong>"Maintained a simple Rails app."</strong>
+            </div>
+          </li>
+        </ul>
+
+        <p class="mb-8">
+          The incentives are misaligned. What's good for your developer's career isn't always what's good for your business.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What You Should Copy From Big Tech</h2>
+
+        <p class="mb-6">
+          Not all big tech practices are bad. Some are genuinely valuable at any scale:
+        </p>
+
+        <div class="bg-green-50 p-6 mb-8 rounded-lg">
+          <ul class="space-y-3 text-gray-700">
+            <li>✓ <strong>Code review:</strong> Catch bugs before they ship, regardless of team size</li>
+            <li>✓ <strong>Automated testing:</strong> Confidence in changes, whether 1 developer or 1000</li>
+            <li>✓ <strong>Monitoring and logging:</strong> Know when things break, at any scale</li>
+            <li>✓ <strong>Documentation:</strong> Onboard new people faster (even if "new people" is future you)</li>
+            <li>✓ <strong>Security practices:</strong> Customer data matters whether you have 10 or 10 million users</li>
+            <li>✓ <strong>Automated deployments:</strong> Ship faster with less risk</li>
+          </ul>
+        </div>
+
+        <p class="mb-8">
+          Notice what's not on that list? Complex infrastructure, distributed systems, or bleeding-edge frameworks.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Right Question</h2>
+
+        <p class="mb-6">
+          When your developer proposes adopting some big tech pattern, don't ask: "Is this what Netflix does?"
+        </p>
+
+        <p class="mb-6">
+          Ask:
+        </p>
+
+        <div class="bg-blue-50 p-6 mb-8 rounded-lg">
+          <ul class="space-y-4">
+            <li>
+              <strong>"What problem does this solve for us, specifically?"</strong><br/>
+              <span class="text-sm text-gray-700">Not theoretically. Not at imagined future scale. Right now.</span>
+            </li>
+            <li>
+              <strong>"What's the simpler solution?"</strong><br/>
+              <span class="text-sm text-gray-700">There's always a simpler solution. What is it and why won't it work?</span>
+            </li>
+            <li>
+              <strong>"What's the ongoing maintenance cost?"</strong><br/>
+              <span class="text-sm text-gray-700">Complex systems require constant care. Who's going to maintain this in 6 months?</span>
+            </li>
+            <li>
+              <strong>"What happens if we do nothing?"</strong><br/>
+              <span class="text-sm text-gray-700">Sometimes the answer is "we're fine." That's a valid answer.</span>
+            </li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Scale When You Need It, Not Before</h2>
+
+        <p class="mb-6">
+          "But what if we get a million users tomorrow?" Then you'll have revenue to hire people to scale the architecture. That's a good problem to have.
+        </p>
+
+        <p class="mb-6">
+          Building for imaginary future scale is called premature optimization. It's expensive and often wrong—you'll scale in directions you don't actually need.
+        </p>
+
+        <div class="bg-yellow-50 p-6 mb-8 rounded-lg border-l-4 border-yellow-400">
+          <p class="text-lg font-semibold mb-3">The Scaling Reality:</p>
+          <p class="text-gray-700 mb-3">
+            Most startups fail because they don't get customers, not because their monolith couldn't handle the traffic they never got.
+          </p>
+          <p class="text-gray-700">
+            Twitter ran on a monolith until they had millions of users. Instagram had 30 million users before they split up their architecture. WhatsApp handled 450 million users with 32 engineers.
+          </p>
+        </div>
+
+        <p class="mb-8">
+          Simple scales further than you think.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The "Boring Technology" Rule</h2>
+
+        <p class="mb-6">
+          You have a finite capacity for dealing with complexity and unknowns. Every new technology, framework, or architectural pattern consumes some of that capacity.
+        </p>
+
+        <p class="mb-6">
+          Choose boring, proven technology for most of your stack. Save your innovation budget for the parts that actually differentiate your business.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-green-50 p-6 rounded-lg">
+            <p class="font-semibold mb-3 text-green-900">Boring (Use This):</p>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>✓ PostgreSQL (been solid for 25 years)</li>
+              <li>✓ Rails/Django (mature, well-documented)</li>
+              <li>✓ AWS EC2 (simple, predictable)</li>
+              <li>✓ React (huge community, lots of help available)</li>
+              <li>✓ Background jobs with Sidekiq/Celery</li>
+            </ul>
+          </div>
+
+          <div class="bg-red-50 p-6 rounded-lg">
+            <p class="font-semibold mb-3 text-red-900">Exciting (Be Very Careful):</p>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>✗ New database technology "way faster than Postgres"</li>
+              <li>✗ Bleeding-edge framework (v0.8.2-beta)</li>
+              <li>✗ Custom service mesh implementation</li>
+              <li>✗ Novel architecture from last week's HackerNews</li>
+              <li>✗ "We'll write our own..." anything</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">When Should You Actually Adopt Complex Patterns?</h2>
+
+        <p class="mb-6">
+          Eventually, you might need them. Here are the actual triggers:
+        </p>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Microservices: When You Have Multiple Teams</p>
+            <p class="text-sm text-gray-700">If different teams are stepping on each other's toes in the same codebase, it might be time. Not before.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Kubernetes: When Manual Infrastructure Gets Overwhelming</p>
+            <p class="text-sm text-gray-700">If you're managing 50+ servers manually and spending all your time on infrastructure, K8s might help. At 5 servers? No.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Event-Driven Architecture: When You Need Real Async Processing</p>
+            <p class="text-sm text-gray-700">If you have truly independent processes that don't need to know about each other. Not because you read a blog post about it.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">NoSQL: When Relational Models Don't Fit</p>
+            <p class="text-sm text-gray-700">If your data genuinely doesn't fit tables and relationships. But 95% of applications fit perfectly fine in Postgres.</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+
+        <p class="mb-6">
+          Netflix, Google, and Facebook have problems you'll never have. They also have resources you don't have—hundreds of engineers, massive budgets, and years to get things right.
+        </p>
+
+        <p class="mb-6">
+          Your competitive advantage isn't in copying their architecture. It's in moving fast, staying simple, and solving actual customer problems instead of imaginary scaling problems.
+        </p>
+
+        <p class="mb-8">
+          Build for the scale you have, not the scale you dream about. You can always add complexity later. You can't easily remove it.
+        </p>
+
+        <div class="bg-brand-dark text-white p-8 rounded-lg text-center">
+          <h3 class="text-2xl font-bold mb-4">Need Help Separating Necessary Architecture from Resume-Driven Development?</h3>
+          <p class="text-gray-300 mb-6">
+            A fractional CTO can evaluate technical proposals, spot premature optimization, and ensure you're solving real problems instead of imaginary ones.
+          </p>
+          <a href="/index.html#contact" class="inline-block bg-brand-red text-white px-8 py-3 rounded-md hover:bg-opacity-90 transition font-semibold">
+            Get Practical Technical Guidance
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

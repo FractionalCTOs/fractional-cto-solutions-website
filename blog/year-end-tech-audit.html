@@ -1,0 +1,332 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year-End Tech Audit: 5 Questions Every CEO Should Ask Their CTO | Fractional CTO</title>
+  <meta name="description" content="Before planning next year's roadmap, make sure you understand the current state of your technology. Five essential questions every CEO needs answers to.">
+  <meta name="keywords" content="tech audit, CTO questions, technology assessment, technical debt, security audit, infrastructure review, year-end planning">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+<!-- Article -->
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Technical Leadership</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Year-End Tech Audit: 5 Questions Every CEO Should Ask Their CTO</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-12-15">December 15, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          It's December. You're planning next year's roadmap, setting budgets, making promises to investors and customers. But before you commit to building 10 new features, there's something you need to know: What's the actual state of your technology?
+        </p>
+
+        <p class="mb-6">
+          Most CEOs assume things are fine until they're very much not fine. By then, it's expensive to fix. Here are five questions to ask before the year ends—while you still have time to course-correct.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Question 1: "If Our Lead Developer Quit Tomorrow, What Happens?"</h2>
+
+        <div class="bg-blue-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3">Why This Matters:</p>
+          <p class="text-gray-700">This question reveals whether you have a system or just a talented person holding things together with duct tape and hope.</p>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Good Answers:</h3>
+        <ul class="space-y-3 mb-6">
+          <li>✓ "We have documentation for all critical systems."</li>
+          <li>✓ "Multiple people understand each part of the architecture."</li>
+          <li>✓ "We could onboard a replacement in 2-3 weeks."</li>
+          <li>✓ "Everything is in our repos with clear README files."</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Bad Answers:</h3>
+        <ul class="space-y-3 mb-8">
+          <li>✗ "That would be... really bad."</li>
+          <li>✗ "Only Sarah knows how the payment system works."</li>
+          <li>✗ "Some of the configuration is in his head."</li>
+          <li>✗ "We'd have to reverse-engineer parts of it."</li>
+        </ul>
+
+        <p class="mb-6">
+          This is called the "Bus Factor." If one person getting hit by a bus tanks your company, you don't have infrastructure—you have a single point of failure.
+        </p>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+          <p class="font-semibold mb-2">What to Do About It:</p>
+          <p class="text-gray-700">Allocate January sprint capacity for documentation. No new features until critical systems are documented. This is insurance, not overhead.</p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Question 2: "What Security Vulnerabilities Do We Currently Have?"</h2>
+
+        <div class="bg-blue-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3">Why This Matters:</p>
+          <p class="text-gray-700">You can't fix what you don't know about. Most breaches happen through known vulnerabilities that nobody bothered to patch.</p>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">The Answer You DON'T Want to Hear:</h3>
+        <p class="mb-6 text-red-900 font-semibold">
+          "None. We're totally secure."
+        </p>
+        <p class="mb-6">
+          This answer means they either haven't looked, or they're lying. Every system has vulnerabilities. The question is: Do we know what they are and how serious they are?
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Good Answers:</h3>
+        <ul class="space-y-3 mb-8">
+          <li>✓ "We have 3 high-priority issues we're addressing in Q1."</li>
+          <li>✓ "We run automated security scans weekly and fix critical issues within 48 hours."</li>
+          <li>✓ "Our dependencies are monitored for CVEs, we're current except for X which requires a migration."</li>
+          <li>✓ "Here's our prioritized list of known issues with timelines."</li>
+        </ul>
+
+        <div class="bg-red-50 p-6 mb-8 rounded-lg border-l-4 border-red-400">
+          <p class="font-semibold mb-3 text-red-900">Follow-Up Questions:</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>• "When was our last security audit?" (If the answer is "never," budget for one)</li>
+            <li>• "Do we have automated scanning?" (Should be yes)</li>
+            <li>• "Who's responsible for security patches?" (Should have a clear owner)</li>
+            <li>• "What's our incident response plan?" (If they pause, you don't have one)</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Question 3: "What Technical Debt Are We Carrying, and What's It Going to Cost Us?"</h2>
+
+        <div class="bg-blue-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3">Why This Matters:</p>
+          <p class="text-gray-700">Technical debt is like credit card debt—some is manageable, but if you only make minimum payments, eventually the interest crushes you.</p>
+        </div>
+
+        <p class="mb-6">
+          Every development team has technical debt. The question is: Is it documented, prioritized, and under control? Or is it a growing tumor nobody wants to talk about?
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">What You're Listening For:</h3>
+
+        <div class="bg-green-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3 text-green-900">Healthy Technical Debt Management:</p>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li>• They can list the top 3-5 items</li>
+            <li>• Each item has an estimated cost to fix</li>
+            <li>• There's a plan to address them incrementally</li>
+            <li>• They can explain the impact if left unaddressed</li>
+            <li>• 15-20% of each sprint goes toward paying it down</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 p-6 mb-8 rounded-lg">
+          <p class="font-semibold mb-3 text-red-900">Warning Signs:</p>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li>✗ "We'll deal with it later" (it's already later)</li>
+            <li>✗ They can't quantify it</li>
+            <li>✗ "Everything is technical debt" (lost control)</li>
+            <li>✗ Zero time allocated to address it</li>
+            <li>✗ "The whole thing needs to be rewritten" (red flag)</li>
+          </ul>
+        </div>
+
+        <p class="mb-8">
+          If the answer is "we need to rebuild everything," get a second opinion. That's either panic or a developer who wants to work on something more interesting.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Question 4: "What Happened to Our Development Velocity? Why Are We Shipping Slower?"</h2>
+
+        <div class="bg-blue-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3">Why This Matters:</p>
+          <p class="text-gray-700">If it used to take 2 weeks to ship a feature and now takes 6 weeks, something's wrong. Understanding what is the first step to fixing it.</p>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Possible Honest Answers:</h3>
+
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">1.</span>
+            <div>
+              <strong>"Technical debt is slowing us down."</strong> Every change now touches brittle, poorly-understood code. Time to pay down debt.
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">2.</span>
+            <div>
+              <strong>"We're spending 40% of our time firefighting."</strong> Too many production issues. Need to invest in stability and monitoring.
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">3.</span>
+            <div>
+              <strong>"The architecture has gotten complex."</strong> What used to be 1 file is now 8 services. Maybe the complexity isn't justified yet.
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">4.</span>
+            <div>
+              <strong>"We lost key people and knowledge transfer was poor."</strong> See Question 1 about documentation.
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="text-brand-red font-bold mr-3">5.</span>
+            <div>
+              <strong>"Features are legitimately more complex now."</strong> Early features were simple. Later features build on top of everything, require more integration work.
+            </div>
+          </li>
+        </ul>
+
+        <p class="mb-6">
+          All of these are addressable problems. The worst answer is: "I don't know" or "We just need more developers." Adding people to a broken process makes it slower, not faster.
+        </p>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+          <p class="font-semibold mb-2">Red Flag:</p>
+          <p class="text-gray-700">If velocity is declining quarter over quarter with no clear explanation or plan to address it, you've lost control of your development process.</p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Question 5: "If We Got Acquired Tomorrow, What Would Due Diligence Find?"</h2>
+
+        <div class="bg-blue-50 p-6 mb-6 rounded-lg">
+          <p class="font-semibold mb-3">Why This Matters:</p>
+          <p class="text-gray-700">Technical due diligence can kill deals or slash valuations. You want to know the skeletons in your closet before a buyer's auditors do.</p>
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">What Acquirers Look For:</h3>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Code Ownership & Access</p>
+            <p class="text-sm text-gray-700">Do you actually own all your code? Is it in your repos? Can you grant access without your current vendor?</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Infrastructure Control</p>
+            <p class="text-sm text-gray-700">Is everything running in your AWS/Azure account, or your vendor's? Can you deploy without them?</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Security Posture</p>
+            <p class="text-sm text-gray-700">Recent audit? Known vulnerabilities? Compliance with relevant standards? Encrypted data at rest and in transit?</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Documentation</p>
+            <p class="text-sm text-gray-700">Can a new team understand and maintain the system? Or is it all in people's heads?</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Scalability & Technical Debt</p>
+            <p class="text-sm text-gray-700">Can the current architecture handle 10x growth? What needs to be rebuilt? What's the cost?</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">Dependencies & Licensing</p>
+            <p class="text-sm text-gray-700">Any GPL violations? Unlicensed software? Vendor lock-in that creates ongoing costs?</p>
+          </div>
+        </div>
+
+        <p class="mb-8">
+          You don't need perfect answers to all of these. But you should know where the problems are and how much they'd cost to fix. Surprises in due diligence are expensive.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What to Do With the Answers</h2>
+
+        <p class="mb-6">
+          The point of these questions isn't to create panic. It's to surface reality before it becomes a crisis.
+        </p>
+
+        <div class="bg-green-50 p-6 mb-8 rounded-lg">
+          <p class="font-semibold mb-4">Action Items for January:</p>
+          <ol class="space-y-3 text-gray-700">
+            <li><strong>1. Document critical systems</strong> - Fix the Bus Factor problem before it's urgent</li>
+            <li><strong>2. Run security audit</strong> - If you haven't done one, budget for it</li>
+            <li><strong>3. Quantify technical debt</strong> - Turn vague concerns into concrete items with costs</li>
+            <li><strong>4. Allocate debt paydown time</strong> - Reserve 15-20% of sprint capacity for technical health</li>
+            <li><strong>5. Address velocity blockers</strong> - Whatever's slowing you down won't fix itself</li>
+          </ol>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Question You SHOULD Ask But Probably Won't</h2>
+
+        <p class="mb-6 font-semibold text-lg">
+          "On a scale of 1-10, how confident are you in the technical foundation we've built?"
+        </p>
+
+        <p class="mb-6">
+          If your technical leader hesitates or gives you a number below 7, dig deeper. That pause tells you everything.
+        </p>
+
+        <p class="mb-8">
+          Technical leaders want to protect you from worry. They'll minimize problems until they can't anymore. Push for honesty. You can't fix what you don't know about.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+
+        <p class="mb-6">
+          You wouldn't plan next year's revenue goals without understanding your current financial position. Don't plan next year's product roadmap without understanding your technical position.
+        </p>
+
+        <p class="mb-6">
+          These five questions give you the technical health snapshot you need to make informed decisions. Ask them now, while there's still time to address problems before they become crises.
+        </p>
+
+        <p class="mb-8">
+          The answers might not be comfortable. But uncomfortable truths in December are better than disasters in March.
+        </p>
+
+        <div class="bg-brand-dark text-white p-8 rounded-lg text-center">
+          <h3 class="text-2xl font-bold mb-4">Need Help Assessing Your Technical Foundation?</h3>
+          <p class="text-gray-300 mb-6">
+            A fractional CTO can conduct a year-end technical audit, translate technical jargon into business impact, and help you build a realistic plan for technical health in 2026.
+          </p>
+          <a href="/index.html#contact" class="inline-block bg-brand-red text-white px-8 py-3 rounded-md hover:bg-opacity-90 transition font-semibold">
+            Schedule Your Year-End Technical Review
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>
