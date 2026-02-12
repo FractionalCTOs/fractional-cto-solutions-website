@@ -1,0 +1,351 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker 29 Broke Our AWS ECR Deploys: How We Fixed the OCI Manifest 403 Error | Fractional CTO</title>
+  <meta name="description" content="Docker 29's switch to containerd breaks ECR pushes with 403 Forbidden. Here's how we fixed it using crane to bypass the OCI manifest incompatibility.">
+  <meta name="keywords" content="Docker 29, ECR, AWS, crane, OCI manifest, 403 Forbidden, CI/CD, GitHub Actions, containerd">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+    pre {
+      background-color: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      font-size: 0.875rem;
+    }
+    code {
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    }
+    .inline-code {
+      background-color: #f1f5f9;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      font-size: 0.875em;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+<!-- Article -->
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">DevOps</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Docker 29 Broke Our AWS ECR Deploys: How We Fixed the OCI Manifest 403 Error</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2026-02-12">February 12, 2026</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          This morning, we did two deployments 15 minutes apart. The first one passed. The second one failed with a cryptic <code class="inline-code">403 Forbidden</code> error during <code class="inline-code">docker push</code> to Amazon ECR. Nothing in our code had changed. Here's what happened and how we fixed it.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Symptom</h2>
+
+        <p class="mb-6">
+          Our GitHub Actions workflow builds a Docker image and pushes it to Amazon ECR. Overnight, the push step started failing:
+        </p>
+
+        <pre class="mb-6"><code>unexpected status from HEAD request to
+https://ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/v2/REPO/manifests/IMAGE_TAG:
+403 Forbidden</code></pre>
+
+        <p class="mb-8">
+          Every layer pushed successfully. The failure only happened at the final manifest step — a HEAD request to check if the manifest already existed returned 403 instead of the expected 404 (not found) or 200 (exists).
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Root Cause</h2>
+
+        <p class="mb-6">
+          GitHub Actions recently updated their <code class="inline-code">ubuntu-latest</code> runner image, upgrading Docker from <strong>28.0.4</strong> to <strong>29.1.5</strong> (<a href="https://github.com/actions/runner-images/issues/13474" class="text-brand-red hover:underline">actions/runner-images#13474</a>).
+        </p>
+
+        <p class="mb-6">
+          Docker 29 made a significant change: <strong>containerd is now the default image store</strong>. This means Docker 29 stores and pushes images using OCI (Open Container Initiative) manifest format instead of the legacy Docker v2 Schema 2 format.
+        </p>
+
+        <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+          <p class="text-gray-700">
+            <strong>The problem?</strong> ECR returns 403 Forbidden when it receives an OCI manifest push from Docker 29's containerd, even though ECR claims to support OCI manifests v1.0 and v1.1. The 403 is misleading — it's not an authentication issue, it's an incompatibility between Docker 29's specific OCI manifest implementation and ECR's manifest handling.
+          </p>
+          <p class="text-gray-700 mt-4">
+            This is tracked in <a href="https://github.com/moby/moby/issues/51532" class="text-brand-red hover:underline">moby/moby#51532</a>.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What We Tried (And Why It Failed)</h2>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Attempt 1: Pin Docker Client to v27</h3>
+
+        <p class="mb-4">We downloaded the Docker 27 static binary and placed it ahead of Docker 29 in <code class="inline-code">$PATH</code>:</p>
+
+        <pre class="mb-4"><code>- name: Install Docker 27 client
+  run: |
+    curl -sL https://download.docker.com/linux/static/stable/x86_64/docker-27.5.1.tgz | tar xz
+    cp docker/docker /usr/local/bin/docker</code></pre>
+
+        <p class="mb-8">
+          <strong>Result:</strong> Failed. The Docker <em>client</em> was v27, but the <em>daemon</em> was still v29 with containerd. The daemon controls the push, not the client. You can't fix a server-side behavior by swapping the client binary.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Attempt 2: --platform linux/amd64 Flag</h3>
+
+        <p class="mb-4">Docker 29 introduced a <code class="inline-code">--platform</code> flag for <code class="inline-code">docker push</code> that forces a single-platform push instead of a multi-platform manifest index:</p>
+
+        <pre class="mb-4"><code>- name: Wrap docker push
+  run: |
+    REAL_DOCKER=$(which docker)
+    cat > /usr/local/bin/docker &lt;&lt;WRAPPER
+    #!/bin/sh
+    if [ "\$1" = "push" ]; then
+      shift
+      exec $REAL_DOCKER push --platform linux/amd64 "\$@"
+    fi
+    exec $REAL_DOCKER "\$@"
+    WRAPPER
+    chmod +x /usr/local/bin/docker</code></pre>
+
+        <p class="mb-8">
+          <strong>Result:</strong> Failed. The flag changes <em>which</em> manifest gets pushed (single-platform vs. index), but it's still an OCI manifest. ECR still rejected it with 403.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Attempt 3: Build-time Flags</h3>
+
+        <p class="mb-4">We added several environment variables and build options:</p>
+
+        <pre class="mb-4"><code>env:
+  BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+  DOCKER_DEFAULT_PLATFORM: linux/amd64
+
+# On the build command:
+--provenance=false</code></pre>
+
+        <p class="mb-8">
+          <strong>Result:</strong> These are useful for keeping the image clean (no attestation layers), but they don't change the manifest format used during push. Still 403.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Fix: Bypass Docker Push with Crane</h2>
+
+        <p class="mb-6">
+          The solution was to <strong>stop using <code class="inline-code">docker push</code> entirely</strong>. Instead, we use <a href="https://github.com/google/go-containerregistry" class="text-brand-red hover:underline">crane</a>, a lightweight Go tool for interacting with container registries.
+        </p>
+
+        <p class="mb-6">The approach:</p>
+        <ol class="list-decimal list-inside mb-6 space-y-2">
+          <li><code class="inline-code">docker save</code> exports the image as a standard Docker v2 tarball</li>
+          <li><code class="inline-code">crane push</code> sends that tarball to the registry using Docker v2 Schema 2 manifest format</li>
+        </ol>
+
+        <p class="mb-4">Here's the workflow step:</p>
+
+        <pre class="mb-8"><code>- name: Wrap Docker push for ECR OCI compatibility
+  run: |
+    # Docker 29 containerd pushes OCI manifests that ECR rejects with 403
+    # Bypass docker push entirely: save image to tarball, push with crane
+    CRANE_VERSION=v0.20.3
+    curl -sL "https://github.com/google/go-containerregistry/releases/download/${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz" \
+      | tar xz -C /usr/local/bin crane
+    echo "crane $(crane version)"
+
+    REAL_DOCKER=$(which docker)
+    cat > /usr/local/bin/docker &lt;&lt;WRAPPER
+    #!/bin/sh
+    if [ "\$1" = "push" ]; then
+      shift
+      # Parse image reference (skip flags like --platform)
+      IMAGE=""
+      for arg in "\$@"; do
+        case "\$arg" in
+          --*) ;;
+          *) IMAGE="\$arg" ;;
+        esac
+      done
+      echo "=== crane push workaround for Docker 29 / ECR OCI ==="
+      echo "Image: \$IMAGE"
+      TMPTAR=\$(mktemp /tmp/image-XXXXXX.tar)
+      $REAL_DOCKER save "\$IMAGE" -o "\$TMPTAR" && crane push "\$TMPTAR" "\$IMAGE"
+      RC=\$?
+      rm -f "\$TMPTAR"
+      exit \$RC
+    else
+      exec $REAL_DOCKER "\$@"
+    fi
+    WRAPPER
+    chmod +x /usr/local/bin/docker
+    echo "Docker wrapper with crane push installed."
+  working-directory: .</code></pre>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Why This Works</h3>
+
+        <ul class="space-y-3 mb-8">
+          <li><strong><code class="inline-code">docker save</code></strong> always produces a Docker v2 format tarball, regardless of the storage backend. Even with containerd, the save command outputs the standard Docker archive format.</li>
+          <li><strong><code class="inline-code">crane push</code></strong> reads that tarball and pushes it to the registry using Docker v2 Schema 2 media types — the format ECR has supported for years.</li>
+          <li><strong>The wrapper</strong> transparently intercepts <code class="inline-code">docker push</code> commands while passing all other Docker commands (build, login, tag, etc.) through to the real Docker binary.</li>
+          <li><strong><code class="inline-code">crane</code></strong> reads Docker's credential store (<code class="inline-code">~/.docker/config.json</code>), so ECR authentication works automatically after <code class="inline-code">docker login</code>.</li>
+        </ul>
+
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4">Why a Wrapper Script?</h3>
+          <p class="text-gray-700">
+            If you control the push command directly, you could just call <code class="inline-code">crane push</code> yourself. But many deployment tools (Laravel Vapor, Terraform, Pulumi, etc.) run <code class="inline-code">docker push</code> internally. The wrapper lets you fix the push behavior without modifying the deployment tool.
+          </p>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4">GitHub Actions ECR Authentication</h3>
+          <p class="text-gray-700 mb-4">
+            This workaround assumes you're already authenticating to ECR in your GitHub Actions workflow. The standard setup uses the <code class="inline-code">aws-actions/amazon-ecr-login</code> action, which populates Docker's credential store:
+          </p>
+          <pre class="mb-4"><code>- name: Configure AWS credentials
+  uses: aws-actions/configure-aws-credentials@v4
+  with:
+    role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsRole
+    aws-region: us-east-1
+
+- name: Login to Amazon ECR
+  uses: aws-actions/amazon-ecr-login@v2</code></pre>
+          <p class="text-gray-700">
+            The ECR login action writes credentials to <code class="inline-code">~/.docker/config.json</code>, which crane reads automatically. No additional authentication setup is needed — the wrapper just intercepts <code class="inline-code">docker push</code> and uses the same credentials that were already configured.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Key Takeaways</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">1. Docker 29 is a breaking change for ECR users</p>
+            <p class="text-sm text-gray-700">The switch to containerd as the default image store changes the manifest format on push. If you push to ECR from GitHub Actions, you may be affected without warning when your runner image updates.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">2. The 403 error is misleading</p>
+            <p class="text-sm text-gray-700">It looks like an auth problem, but it's a manifest format incompatibility. Don't waste time debugging IAM policies or ECR tokens.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">3. Client-side fixes don't work</p>
+            <p class="text-sm text-gray-700">The Docker daemon controls the push, not the client binary. Swapping the CLI doesn't change the daemon's behavior.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">4. --platform doesn't change the manifest format</p>
+            <p class="text-sm text-gray-700">It selects a single platform from a multi-platform index, but the manifest is still OCI format.</p>
+          </div>
+
+          <div class="bg-white border-l-4 border-brand-red p-4">
+            <p class="font-semibold mb-2">5. crane is a reliable escape hatch</p>
+            <p class="text-sm text-gray-700">When Docker's push behavior doesn't work with your registry, <code class="inline-code">crane</code> gives you explicit control over what gets pushed and in what format.</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Timeline</h2>
+
+        <div class="overflow-x-auto mb-8">
+          <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700 border-b">Time</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700 border-b">Event</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700 border-b">9:00 AM</td>
+                <td class="px-6 py-4 text-sm text-gray-700 border-b">First deploy succeeds — Docker 28.0.4 on runner</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700 border-b">9:15 AM</td>
+                <td class="px-6 py-4 text-sm text-gray-700 border-b">Second deploy fails with 403 Forbidden — runner image updated to Docker 29.1.5 between builds</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700 border-b">+1 hour</td>
+                <td class="px-6 py-4 text-sm text-gray-700 border-b">Identified Docker 29 containerd change as root cause; Docker 27 client pin and --platform flag attempted — both failed</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">+2 hours</td>
+                <td class="px-6 py-4 text-sm text-gray-700"><code class="inline-code">crane push</code> workaround deployed and confirmed working</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">When Can You Remove the Workaround?</h2>
+
+        <p class="mb-6">Watch these two issues:</p>
+
+        <ul class="space-y-3 mb-8">
+          <li><strong><a href="https://github.com/moby/moby/issues/51532" class="text-brand-red hover:underline">moby/moby#51532</a></strong> — Docker's tracking issue for OCI manifest push incompatibilities with registries</li>
+          <li><strong>AWS ECR</strong> — When ECR properly handles OCI manifests from Docker 29's containerd, the workaround becomes unnecessary</li>
+        </ul>
+
+        <p class="mb-8">
+          Once either Docker fixes the manifest format or ECR accepts it, you can remove the wrapper and go back to native <code class="inline-code">docker push</code>.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">References</h2>
+
+        <ul class="space-y-2 mb-8">
+          <li><a href="https://github.com/moby/moby/issues/51532" class="text-brand-red hover:underline">moby/moby#51532</a> — Docker 29 OCI manifest push issues</li>
+          <li><a href="https://github.com/actions/runner-images/issues/13474" class="text-brand-red hover:underline">actions/runner-images#13474</a> — Docker 29 rollout on GitHub Actions</li>
+          <li><a href="https://github.com/google/go-containerregistry" class="text-brand-red hover:underline">google/go-containerregistry (crane)</a> — The tool that saved our deploys</li>
+          <li><a href="https://github.com/opencontainers/image-spec/blob/main/manifest.md" class="text-brand-red hover:underline">OCI Image Manifest Specification</a> — The standard Docker 29 now uses by default</li>
+        </ul>
+
+        <div class="bg-brand-dark text-white p-8 rounded-lg text-center">
+          <h3 class="text-2xl font-bold mb-4">CI/CD Pipeline Breaking? Let's Fix It.</h3>
+          <p class="text-gray-300 mb-6">
+            Infrastructure issues like this can cost days of debugging. A fractional CTO brings the experience to diagnose these problems quickly and implement robust solutions.
+          </p>
+          <a href="/index.html#contact" class="inline-block bg-brand-red text-white px-8 py-3 rounded-md hover:bg-opacity-90 transition font-semibold">
+            Get Help With Your Infrastructure
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>
