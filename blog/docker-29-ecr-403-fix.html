@@ -16,8 +16,8 @@ activePage: blog
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Docker 29 Broke Our AWS ECR Deploys: How We Fixed the OCI Manifest 403 Error | Fractional CTO</title>
-  <meta name="description" content="Docker 29's switch to containerd breaks ECR pushes with 403 Forbidden. Here's how we fixed it using crane to bypass the OCI manifest incompatibility.">
+  <title>Docker 29 Broke Our AWS ECR Deploys: How We Fixed the 403 Forbidden Error | Fractional CTO</title>
+  <meta name="description" content="Docker 29's containerd requires ecr:BatchGetImage permission that older versions didn't need. Here's the IAM fix and a crane workaround.">
   <meta name="keywords" content="Docker 29, ECR, AWS, crane, OCI manifest, 403 Forbidden, CI/CD, GitHub Actions, containerd">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -57,6 +57,14 @@ activePage: blog
       border-radius: 0.25rem;
       font-size: 0.875em;
     }
+    .wrong {
+      text-decoration: line-through;
+      color: #9ca3af;
+    }
+    .correction {
+      color: #059669;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -67,7 +75,7 @@ activePage: blog
     <div class="max-w-4xl mx-auto px-6">
       <header class="mb-12">
         <div class="text-sm text-brand-red font-semibold mb-4">DevOps</div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Docker 29 Broke Our AWS ECR Deploys: How We Fixed the OCI Manifest 403 Error</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Docker 29 Broke Our AWS ECR Deploys: The Missing Permission Nobody Told You About</h1>
         <div class="flex items-center text-gray-600 space-x-4">
           <span>By Jeff Wray</span>
           <span>•</span>
@@ -79,6 +87,34 @@ activePage: blog
         <p class="text-xl text-gray-700 mb-8">
           This morning, we did two deployments 15 minutes apart. The first one passed. The second one failed with a cryptic <code class="inline-code">403 Forbidden</code> error during <code class="inline-code">docker push</code> to Amazon ECR. Nothing in our code had changed. Here's what happened and how we fixed it.
         </p>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+          <p class="text-sm text-green-800 font-semibold mb-2">UPDATE - February 13, 2026</p>
+          <p class="text-gray-700 mb-4">
+            An AWS engineer reached out with the actual root cause: <strong>the 403 Forbidden occurs when the caller lacks <code class="inline-code">ecr:BatchGetImage</code> permissions</strong>. Docker 29's containerd image store makes HEAD requests that require this permission, which older Docker versions didn't need.
+          </p>
+          <p class="text-gray-700 mb-4">
+            <strong>To debug ECR permission failures:</strong> Check AWS CloudTrail for the specific permission denial — the failure codes there will tell you exactly which permission is missing.
+          </p>
+          <p class="text-gray-700">
+            <strong>The fix:</strong> Add <code class="inline-code">ecr:BatchGetImage</code> to your IAM policy. If you can't modify IAM permissions quickly (or want a workaround that doesn't require IAM changes), the crane-based solution below still works by bypassing the problematic manifest check entirely.
+          </p>
+        </div>
+
+        <div class="bg-gray-100 border-l-4 border-gray-400 p-6 mb-8">
+          <p class="text-gray-700 mb-4">
+            <strong>Why this post exists:</strong> CI/CD breaks between deploys with a cryptic 403, and you start pulling every thread. Docker version changed, manifest format changed, and apparently permissions too. A lot of moving pieces landing at once with no clear signal pointing to IAM.
+          </p>
+          <p class="text-gray-700 mb-4">
+            GitHub announced the runner update, but it was buried in release notes — no banner in Actions, no heads-up where developers actually work. Then you've got this whole chain to debug: <strong>GitHub Actions → Docker → Laravel Vapor → ECR → IAM</strong>, where each layer can mask where the actual problem lives. Modern infrastructure has multiple choke points and failure modes that look identical from the outside.
+          </p>
+          <p class="text-gray-700 mb-4">
+            For context: <a href="https://vapor.laravel.com" class="text-brand-red hover:underline">Laravel Vapor</a> is a serverless deployment platform that sits on top of AWS Lambda and deploys Docker images to ECR. As of this writing, even <a href="https://docs.vapor.build/introduction#creating-an-iam-role" class="text-brand-red hover:underline">Vapor's recommended IAM policy</a> doesn't include the new required permissions yet.
+          </p>
+          <p class="text-gray-700">
+            Even opening an AWS support case didn't yield quick results. The goal was to get unblocked and move on, and the crane workaround accomplished that. Now we know the cleaner fix — add the IAM permissions.
+          </p>
+        </div>
 
         <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Symptom</h2>
 
@@ -101,19 +137,26 @@ https://ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/v2/REPO/manifests/IMAGE_TAG:
         </p>
 
         <p class="mb-6">
-          Docker 29 made a significant change: <strong>containerd is now the default image store</strong>. This means Docker 29 stores and pushes images using OCI (Open Container Initiative) manifest format instead of the legacy Docker v2 Schema 2 format.
+          Docker 29 made a significant change: <strong>containerd is now the default image store</strong>. <span class="wrong">This means Docker 29 stores and pushes images using OCI (Open Container Initiative) manifest format instead of the legacy Docker v2 Schema 2 format.</span> <span class="correction">↳ This is true, but it's not why the push fails.</span>
         </p>
 
         <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
           <p class="text-gray-700">
-            <strong>The problem?</strong> ECR returns 403 Forbidden when it receives an OCI manifest push from Docker 29's containerd, even though ECR claims to support OCI manifests v1.0 and v1.1. The 403 is misleading — it's not an authentication issue, it's an incompatibility between Docker 29's specific OCI manifest implementation and ECR's manifest handling.
+            <strong>The problem?</strong> Docker 29's containerd makes a HEAD request to check if the manifest exists before pushing. This request requires <code class="inline-code">ecr:BatchGetImage</code> permission — a permission that older Docker versions didn't need for the push operation. Without it, ECR returns 403 Forbidden.
           </p>
           <p class="text-gray-700 mt-4">
-            This is tracked in <a href="https://github.com/moby/moby/issues/51532" class="text-brand-red hover:underline">moby/moby#51532</a>.
+            <strong>The simplest fix:</strong> Add <code class="inline-code">ecr:BatchGetImage</code> to your IAM role/policy. See the update above for details.
+          </p>
+          <p class="text-gray-700 mt-4">
+            This is tracked in <a href="https://github.com/moby/moby/issues/51532" class="text-brand-red hover:underline">moby/moby#51532</a> and discussed in <a href="https://github.com/actions/runner-images/issues/13474" class="text-brand-red hover:underline">actions/runner-images#13474</a>.
           </p>
         </div>
 
-        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What We Tried (And Why It Failed)</h2>
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What We Tried (Before We Knew It Was Permissions)</h2>
+
+        <p class="mb-6 text-gray-600 italic">
+          We initially assumed this was a manifest format issue. These attempts all failed because we were solving the wrong problem. Documenting them here so you don't waste time on the same dead ends.
+        </p>
 
         <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Attempt 1: Pin Docker Client to v27</h3>
 
@@ -146,7 +189,7 @@ https://ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/v2/REPO/manifests/IMAGE_TAG:
     chmod +x /usr/local/bin/docker</code></pre>
 
         <p class="mb-8">
-          <strong>Result:</strong> Failed. The flag changes <em>which</em> manifest gets pushed (single-platform vs. index), but it's still an OCI manifest. ECR still rejected it with 403.
+          <strong>Result:</strong> Failed. This changes which manifest gets pushed, but doesn't affect the HEAD request that requires <code class="inline-code">ecr:BatchGetImage</code>. Still 403.
         </p>
 
         <h3 class="text-2xl font-semibold mb-4 text-brand-dark">Attempt 3: Build-time Flags</h3>
@@ -253,13 +296,13 @@ https://ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/v2/REPO/manifests/IMAGE_TAG:
 
         <div class="space-y-4 mb-8">
           <div class="bg-white border-l-4 border-brand-red p-4">
-            <p class="font-semibold mb-2">1. Docker 29 is a breaking change for ECR users</p>
-            <p class="text-sm text-gray-700">The switch to containerd as the default image store changes the manifest format on push. If you push to ECR from GitHub Actions, you may be affected without warning when your runner image updates.</p>
+            <p class="font-semibold mb-2">1. Docker 29 requires new IAM permissions for ECR</p>
+            <p class="text-sm text-gray-700">The switch to containerd changes how Docker checks manifests before pushing. <span class="wrong">The manifest format breaks ECR.</span> <span class="correction">↳ Actually, it requires <code class="inline-code">ecr:BatchGetImage</code> permission that older versions didn't need.</span> If you push to ECR from GitHub Actions, you may be affected without warning when your runner image updates.</p>
           </div>
 
           <div class="bg-white border-l-4 border-brand-red p-4">
-            <p class="font-semibold mb-2">2. The 403 error is misleading</p>
-            <p class="text-sm text-gray-700">It looks like an auth problem, but it's a manifest format incompatibility. Don't waste time debugging IAM policies or ECR tokens.</p>
+            <p class="font-semibold mb-2">2. The 403 error is a permissions issue</p>
+            <p class="text-sm text-gray-700">Docker 29's containerd requires <code class="inline-code">ecr:BatchGetImage</code> permission for the manifest HEAD request. Check CloudTrail for the specific denial. Add this permission to your IAM policy, or use the crane workaround below.</p>
           </div>
 
           <div class="bg-white border-l-4 border-brand-red p-4">
@@ -267,9 +310,10 @@ https://ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/v2/REPO/manifests/IMAGE_TAG:
             <p class="text-sm text-gray-700">The Docker daemon controls the push, not the client binary. Swapping the CLI doesn't change the daemon's behavior.</p>
           </div>
 
-          <div class="bg-white border-l-4 border-brand-red p-4">
-            <p class="font-semibold mb-2">4. --platform doesn't change the manifest format</p>
-            <p class="text-sm text-gray-700">It selects a single platform from a multi-platform index, but the manifest is still OCI format.</p>
+          <div class="bg-white border-l-4 border-gray-300 p-4">
+            <p class="font-semibold mb-2"><span class="wrong">4. --platform doesn't change the manifest format</span></p>
+            <p class="text-sm text-gray-500"><span class="wrong">It selects a single platform from a multi-platform index, but the manifest is still OCI format.</span></p>
+            <p class="text-sm correction mt-2">↳ This is true but irrelevant — the issue is permissions, not manifest format.</p>
           </div>
 
           <div class="bg-white border-l-4 border-brand-red p-4">
@@ -311,16 +355,17 @@ https://ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/v2/REPO/manifests/IMAGE_TAG:
 
         <h2 class="text-3xl font-bold mb-6 text-brand-dark">When Can You Remove the Workaround?</h2>
 
-        <p class="mb-6">Watch these two issues:</p>
+        <p class="mb-6"><strong>Immediately</strong> — if you add <code class="inline-code">ecr:BatchGetImage</code> to your IAM policy.</p>
 
-        <ul class="space-y-3 mb-8">
-          <li><strong><a href="https://github.com/moby/moby/issues/51532" class="text-brand-red hover:underline">moby/moby#51532</a></strong> — Docker's tracking issue for OCI manifest push incompatibilities with registries</li>
-          <li><strong>AWS ECR</strong> — When ECR properly handles OCI manifests from Docker 29's containerd, the workaround becomes unnecessary</li>
-        </ul>
+        <p class="mb-6">The crane workaround was developed before we knew the root cause. Now that we know it's a permissions issue, the fix is straightforward: update your IAM role to include the permission Docker 29's containerd needs.</p>
 
-        <p class="mb-8">
-          Once either Docker fixes the manifest format or ECR accepts it, you can remove the wrapper and go back to native <code class="inline-code">docker push</code>.
-        </p>
+        <p class="mb-6">If you're using the crane workaround and want to remove it:</p>
+
+        <ol class="list-decimal list-inside mb-8 space-y-2">
+          <li>Add <code class="inline-code">ecr:BatchGetImage</code> to your ECR push IAM policy</li>
+          <li>Remove the crane wrapper script from your CI/CD</li>
+          <li>Test a push with native <code class="inline-code">docker push</code></li>
+        </ol>
 
         <h2 class="text-3xl font-bold mb-6 text-brand-dark">References</h2>
 
