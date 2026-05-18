@@ -1,26 +1,35 @@
 // Post-build script to flatten Eleventy's directory structure
-// Copies /page-name/index.html to /page-name.html for backwards compatibility
+// Copies /page-name/index.html to /page-name.html for backwards compatibility.
+// Also creates /blog/post-name.html for blog post compatibility.
 
 const fs = require('fs');
 const path = require('path');
 
 const siteDir = './_site';
 
-// Get all directories in _site (excluding blog and special directories)
-const entries = fs.readdirSync(siteDir, { withFileTypes: true });
+const excludedDirs = new Set(['CLAUDE', 'README']);
 
-entries.forEach(entry => {
-  if (entry.isDirectory() && !['blog', 'CLAUDE', 'README'].includes(entry.name)) {
-    const dirPath = path.join(siteDir, entry.name);
+function flattenIndexes(parentDir) {
+  const entries = fs.readdirSync(parentDir, { withFileTypes: true });
+
+  entries.forEach(entry => {
+    if (!entry.isDirectory() || excludedDirs.has(entry.name)) {
+      return;
+    }
+
+    const dirPath = path.join(parentDir, entry.name);
     const indexFile = path.join(dirPath, 'index.html');
-    const flatFile = path.join(siteDir, `${entry.name}.html`);
+    const flatFile = path.join(parentDir, `${entry.name}.html`);
 
     if (fs.existsSync(indexFile)) {
-      // Copy index.html to flat .html file
       fs.copyFileSync(indexFile, flatFile);
-      console.log(`✓ Created ${entry.name}.html from ${entry.name}/index.html`);
+      console.log(`✓ Created ${path.relative(siteDir, flatFile)} from ${path.relative(siteDir, indexFile)}`);
     }
-  }
-});
+
+    flattenIndexes(dirPath);
+  });
+}
+
+flattenIndexes(siteDir);
 
 console.log('\n✓ Build flattening complete!');
