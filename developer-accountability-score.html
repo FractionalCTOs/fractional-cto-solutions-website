@@ -16,16 +16,16 @@ activePage:
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Accountability Score | Is Your Developer Holding You Hostage?</title>
-  <meta name="description" content="Take this 2-minute assessment to discover if you truly own your code, or if you're locked into vendor dependency. Get your accountability score instantly.">
+  <title>Developer Accountability Score | Code Ownership Assessment</title>
+  <meta name="description" content="Take this 2-minute assessment to see whether your company controls its code, cloud accounts, documentation, and developer accountability practices.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://fractionalctosolutions.com/developer-accountability-score.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Developer Accountability Score - Free Assessment">
-  <meta property="og:description" content="7 questions to reveal if you're at risk of vendor lock-in, code hostage situations, or developer accountability gaps.">
+  <meta property="og:title" content="Developer Accountability Score">
+  <meta property="og:description" content="7 questions to review code ownership, access gaps, and developer accountability before they limit your options.">
   <meta property="og:url" content="https://fractionalctosolutions.com/developer-accountability-score.html">
   <meta property="og:image" content="https://fractionalctosolutions.com/og-image.jpg">
   <meta property="og:site_name" content="Fractional CTO Solutions">
@@ -72,7 +72,7 @@ activePage:
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Developer Accountability Score",
-    "description": "Free assessment tool to evaluate code ownership and developer accountability",
+    "description": "Assessment tool to evaluate code ownership and developer accountability",
     "url": "https://fractionalctosolutions.com/developer-accountability-score.html",
     "applicationCategory": "BusinessApplication",
     "offers": {
@@ -237,7 +237,7 @@ activePage:
               daily_commits: this.answers.q2
             });
 
-            // Track critical red flags
+            // Track critical ownership gaps
             if (this.riskLevel === 'critical') {
               gtag('event', 'critical_red_flags_detected', {
                 score: this.score,
@@ -352,10 +352,10 @@ activePage:
           <!-- Question 4 -->
           <div class="border-b border-gray-200 pb-6">
             <p class="text-lg font-semibold text-gray-800 mb-4">
-              4. Are all third-party accounts (AWS, hosting, domains) registered under YOUR company email?
+              4. Are all third-party accounts (AWS, hosting, domains) registered under your company email?
             </p>
             <p class="text-sm text-gray-600 mb-4">
-              Developer's personal emails create vendor lock-in. You should own all accounts directly.
+              Developer-owned accounts create unnecessary dependency. Your company should own all accounts directly.
             </p>
             <div class="flex gap-4">
               <button
@@ -424,10 +424,10 @@ activePage:
           <!-- Question 7 -->
           <div class="pb-6">
             <p class="text-lg font-semibold text-gray-800 mb-4">
-              7. Could you hire a different developer tomorrow and give them full access to everything?
+              7. Could a different developer get full access quickly if the current relationship changed?
             </p>
             <p class="text-sm text-gray-600 mb-4">
-              True code ownership means zero dependency on any single person.
+              Strong code ownership means the business is not dependent on any single person.
             </p>
             <div class="flex gap-4">
               <button
@@ -516,13 +516,13 @@ activePage:
 
           <!-- Specific Recommendations -->
           <div class="bg-white rounded-lg p-6 border-2 border-gray-200">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">Your Specific Red Flags:</h3>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Your Specific Ownership Gaps:</h3>
             <div class="space-y-3">
               <div x-show="!answers.q1" class="flex items-start bg-red-50 p-4 rounded-lg">
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
                   <p class="font-semibold text-red-900">You don't own the repository</p>
-                  <p class="text-sm text-gray-700">ACTION: Create a GitHub/GitLab organization under your company, transfer all repos, make yourself owner.</p>
+                  <p class="text-sm text-gray-700">Next step: Create a GitHub/GitLab organization under your company, transfer all repos, and make yourself owner.</p>
                 </div>
               </div>
 
@@ -530,7 +530,7 @@ activePage:
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
                   <p class="font-semibold text-red-900">No daily commits visible</p>
-                  <p class="text-sm text-gray-700">ACTION: Require developers to commit code daily. Weekly bulk commits hide what they're actually doing.</p>
+                  <p class="text-sm text-gray-700">Next step: Set a regular commit and review rhythm so progress stays visible.</p>
                 </div>
               </div>
 
@@ -538,7 +538,7 @@ activePage:
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
                   <p class="font-semibold text-red-900">Can't download your own code</p>
-                  <p class="text-sm text-gray-700">ACTION: Request full repository access. This enables proper backup and business continuity planning.</p>
+                  <p class="text-sm text-gray-700">Next step: Request full repository access so backup and continuity planning are possible.</p>
                 </div>
               </div>
 
@@ -546,7 +546,7 @@ activePage:
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
                   <p class="font-semibold text-red-900">Accounts under developer's email</p>
-                  <p class="text-sm text-gray-700">ACTION: Transfer all AWS, hosting, domain accounts to your company email TODAY. This is vendor lock-in.</p>
+                  <p class="text-sm text-gray-700">Next step: Move AWS, hosting, and domain accounts under a company-controlled email and admin process.</p>
                 </div>
               </div>
 
@@ -554,23 +554,23 @@ activePage:
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
                   <p class="font-semibold text-red-900">No documentation</p>
-                  <p class="text-sm text-gray-700">ACTION: Require a README, setup guide, and architecture diagram within 2 weeks.</p>
+                  <p class="text-sm text-gray-700">Next step: Request a README, setup guide, and architecture diagram on a clear timeline.</p>
                 </div>
               </div>
 
               <div x-show="!answers.q6" class="flex items-start bg-red-50 p-4 rounded-lg">
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
-                  <p class="font-semibold text-red-900">Poor communication</p>
-                  <p class="text-sm text-gray-700">ACTION: Set SLA: 4-hour response time during business hours. No exceptions.</p>
+                  <p class="font-semibold text-red-900">Communication expectations are unclear</p>
+                  <p class="text-sm text-gray-700">Next step: Agree on response expectations for normal work and critical issues.</p>
                 </div>
               </div>
 
               <div x-show="!answers.q7" class="flex items-start bg-red-50 p-4 rounded-lg">
                 <span class="text-red-600 mr-3 text-xl">⚠️</span>
                 <div>
-                  <p class="font-semibold text-red-900">Can't replace developer</p>
-                  <p class="text-sm text-gray-700">ACTION: Address the gaps above to ensure business continuity and professional accountability standards.</p>
+                  <p class="font-semibold text-red-900">Continuity depends on one developer</p>
+                  <p class="text-sm text-gray-700">Next step: Address the gaps above so another qualified person could understand and support the system.</p>
                 </div>
               </div>
             </div>
@@ -584,9 +584,9 @@ activePage:
             </p>
             <div class="text-center">
               <a href="/index.html#contact" class="inline-block px-8 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-opacity-90 transition text-lg">
-                Get a Free Code Ownership Audit
+                Schedule a Code Ownership Review
               </a>
-              <p class="text-sm text-gray-400 mt-3">30-minute call. We'll identify your biggest risks and give you a specific action plan.</p>
+              <p class="text-sm text-gray-400 mt-3">30-minute working conversation to identify the highest-priority ownership gaps.</p>
             </div>
           </div>
         </div>

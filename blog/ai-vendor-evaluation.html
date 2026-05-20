@@ -1,0 +1,148 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Vendors: How to Evaluate the Real Capability | Fractional CTO</title>
+  <meta name="description" content="A practical guide for evaluating AI vendors, technical claims, data handling, compliance, ownership, support model, and long-term fit.">
+  <meta name="keywords" content="AI vendor due diligence, AI vendor evaluation, AI implementation risk, fractional CTO, technology due diligence">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">AI Due Diligence</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">AI Vendors: How to Evaluate the Real Capability</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-01-18">January 18, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          AI can be useful, but the buying process is noisy. A strong vendor should be able to explain what is being built, what is being configured, what data is involved, how the system is monitored, and what happens when the first version is wrong.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Buyer Problem</h2>
+        <p class="mb-6">
+          Most executives are not trying to become machine learning engineers. They are trying to decide whether a vendor can safely improve sales, support, operations, reporting, or customer experience. That decision should not depend on buzzwords. It should depend on evidence.
+        </p>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden mb-8">
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Claim</div>
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">What to Ask For</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">"Custom AI platform"</div>
+            <div class="p-5 text-gray-700">Architecture diagram, model/provider list, data flow, and what is actually custom.</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">"Fully automated"</div>
+            <div class="p-5 text-gray-700">Human review points, exception handling, audit logs, and rollback process.</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">"Compliance ready"</div>
+            <div class="p-5 text-gray-700">Consent, retention, data processing, security controls, and responsibility boundaries.</div>
+          </div>
+          <div class="grid md:grid-cols-2">
+            <div class="p-5 text-gray-700">"Proprietary"</div>
+            <div class="p-5 text-gray-700">Source code ownership, configuration ownership, vendor dependencies, and exit plan.</div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Difference Between a Tool and a System</h2>
+        <p class="mb-6">
+          Many useful AI projects are built from existing tools, APIs, and integration platforms. That is not automatically a problem. The issue is whether the buyer understands what they are paying for and whether the setup can be maintained, secured, and improved after launch.
+        </p>
+
+        <p class="mb-6">
+          A tool demonstration is not the same thing as a business system. A business system needs access control, monitoring, error handling, user permissions, data retention rules, support documentation, and a clear owner.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Questions a CEO Can Ask</h2>
+        <ul class="list-disc pl-6 mb-8 space-y-2">
+          <li>What customer, employee, or operational data will the AI touch?</li>
+          <li>Where does that data go, and who can see it?</li>
+          <li>What happens when the AI gives a wrong answer?</li>
+          <li>Can a human review or override important decisions?</li>
+          <li>Who owns the prompts, code, configuration, and integrations?</li>
+          <li>Can we move this to another vendor or bring it in-house later?</li>
+          <li>What does monthly support include after the first launch?</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What Good Vendors Do</h2>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+          <ul class="space-y-3 text-gray-700">
+            <li><strong>They explain limits.</strong> They tell you where AI is useful and where it should not make final decisions.</li>
+            <li><strong>They show the operating model.</strong> They can describe support, monitoring, logging, and escalation.</li>
+            <li><strong>They protect ownership.</strong> They make sure the company can access the system, documentation, and key accounts.</li>
+            <li><strong>They discuss compliance early.</strong> They understand consent, privacy, retention, and regulated communications.</li>
+            <li><strong>They can hand off the work.</strong> They are not afraid of another qualified technical person reviewing the setup.</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">A Practical Review Before You Sign</h2>
+        <p class="mb-6">
+          Before committing to a new AI initiative, ask for a lightweight technical review: scope, data flow, vendor dependencies, ownership, support obligations, and what success will be measured against after 30, 60, and 90 days.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          You do not need to understand every AI implementation detail to make a better buying decision. You need clear answers, documented ownership, a realistic support model, and a technical advisor who can separate useful capability from a good demo.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Evaluating an AI vendor?</p>
+          <p class="mb-4">A fractional CTO can review the proposal, data flow, ownership model, and support assumptions before you commit.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

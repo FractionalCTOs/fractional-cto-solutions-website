@@ -1,0 +1,135 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Vendor Due Diligence: How to Evaluate Claims | Fractional CTO</title>
+  <meta name="description" content="A practical executive checklist for evaluating AI vendor claims, technical depth, data risk, implementation cost, and ownership.">
+  <meta name="keywords" content="AI vendor due diligence, AI implementation, AI strategy, technical leadership, fractional CTO">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">AI Strategy</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">AI Vendor Due Diligence: How to Evaluate Claims</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-02-05">February 5, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          AI vendors are arriving faster than most leadership teams can evaluate them. The right question is not whether the demo looks impressive. The right question is whether the vendor can deliver a maintainable, secure, measurable system inside your real business.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Start With the Business Decision</h2>
+        <p class="mb-6">
+          A useful AI project should connect to a specific outcome: faster intake, better support triage, cleaner reporting, safer document review, reduced manual reconciliation, or better decision support. If the vendor cannot explain the operational result in plain English, the technical conversation is starting in the wrong place.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Five Claims Worth Testing</h2>
+        <div class="space-y-4 mb-8">
+          <div class="bg-white border border-gray-200 rounded-lg p-5">
+            <h3 class="font-bold text-brand-dark mb-2">1. "Our AI understands your business."</h3>
+            <p class="text-gray-700">Ask what documents, data, rules, examples, and review process are needed before it can produce reliable work.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-5">
+            <h3 class="font-bold text-brand-dark mb-2">2. "This will save time immediately."</h3>
+            <p class="text-gray-700">Ask which tasks will be reduced, which human checks remain, and how savings will be measured after launch.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-5">
+            <h3 class="font-bold text-brand-dark mb-2">3. "The data is secure."</h3>
+            <p class="text-gray-700">Ask where data is stored, which providers receive it, how long it is retained, and who can access logs or outputs.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-5">
+            <h3 class="font-bold text-brand-dark mb-2">4. "It integrates with your systems."</h3>
+            <p class="text-gray-700">Ask for a data-flow diagram, authentication method, failure handling, and who owns each integration credential.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-5">
+            <h3 class="font-bold text-brand-dark mb-2">5. "It is ready for production."</h3>
+            <p class="text-gray-700">Ask about monitoring, cost controls, support response, versioning, rollback, and user permissions.</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What Technical Depth Sounds Like</h2>
+        <p class="mb-6">
+          Strong vendors do not hide behind vocabulary. They can explain tradeoffs, failure modes, implementation options, and maintenance in language your leadership team can understand. They can also speak clearly with your developers, security reviewers, and operations people.
+        </p>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-8">
+          <h3 class="text-xl font-bold mb-4 text-brand-dark">Good evaluation questions:</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>What will this system do when confidence is low?</li>
+            <li>What human review is required before customer-facing output?</li>
+            <li>How are prompts, configuration, and integrations versioned?</li>
+            <li>How do we control monthly usage cost?</li>
+            <li>What is the support model after implementation?</li>
+            <li>What would make you recommend not using AI here?</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Proof Beats Personality</h2>
+        <p class="mb-6">
+          A confident salesperson may still represent a capable team. A technical founder may still underestimate operational risk. Evaluate the work product: diagrams, sample deliverables, references, implementation plan, support commitments, and ownership terms.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          AI due diligence is not about being cynical. It is about protecting the business from vague scope, unmanaged data risk, hidden dependencies, and tools that look impressive in a demo but are hard to operate every month.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Need a second set of technical eyes?</p>
+          <p class="mb-4">A fractional CTO can review AI proposals, vendor claims, implementation risk, and ownership before you sign.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

@@ -140,14 +140,6 @@
               </a>
             </div>
 
-            <!-- Email -->
-            <a href="#" data-contact="email" class="action-btn flex items-center justify-center gap-3 bg-brand-dark text-white px-6 py-3 rounded-lg font-semibold">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              Send Email
-            </a>
-
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/jeffwray" target="_blank" rel="noopener" class="action-btn flex items-center justify-center gap-3 bg-brand-dark text-white px-6 py-3 rounded-lg font-semibold">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -156,12 +148,12 @@
               Connect on LinkedIn
             </a>
 
-            <!-- Book a Meeting -->
+            <!-- Schedule Time -->
             <button @click="showBooking = true" class="action-btn flex items-center justify-center gap-3 bg-brand-dark text-white px-6 py-3 rounded-lg font-semibold w-full hover:bg-brand-dark/90">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              Book a Meeting
+              Schedule Time with Jeff
             </button>
 
             <!-- Save Contact -->
@@ -226,7 +218,7 @@
         <div x-show="showBooking" x-transition class="p-6">
           <div class="text-center mb-4">
             <h2 class="text-xl font-bold text-brand-dark mb-2">Schedule Your Consultation</h2>
-            <p class="text-gray-600 text-sm">Book a free consultation to discuss your technology needs.</p>
+            <p class="text-gray-600 text-sm">Book time to talk through the technology situation.</p>
           </div>
 
           <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
@@ -263,9 +255,6 @@
         el.href = 'sms:' + _0x4a2b.c1;
       });
 
-      document.querySelectorAll('[data-contact="email"]').forEach(el => {
-        el.href = 'mailto:' + _0x4a2b.c2;
-      });
     });
 
     function downloadVCard() {

@@ -1,0 +1,141 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before Your Next Technical Hire: Questions to Ask | Fractional CTO</title>
+  <meta name="description" content="A practical guide for founders and operators making technical hires, including architecture, ownership, security, maintainability, and business judgment questions.">
+  <meta name="keywords" content="technical hiring, fractional CTO, technical leadership, engineering leadership, startup CTO">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Technical Leadership</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Before Your Next Technical Hire: Questions to Ask</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-01-08">January 8, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          A technical hire is not just a capacity decision. For a growing company, that person may shape architecture, vendor choices, security posture, product velocity, and how understandable the system is six months from now.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Hidden Part of the Role</h2>
+        <p class="mb-6">
+          Many hiring conversations focus on whether someone can write code or manage tickets. That matters, but it is only part of the job. The larger question is whether the person can make decisions that support the business model, the budget, the compliance environment, and the people who will maintain the system later.
+        </p>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden mb-8">
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Implementation Ability</div>
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Leadership Judgment</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">Can build a requested feature.</div>
+            <div class="p-5 text-gray-700">Can explain whether that feature should be built now, later, or not at all.</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">Can connect an API.</div>
+            <div class="p-5 text-gray-700">Can assess data risk, reliability, vendor dependency, and support burden.</div>
+          </div>
+          <div class="grid md:grid-cols-2">
+            <div class="p-5 text-gray-700">Can ship quickly.</div>
+            <div class="p-5 text-gray-700">Can protect speed by keeping the system maintainable.</div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Questions Worth Asking</h2>
+        <ol class="list-decimal pl-6 mb-8 space-y-4">
+          <li>
+            <strong>How would you decide whether to build, buy, or integrate this capability?</strong><br>
+            <span class="text-gray-600">You are listening for business context, total cost, ownership, and maintenance impact.</span>
+          </li>
+          <li>
+            <strong>What would you document in the first 30 days?</strong><br>
+            <span class="text-gray-600">Good answers include architecture, accounts, credentials, deployment, risks, and open decisions.</span>
+          </li>
+          <li>
+            <strong>How do you handle a request that creates long-term risk?</strong><br>
+            <span class="text-gray-600">You want someone who can explain tradeoffs without creating drama.</span>
+          </li>
+          <li>
+            <strong>What should leadership be able to see every month?</strong><br>
+            <span class="text-gray-600">Look for reporting around roadmap, quality, security, vendor status, cost, and delivery risk.</span>
+          </li>
+          <li>
+            <strong>How would you transition the work if you left?</strong><br>
+            <span class="text-gray-600">This tests ownership discipline and respect for the company.</span>
+          </li>
+        </ol>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">When a Fractional CTO Helps</h2>
+        <p class="mb-6">
+          A fractional CTO can help before the hire by reviewing the current system, clarifying what role is actually needed, writing a practical scorecard, interviewing technical candidates, and making sure the first 90 days focus on the right risks.
+        </p>
+
+        <p class="mb-6">
+          This is especially useful when the company has a vendor, a small internal team, or a product that has grown beyond its original design. In those situations, the next hire needs context, not just tasks.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          The right technical hire should improve more than output. They should improve clarity: what the company owns, what needs attention, what can wait, and how technology decisions connect to business risk.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Hiring technical leadership?</p>
+          <p class="mb-4">A fractional CTO can help define the role, evaluate candidates, and create a clear first-90-days plan.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

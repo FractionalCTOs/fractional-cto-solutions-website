@@ -1,0 +1,144 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Debt: The Hidden Cost of Delay | Fractional CTO</title>
+  <meta name="description" content="A practical executive guide to technical debt, how it affects delivery, what to review, and how to manage it without stopping the business.">
+  <meta name="keywords" content="technical debt, code quality, software architecture, fractional CTO, sustainable development, legacy code">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Code Quality</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Technical Debt: The Hidden Cost of Delay</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-02-19">February 19, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          Technical debt is the work your system silently asks for later. Some debt is intentional and reasonable. The problem starts when leadership cannot see it, price it, or decide which parts matter most.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What Technical Debt Really Means</h2>
+        <p class="mb-6">
+          Technical debt is not a moral judgment about the team. It is a practical description of shortcuts, outdated assumptions, brittle integrations, missing tests, unclear ownership, or architecture that no longer fits the business.
+        </p>
+
+        <p class="mb-6">
+          The business risk is not that debt exists. The risk is operating without knowing which debt slows delivery, increases support cost, creates security exposure, or blocks the next product decision.
+        </p>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden mb-8">
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Debt Signal</div>
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Business Meaning</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">Small changes take longer than expected.</div>
+            <div class="p-5 text-gray-700">The system may be hard to reason about or poorly documented.</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">Releases frequently require manual cleanup.</div>
+            <div class="p-5 text-gray-700">Deployment, testing, or data migration may need stronger controls.</div>
+          </div>
+          <div class="grid md:grid-cols-2 border-b border-gray-200">
+            <div class="p-5 text-gray-700">Only one person can change certain areas.</div>
+            <div class="p-5 text-gray-700">Ownership and knowledge transfer need attention.</div>
+          </div>
+          <div class="grid md:grid-cols-2">
+            <div class="p-5 text-gray-700">Security updates are delayed.</div>
+            <div class="p-5 text-gray-700">Dependencies and upgrade paths should be reviewed.</div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">A Better Executive Conversation</h2>
+        <p class="mb-6">
+          Instead of asking, "Is the code good or bad?", ask the team to categorize debt by business impact:
+        </p>
+
+        <ul class="list-disc pl-6 mb-8 space-y-2">
+          <li><strong>Delivery debt:</strong> slows feature work or causes rework.</li>
+          <li><strong>Reliability debt:</strong> creates outages, manual fixes, or support noise.</li>
+          <li><strong>Security debt:</strong> leaves outdated packages, weak access controls, or exposed data.</li>
+          <li><strong>Ownership debt:</strong> leaves knowledge, credentials, or decisions with one person or vendor.</li>
+          <li><strong>Product debt:</strong> makes the current system a poor fit for the next business model.</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The 30-Day Review</h2>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+          <ul class="space-y-3 text-gray-700">
+            <li><strong>Week 1:</strong> Map the application, repositories, cloud accounts, data flows, and release process.</li>
+            <li><strong>Week 2:</strong> Review known pain points with developers, operators, support, and leadership.</li>
+            <li><strong>Week 3:</strong> Identify high-impact debt by risk, cost, effort, and business dependency.</li>
+            <li><strong>Week 4:</strong> Create a monthly improvement plan that fits around active delivery.</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">What Good Management Looks Like</h2>
+        <p class="mb-6">
+          Technical debt work should not become an open-ended rewrite. Good management turns it into a small set of visible decisions: what to fix now, what to schedule, what to monitor, and what to accept because the business value is not there yet.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          Technical debt becomes manageable when it is visible. A fractional CTO can translate codebase concerns into a practical operating plan: risk, priority, cost, ownership, and next steps.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Need a technical debt review?</p>
+          <p class="mb-4">Get a clear map of what matters, what can wait, and how to improve the system without stopping the business.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

@@ -7,7 +7,7 @@
           <img src="/FRACTIONALCTOLOGO-pmg.png" alt="Fractional CTO Solutions Logo" class="h-8">
         </a>
       </div>
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden lg:flex items-center space-x-6 text-sm xl:text-base">
         <a href="/index.html" class="text-brand-red font-semibold transition">Home</a>
         <a href="/services.html" class="text-gray-600 hover:text-brand-red transition">Services</a>
         <a href="/case-studies.html" class="text-gray-600 hover:text-brand-red transition">Case Studies</a>
@@ -15,9 +15,9 @@
         <a href="/about-jeff.html" class="text-gray-600 hover:text-brand-red transition">About Jeff</a>
         <a href="/blog/index.html" class="text-gray-600 hover:text-brand-red transition">Blog</a>
         <a href="/open-source.html" class="text-gray-600 hover:text-brand-red transition">Open Source</a>
-        <a href="#contact" class="px-4 py-2 bg-brand-red text-white rounded-md hover:bg-opacity-90 transition">Schedule Consultation</a>
+        <a href="#contact" class="px-4 py-2 border border-gray-300 text-brand-dark rounded-md hover:border-brand-red hover:text-brand-red transition">Contact</a>
       </div>
-      <div class="md:hidden flex items-center">
+      <div class="lg:hidden flex items-center">
         <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none" aria-label="Toggle navigation">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div x-show="open" class="md:hidden">
+  <div x-show="open" class="lg:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-md">
       <a href="/index.html" class="block px-3 py-2 text-brand-red font-semibold transition">Home</a>
       <a href="/services.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Services</a>
@@ -36,7 +36,7 @@
       <a href="/about-jeff.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">About Jeff</a>
       <a href="/blog/index.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Blog</a>
       <a href="/open-source.html" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Open Source</a>
-      <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Schedule Consultation</a>
+      <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-brand-red transition">Contact</a>
     </div>
   </div>
 </nav>

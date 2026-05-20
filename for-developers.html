@@ -479,7 +479,7 @@ activePage: developers
         <ul class="space-y-2 text-gray-300 ml-6">
           <li>• <strong>Specific vulnerabilities:</strong> "SQL injection in the user search endpoint" not "security issues"</li>
           <li>• <strong>Measurable problems:</strong> "43% code duplication, 485K lines for a 50K LOC project" not "too much code"</li>
-          <li>• <strong>Concrete impact:</strong> "$245K/year maintenance cost" not "expensive to maintain"</li>
+          <li>• <strong>Concrete impact:</strong> "annual maintenance cost estimate" not "expensive to maintain"</li>
         </ul>
         <p class="text-gray-400 text-sm italic mt-3">
           If you disagree, you have specific points to address, not subjective opinions to argue about.
@@ -564,7 +564,7 @@ activePage: developers
         </li>
       </ul>
       <p class="text-gray-200 mt-4">
-        <strong>This is exactly why oversight from the beginning helps:</strong> These problems get identified and addressed early, before they become expensive disasters.
+        <strong>This is exactly why oversight from the beginning helps:</strong> These problems get identified and addressed early, before they become expensive to unwind.
       </p>
     </div>
 
@@ -577,7 +577,7 @@ activePage: developers
   </div>
 </section>
 
-<!-- Vendor Hostage Patterns Warning -->
+<!-- Vendor Dependency Patterns Warning -->
 <section class="py-16 bg-white border-t-4 border-orange-600">
   <div class="max-w-6xl mx-auto px-6">
     <div class="bg-orange-50 border-l-4 border-orange-600 p-8 rounded-xl mb-8">
@@ -594,7 +594,7 @@ activePage: developers
       </div>
     </div>
 
-    <h3 class="text-2xl font-bold mb-6 text-brand-dark">The "Hostage Pattern" - Real Example from a Recent Audit</h3>
+    <h3 class="text-2xl font-bold mb-6 text-brand-dark">The Vendor Dependency Pattern - Real Example from a Recent Audit</h3>
 
     <div class="bg-red-50 border-2 border-red-300 p-8 rounded-xl mb-8">
       <p class="text-gray-800 mb-4">
@@ -671,15 +671,15 @@ activePage: developers
     </div>
 
     <div class="bg-gray-100 border-l-4 border-gray-600 p-8 rounded-xl mb-8">
-      <h4 class="text-xl font-bold mb-4 text-gray-900">It's Not Always the Vendor - The "Family IT Guy" Risk</h4>
+      <h4 class="text-xl font-bold mb-4 text-gray-900">It's Not Always the Vendor - The Single-Person Dependency Risk</h4>
       <p class="text-gray-800 mb-4">
-        I had a client whose family member handled all their IT - capable developer, trusted completely, built their entire system. Then they had a medical emergency and passed away unexpectedly.
+        I had a client whose trusted technical contact handled all their IT - capable developer, trusted completely, built their entire system. Then that person became suddenly unavailable.
       </p>
       <p class="text-gray-800 mb-4">
-        The family member had been good at their job. The problem? <strong>Zero continuity planning.</strong>
+        The technical contact had been good at the job. The problem? <strong>Zero continuity planning.</strong>
       </p>
       <ul class="space-y-2 text-gray-700 ml-6 mb-4">
-        <li>• All passwords stored in their personal password manager - family couldn't access it</li>
+        <li>• All passwords stored in a personal password manager - leadership couldn't access it</li>
         <li>• Cloud infrastructure in their personal account - no way to get admin access</li>
         <li>• Domain registered with their personal email - couldn't recover it</li>
         <li>• No documentation - system architecture existed only in their head</li>
@@ -689,10 +689,10 @@ activePage: developers
         The business was locked out of systems that were running their entire operation. We were able to come up with a plan to regain access, but it took time - time the business couldn't afford to waste.
       </p>
       <p class="text-gray-800 font-semibold">
-        This isn't about trust. This is about <strong>business continuity.</strong> Whether it's a vendor, a family member, or your most trusted employee - no single person should be able to take your business offline by becoming unavailable.
+        This isn't about trust. This is about <strong>business continuity.</strong> Whether it's a vendor, contractor, or trusted employee - no single person should be able to take your business offline by becoming unavailable.
       </p>
       <p class="text-gray-700 text-sm italic mt-4">
-        The saddest part: This person cared about the business and would have set things up properly if they'd known it mattered. No one plans on being hit by a train.
+        The hardest part: this person cared about the business and likely would have set things up differently if the continuity expectations had been clear.
       </p>
     </div>
 
@@ -792,13 +792,13 @@ activePage: developers
     <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-xl">
       <p class="text-lg font-semibold text-gray-900 mb-3">For Development Shops Reading This:</p>
       <p class="text-gray-800 mb-3">
-        If this section makes you uncomfortable, ask yourself why. Setting up infrastructure in the client's account takes <em>the same amount of time</em> as setting it up in yours. The only difference is who owns it at the end.
+        Infrastructure ownership should be discussed early and calmly. Setting up infrastructure in the client's account usually takes the same planning as setting it up elsewhere. The difference is who owns the asset at the end.
       </p>
       <p class="text-gray-800 mb-3">
-        <strong>Professional dev shops understand:</strong> Your value is in your expertise, not in controlling the client's infrastructure. If your business model depends on lock-in, you're not selling services - you're creating hostages.
+        <strong>Professional dev shops understand:</strong> Your value is in your expertise, delivery quality, communication, and support, not in controlling the client's infrastructure.
       </p>
       <p class="text-gray-800">
-        <strong>Good dev shops welcome this conversation</strong> because it demonstrates professionalism and protects everyone involved. It's the same reason builders don't own the land they build on.
+        <strong>Good dev shops can handle this conversation</strong> because it demonstrates professionalism and protects everyone involved.
       </p>
     </div>
   </div>
@@ -810,15 +810,15 @@ activePage: developers
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-brand-dark text-center">When Dev Shops Push Back on Oversight</h2>
 
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Red Flags -->
+      <!-- Ownership Concerns -->
       <div class="bg-red-50 p-8 rounded-xl border-2 border-red-300">
         <h3 class="text-2xl font-bold mb-6 text-red-900 flex items-center">
           <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
           </svg>
-          Red Flags
+          Ownership Concerns
         </h3>
-        <p class="text-gray-700 mb-4">If a dev shop says any of these, be concerned:</p>
+        <p class="text-gray-700 mb-4">If a dev shop says any of these, pause and clarify the operating model:</p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex items-start">
             <span class="text-red-600 mr-3 text-xl font-bold">⚠</span>
@@ -842,7 +842,7 @@ activePage: developers
           </li>
         </ul>
         <p class="mt-4 text-sm italic text-red-800">
-          These are signs of a shop that either has something to hide or doesn't want accountability. Professional dev shops welcome technical oversight.
+          These responses do not automatically mean bad intent. They do mean ownership, access, and review expectations need to be clarified before the project goes further.
         </p>
       </div>
 
@@ -1154,13 +1154,13 @@ activePage: developers
       </div>
     </section>
 
-    <!-- Red Flags -->
+    <!-- Professional Conduct Concerns -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Red Flags: When a Fractional CTO Isn't Acting Professionally</h2>
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">When a Fractional CTO Is Not Acting Professionally</h2>
 
       <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-6">
         <p class="text-gray-800 mb-4">
-          <strong>Most fractional CTOs are professionals,</strong> but if you encounter these behaviors, you should raise concerns with the client:
+          <strong>Most fractional CTOs are professionals,</strong> but if you encounter these behaviors, raise the concern with the client:
         </p>
         <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
           <li><strong>Immediate demands without discovery:</strong> Making major changes before understanding the current setup</li>
@@ -1173,7 +1173,7 @@ activePage: developers
       </div>
 
       <p class="text-gray-700">
-        These are <em>not</em> how professional fractional CTOs operate. If you experience this, you're dealing with someone who doesn't understand their role or lacks people skills.
+        These are <em>not</em> how professional fractional CTOs operate. The role should create clarity, not confusion or unnecessary tension.
       </p>
     </section>
 

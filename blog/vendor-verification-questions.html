@@ -1,0 +1,147 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Verification: Questions to Ask Before You Sign | Fractional CTO</title>
+  <meta name="description" content="A practical vendor verification checklist for identity, ownership, repository access, payment flow, references, and delivery accountability before signing a software contract.">
+  <meta name="keywords" content="vendor verification, development vendor checklist, technical due diligence, vendor accountability, fractional CTO">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Vendor Verification</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Vendor Verification: Questions to Ask Before You Sign</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-03-06">March 6, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          A software vendor can look credible in the first meeting and still leave ownership with unanswered questions. Before you sign, verify the basics: who is doing the work, where the work will live, how access is handled, and what happens if the relationship changes.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Goal Is Not Suspicion. It Is Clarity.</h2>
+        <p class="mb-6">
+          Good vendors should welcome clear expectations. A serious verification process protects both sides because it removes ambiguity before money, access, and timelines are committed.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mb-8">
+          <p class="font-semibold mb-2 text-brand-dark">A clean vendor relationship should answer:</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>Who is responsible for architecture and technical decisions?</li>
+            <li>Who has access to repositories, cloud accounts, credentials, and production data?</li>
+            <li>Where will code, documentation, and deployment history live?</li>
+            <li>How are changes reviewed before they reach production?</li>
+            <li>What does transition look like if either side ends the relationship?</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Vendor Verification Checklist</h2>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">1. Identity and Responsibility</h3>
+        <p class="mb-6">
+          Ask for the names and roles of the people who will make technical decisions, write code, approve releases, and manage support. You do not need unnecessary personal detail, but you do need accountable owners.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">2. Repository and Access Model</h3>
+        <p class="mb-6">
+          The repository should be visible to the company from the start. Clarify who owns the organization, who has admin rights, how branches are reviewed, and how access is removed when people leave.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">3. Cloud and Production Control</h3>
+        <p class="mb-6">
+          Make sure the cloud tenant, billing, production credentials, logs, monitoring, backups, and deployment process are documented. Vendor convenience should not become company dependency.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">4. References and Work Samples</h3>
+        <p class="mb-6">
+          Ask for examples that resemble your project in complexity and operating requirements. A polished portfolio is useful, but a technical walkthrough tells you more.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">5. Payment, Scope, and Handoff Terms</h3>
+        <p class="mb-6">
+          Contract terms should explain what is included, what is excluded, what artifacts are delivered, and what happens if the scope changes. The handoff path should be clear before anyone needs it.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Signals That Need a Deeper Review</h2>
+        <div class="divide-y divide-gray-200 border-y border-gray-200 mb-8">
+          <div class="py-4 grid md:grid-cols-[0.7fr_1.3fr] gap-4">
+            <p class="font-semibold text-brand-dark">Access is vague</p>
+            <p class="text-gray-700">The vendor cannot clearly explain who owns the repository, cloud tenant, deployment process, or credentials.</p>
+          </div>
+          <div class="py-4 grid md:grid-cols-[0.7fr_1.3fr] gap-4">
+            <p class="font-semibold text-brand-dark">No technical owner</p>
+            <p class="text-gray-700">Meetings are handled only by sales or account roles, while architecture and release decisions remain unclear.</p>
+          </div>
+          <div class="py-4 grid md:grid-cols-[0.7fr_1.3fr] gap-4">
+            <p class="font-semibold text-brand-dark">No artifact trail</p>
+            <p class="text-gray-700">There is no regular access to commits, documentation, decision records, test results, release notes, or support history.</p>
+          </div>
+          <div class="py-4 grid md:grid-cols-[0.7fr_1.3fr] gap-4">
+            <p class="font-semibold text-brand-dark">No handoff plan</p>
+            <p class="text-gray-700">The contract does not explain how the company receives code, documentation, credentials, and deployment knowledge.</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          Vendor verification is not about assuming bad intent. It is about making sure ownership, access, communication, and accountability are clear before a business-critical system depends on the relationship.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Need a neutral technical read before signing?</p>
+          <p class="mb-4">A fractional CTO can review the vendor, scope, access model, and handoff plan before the work becomes difficult to unwind.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

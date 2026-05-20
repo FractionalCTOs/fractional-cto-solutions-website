@@ -16,8 +16,8 @@ activePage: blog
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fractional CTO Blog | Technology Leadership Insights</title>
-  <meta name="description" content="Insights on technology leadership, avoiding tech scams, and building sustainable systems from a verified US-based Fractional CTO.">
+  <title>Fractional CTO Blog | Owner-Side Technology Insights</title>
+  <meta name="description" content="Practical guidance for founders and operators on technology ownership, vendor oversight, technical debt, compliance readiness, and CTO decision-making.">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/alpinejs" defer></script>
@@ -45,11 +45,11 @@ activePage: blog
 {% include "header.liquid" %}
 
 <!-- Header -->
-  <header class="pt-24 pb-12 bg-gradient-to-r from-gray-50 to-gray-100">
+  <header class="pt-24 pb-12 bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Fractional CTO <span class="text-brand-red">Insights</span></h1>
       <p class="text-lg text-gray-600 max-w-3xl">
-        Real talk about technology leadership, avoiding industry scams, and building systems that actually work. No fluff, no sales pitch - just honest insights from the trenches.
+        Practical notes for founders and operators who need clearer technology ownership, better vendor oversight, stronger systems, and calmer CTO-level decision support.
       </p>
     </div>
   </header>
@@ -60,217 +60,217 @@ activePage: blog
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Blog Post - Docker 29 ECR 403 Fix -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">DevOps</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/docker-29-ecr-403-fix/" class="hover:text-brand-red transition">
-                Docker 29 Broke Our AWS ECR Deploys: How We Fixed the OCI Manifest 403 Error
+                Docker 29 and AWS ECR: Fixing OCI Manifest 403 Errors
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Two deploys 15 minutes apart — first passed, second failed. Docker 29's switch to containerd breaks ECR pushes. Here's the crane workaround.
+              A technical note on Docker 29, ECR permissions, OCI manifests, and the crane workaround used during deployment troubleshooting.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">February 12, 2026</span>
               <a href="/blog/docker-29-ecr-403-fix/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
         <!-- Blog Post - Refactor vs Rewrite -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Technical Debt</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/refactor-vs-burn-it-down/" class="hover:text-brand-red transition">
-                The Great Refactor Debate: When to Clean Up vs. When to Burn It Down
+                Refactor or Rebuild: How to Make the Call
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Your codebase is a mess. Should you refactor it or rebuild from scratch? Here's the framework for making the right call.
+              A practical framework for deciding whether to improve the current system, rebuild carefully, or replace part of the stack.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">January 12, 2026</span>
               <a href="/blog/refactor-vs-burn-it-down/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
         <!-- Blog Post - Year-End Tech Audit -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Technical Leadership</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/year-end-tech-audit/" class="hover:text-brand-red transition">
-                Year-End Tech Audit: 5 Questions Every CEO Should Ask Their CTO
+                Year-End Technology Audit: Five Questions Every CEO Should Ask
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Before planning next year's roadmap, make sure you understand the current state of your technology. Five essential questions every CEO needs answers to.
+              Continuity, security, technical debt, delivery pace, and due diligence questions to ask before annual planning.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">December 15, 2025</span>
               <a href="/blog/year-end-tech-audit/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post - Stop Chasing Trends -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Stage-Fit Technology -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Technical Architecture</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/stop-chasing-trends/" class="hover:text-brand-red transition">
-                Stop Chasing Trends: When NOT to Copy What Big Tech Does
+                Choosing Technology That Fits Your Stage
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Netflix uses microservices, so should you! Wrong. Learn why copying big tech's architecture choices can sink your startup.
+              How to evaluate architecture trends against your current team, customer base, operating risk, and roadmap.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">November 5, 2025</span>
               <a href="/blog/stop-chasing-trends/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post - Firefighting vs Fire Prevention -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Preventive Engineering -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Development Process</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/firefighting-vs-fire-prevention/" class="hover:text-brand-red transition">
-                Firefighting vs. Fire Prevention: Why Your Dev Team Is Always in Crisis Mode
+                Reactive Development vs. Preventive Engineering
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Tired of constant technical emergencies? Learn why your dev team is stuck firefighting and how to break the cycle of reactive development.
+              How recurring urgent fixes form, what to measure, and how leadership can move the team toward steadier delivery.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">October 8, 2025</span>
               <a href="/blog/firefighting-vs-fire-prevention/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post - Code Audits Gone Wrong -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Code Audit Results -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Code Quality</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/code-audit-got-an-f/" class="hover:text-brand-red transition">
-                Code Audits Gone Wrong: What to Do When You Get an 'F'
+                Code Audit Results: How to Read and Prioritize Findings
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Got a harsh code audit? Learn how to interpret findings, separate critical from nice-to-have, and decide whether to fix, refactor, or rebuild.
+              How to interpret audit findings, separate urgent issues from improvement work, and create a practical response plan.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">September 12, 2025</span>
               <a href="/blog/code-audit-got-an-f/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post - Vendor Hostage Pattern -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Ownership Gap -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Infrastructure Control</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/vendor-hostage-pattern/" class="hover:text-brand-red transition">
-                The Vendor Hostage Pattern: Why You Don't Actually Own Your Infrastructure
+              <a href="/blog/infrastructure-ownership-gap/" class="hover:text-brand-red transition">
+                The Ownership Gap: Why Infrastructure Control Matters
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Discover you don't control your own infrastructure? Here's the vendor lock-in pattern that costs businesses months and six figures to escape.
+              A CEO-readable checklist for cloud accounts, repositories, deployments, credentials, and vendor transition planning.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">August 15, 2025</span>
-              <a href="/blog/vendor-hostage-pattern/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/infrastructure-ownership-gap/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
         </article>
 
         <!-- Blog Post 1 - Business Continuity -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Business Continuity</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/business-continuity-bus-factor/" class="hover:text-brand-red transition">
-                The Bus Factor: When Your IT Guy Gets Hit By One
+                Business Continuity for Technology Teams
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              What happens when key people die? Learn from a real disaster where zero documentation led to months of recovery and $400K in costs.
+              How to reduce single-person dependency across cloud access, domains, credentials, documentation, and vendor relationships.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">July 18, 2025</span>
               <a href="/blog/business-continuity-bus-factor/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
         
-        <!-- Blog Post 2 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Mid-Year Technology Check -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Technology Assessment</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/mid-year-tech-reality-check/" class="hover:text-brand-red transition">
-                Mid-Year Reality Check: Is Your Tech Holding You Back?
+                Mid-Year Technology Check: What to Review
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              6-month technology audit checklist. Signs you're being left behind by competitors. When to bring in fractional leadership to catch up.
+              A mid-year checklist for ownership, security, delivery pace, technical debt, cost, and roadmap readiness.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">July 15, 2025</span>
               <a href="/blog/mid-year-tech-reality-check/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 3 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Fractional CTO Advantage -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Leadership Strategy</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/fractional-cto-advantage/" class="hover:text-brand-red transition">
-                The Fractional CTO Advantage: Leadership Without the Politics
+                The Fractional CTO Advantage: Senior Judgment Without a Full-Time Hire
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              How fractional CTOs provide objective truth without empire building. Why external leadership delivers results when internal politics fail.
+              How outside CTO judgment can bring focus, independence, and business-first prioritization without adding executive headcount.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">June 3, 2025</span>
               <a href="/blog/fractional-cto-advantage/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 4 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Compliance-Aware Technology -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Legal Compliance</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
@@ -279,180 +279,180 @@ activePage: blog
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Real fines that killed real companies. Why 'move fast and break things' breaks your bank account. Tech leaders who understand legal frameworks vs cowboys.
+              Why privacy, consent, and data handling need to be part of technology leadership before a customer or regulator asks.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">May 1, 2025</span>
               <a href="/blog/tcpa-gdpr-compliance-matters/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 4 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Build Buy Configure -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Platform Economics</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/build-vs-buy-vs-white-label/" class="hover:text-brand-red transition">
-                Build vs. Buy vs. White-Label: The Hidden Truth About 'Custom' Solutions
+                Build, Buy, or Configure: A Better Technology Decision
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              When agencies sell $50 templates for $5,000. Learn the truth about white-label platforms and why custom development still matters.
+              How to tell when a platform is enough, when customization is justified, and what ownership questions to ask before spending.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">April 10, 2025</span>
               <a href="/blog/build-vs-buy-vs-white-label/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 5 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Advisor Evaluation -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
-            <div class="text-sm text-brand-red font-semibold mb-2">Industry Patterns</div>
+            <div class="text-sm text-brand-red font-semibold mb-2">Advisor Evaluation</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
               <a href="/blog/serial-expert-phenomenon/" class="hover:text-brand-red transition">
-                From Crypto to AI: The Serial 'Expert' Phenomenon
+                How to Evaluate Technology Advisors Across New Trends
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Tracking the rebrand cycle of fake experts who jump from Solar to Crypto to NFT to AI. Why domain expertise takes years, not weekends.
+              A calm way to evaluate whether a technology advisor has real domain depth, practical delivery experience, and relevant proof.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">March 20, 2025</span>
               <a href="/blog/serial-expert-phenomenon/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 6 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Vendor Verification -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
-            <div class="text-sm text-brand-red font-semibold mb-2">Fraud Detection</div>
+            <div class="text-sm text-brand-red font-semibold mb-2">Vendor Verification</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/red-flags-fake-us-developer/" class="hover:text-brand-red transition">
-                Red Flags: When Your 'US-Based' Developer Isn't
+              <a href="/blog/vendor-verification-questions/" class="hover:text-brand-red transition">
+                Vendor Verification: Questions to Ask Before You Sign
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              How to spot fake US-based developers using VPNs, fake profiles, and rented addresses. Learn the tactics and protect your business.
+              Practical checks for identity, communication, repository access, references, payment flow, and delivery accountability.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">March 6, 2025</span>
-              <a href="/blog/red-flags-fake-us-developer/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/vendor-verification-questions/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 7 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Technical Debt -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Code Quality</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/technical-debt-silent-company-killer/" class="hover:text-brand-red transition">
-                Technical Debt: The Silent Company Killer
+              <a href="/blog/technical-debt-hidden-cost/" class="hover:text-brand-red transition">
+                Technical Debt: The Hidden Cost of Delay
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              How shortcuts today become million-dollar problems tomorrow. Learn why technical debt compounds like credit card interest.
+              Why small shortcuts can become expensive operating constraints, and how to prioritize repayment without stopping the business.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">February 19, 2025</span>
-              <a href="/blog/technical-debt-silent-company-killer/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/technical-debt-hidden-cost/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 8 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - AI Vendor Due Diligence -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
-            <div class="text-sm text-brand-red font-semibold mb-2">Industry Analysis</div>
+            <div class="text-sm text-brand-red font-semibold mb-2">AI Strategy</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/ai-gold-rush-fake-experts/" class="hover:text-brand-red transition">
-                The Great AI Gold Rush: Spotting Real Experts vs. Bandwagon Jumpers
+              <a href="/blog/ai-vendor-due-diligence/" class="hover:text-brand-red transition">
+                AI Vendor Due Diligence: How to Evaluate Claims
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              How yesterday's blockchain experts became today's AI gurus overnight. Learn to spot fake AI expertise and protect your business.
+              Questions founders can ask to separate useful AI capability from vague claims, demos, and thin wrappers.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">February 5, 2025</span>
-              <a href="/blog/ai-gold-rush-fake-experts/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/ai-vendor-due-diligence/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 9 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Low-Bid Development -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
-            <div class="text-sm text-brand-red font-semibold mb-2">Offshore Disasters</div>
+            <div class="text-sm text-brand-red font-semibold mb-2">Vendor Oversight</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/the-250000-lesson-offshore-savings-bankruptcy/" class="hover:text-brand-red transition">
-                The $250,000 Lesson: When Offshore 'Savings' Become Bankruptcy
+              <a href="/blog/low-bid-development-oversight/" class="hover:text-brand-red transition">
+                The Real Cost of Low-Bid Development Without Oversight
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              Real case studies of offshore development disasters. Learn why the lowest bid is often the most expensive choice.
+              Low bids can be useful, but only when scope, quality, access, documentation, and review are managed from the owner side.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">January 22, 2025</span>
-              <a href="/blog/the-250000-lesson-offshore-savings-bankruptcy/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/low-bid-development-oversight/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 10 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - Technical Hiring -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
             <div class="text-sm text-brand-red font-semibold mb-2">Technical Leadership</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/why-your-next-tech-hire-could-kill-your-company/" class="hover:text-brand-red transition">
-                Why Your Next Tech Hire Could Kill Your Company
+              <a href="/blog/technical-hiring-questions/" class="hover:text-brand-red transition">
+                Before Your Next Technical Hire: Questions to Ask
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              The critical difference between hiring a coding monkey and a strategic tech partner. Learn why bad technical decisions compound.
+              How to evaluate whether a technical hire can make durable systems decisions, not just close tickets.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">January 8, 2025</span>
-              <a href="/blog/why-your-next-tech-hire-could-kill-your-company/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/technical-hiring-questions/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Blog Post 11 -->
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <!-- Blog Post - AI Vendor Evaluation -->
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden transition">
           <div class="p-6">
-            <div class="text-sm text-brand-red font-semibold mb-2">Industry Warnings</div>
+            <div class="text-sm text-brand-red font-semibold mb-2">AI Due Diligence</div>
             <h2 class="text-xl font-bold mb-3 text-brand-dark">
-              <a href="/blog/ai-bot-farm-scams/" class="hover:text-brand-red transition">
-                The Rise of AI Bot Farm Scams: How to Spot Fake Tech Experts
+              <a href="/blog/ai-vendor-evaluation/" class="hover:text-brand-red transition">
+                AI Vendors: How to Evaluate the Real Capability
               </a>
             </h2>
             <p class="text-gray-600 mb-4">
-              From "Solar King" to "AI King" - exposing the serial rebrand artists who mock TCPA compliance while pushing white-label platforms.
+              How to review AI vendor claims, compliance posture, ownership terms, integrations, and the difference between product and configuration.
             </p>
             <div class="flex items-center justify-between">
               <span class="text-sm text-gray-500">January 18, 2025</span>
-              <a href="/blog/ai-bot-farm-scams/" class="text-brand-red font-semibold text-sm hover:underline">
-                Read More →
+              <a href="/blog/ai-vendor-evaluation/" class="text-brand-red font-semibold text-sm hover:underline">
+                Read article
               </a>
             </div>
           </div>
