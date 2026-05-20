@@ -149,6 +149,17 @@ The `_site/` directory contains:
 - All image/logo files (`.svg`, `.png`, `.jpg`, `.jpeg`, `.gif`)
 - All static assets are automatically copied to `_site/`
 
+### Deploying to Cloudflare Pages
+
+Use the existing Eleventy build instead of serving the repository root:
+
+- Framework preset: `None` or `Eleventy`
+- Build command: `npm run build`
+- Build output directory: `_site`
+- Production branch: `main`
+
+Cloudflare should install dependencies from `package-lock.json` with Node 20+ and publish the generated `_site` directory.
+
 ## File Naming Conventions
 
 - **Logo for light backgrounds**: `FRACTIONALCTOLOGO-pmg.png` (darker logo)

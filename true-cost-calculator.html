@@ -17,7 +17,7 @@ activePage:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>True Cost of Technology Calculator | Fractional CTO Solutions</title>
-  <meta name="description" content="Calculate the real cost of your technology including hidden expenses: developer inefficiency, technical debt, downtime, and poor decisions. See your 3-year projection.">
+  <meta name="description" content="Estimate the operating cost of technology decisions, including rework, technical debt, downtime, delivery delays, and ownership gaps over three years.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://fractionalctosolutions.com/true-cost-calculator.html">
@@ -25,7 +25,7 @@ activePage:
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="True Cost of Technology Calculator">
-  <meta property="og:description" content="Discover the hidden costs of poor technology leadership. Calculate visible + invisible expenses over 3 years.">
+  <meta property="og:description" content="Estimate visible and less-visible technology costs over three years, then decide where senior technical oversight may help.">
   <meta property="og:url" content="https://fractionalctosolutions.com/true-cost-calculator.html">
   <meta property="og:image" content="https://fractionalctosolutions.com/og-image.jpg">
   <meta property="og:site_name" content="Fractional CTO Solutions">
@@ -72,7 +72,7 @@ activePage:
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "True Cost of Technology Calculator",
-    "description": "Calculate the real cost of your technology including hidden expenses like technical debt, downtime, and poor decisions.",
+    "description": "Estimate visible and less-visible technology costs including technical debt, downtime, rework, and delayed decisions.",
     "url": "https://fractionalctosolutions.com/true-cost-calculator.html",
     "applicationCategory": "BusinessApplication",
     "offers": {
@@ -118,17 +118,17 @@ activePage:
       </div>
 
       <h1 class="text-4xl md:text-5xl font-bold mb-6">
-        What's Your Technology <span class="text-brand-red">Really</span> Costing You?
+        What Is Your Technology <span class="text-brand-red">Really</span> Costing?
       </h1>
 
       <p class="text-xl text-gray-300 leading-relaxed mb-8">
-        Most business owners only see their monthly developer bills. The real cost includes missed deadlines, technical debt, poor decisions, downtime, and opportunity loss. Calculate your true 3-year technology cost.
+        Most owners can see the monthly developer bill. The harder cost lives in rework, missed deadlines, technical debt, downtime, and delayed decisions. Use this as a practical estimate of your three-year technology cost.
       </p>
 
       <div class="bg-red-900/30 border border-red-500 rounded-lg p-6">
-        <p class="text-lg font-semibold text-red-200 mb-2">Fair Warning:</p>
+        <p class="text-lg font-semibold text-red-200 mb-2">Plain Read:</p>
         <p class="text-gray-200">
-          The numbers you're about to see might be uncomfortable. Most companies discover they're spending 2-3x more than they thought on technology—and getting less than half the value they should.
+          The point is not a perfect forecast. The point is to make avoidable cost visible enough for a better leadership decision.
         </p>
       </div>
     </div>
@@ -190,7 +190,7 @@ activePage:
         },
 
         get technicalDebtCost() {
-          // Estimate: 20% of dev cost goes to working around bad decisions
+          // Estimate: 20% of dev cost goes to working around delayed or unclear decisions
           return this.annualDevCost * 0.20;
         },
 
@@ -352,7 +352,7 @@ activePage:
             <!-- Decision Delays -->
             <div>
               <div class="flex justify-between items-center mb-2">
-                <label class="font-semibold text-gray-700">Weeks Lost to Bad Decisions:</label>
+                <label class="font-semibold text-gray-700">Weeks Lost to Decision Delays:</label>
                 <span class="text-2xl font-bold text-brand-red" x-text="decisionDelay + ' weeks'"></span>
               </div>
               <input
@@ -418,7 +418,7 @@ activePage:
                   <span class="font-semibold" x-text="'$' + downtimeCost.toLocaleString()"></span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-gray-700">Bad decisions:</span>
+                  <span class="text-gray-700">Decision delays:</span>
                   <span class="font-semibold" x-text="'$' + badDecisionCost.toLocaleString()"></span>
                 </div>
                 <div class="flex justify-between">
@@ -435,7 +435,7 @@ activePage:
                 </div>
               </div>
               <p class="text-xs text-red-800">
-                <span class="font-bold" x-text="hiddenPercent + '%'"></span> of your true cost is invisible
+                <span class="font-bold" x-text="hiddenPercent + '%'"></span> of your true cost may not appear in the monthly invoice
               </p>
             </div>
 
@@ -459,16 +459,16 @@ activePage:
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 border-2 border-blue-300">
           <h3 class="text-2xl font-bold text-brand-dark mb-4">What This Means</h3>
           <p class="text-gray-700 mb-4">
-            If you're seeing 6-figure hidden costs, you don't have a developer problem—you have a <strong>leadership problem</strong>. Technology decisions are being made without proper oversight, strategic direction is missing, and technical debt is compounding.
+            If this estimate shows six-figure hidden cost, the issue may be the leadership layer around technology: ownership, prioritization, architecture, accountability, and the timing of technical decisions.
           </p>
           <p class="text-gray-700 mb-6">
-            <strong>Fractional CTO services typically cost $48K-$120K/year</strong> and eliminate 60-80% of hidden costs through proper architecture, accountability, and strategic guidance. If your hidden costs exceed $100K annually, fractional CTO services pay for themselves in 3-6 months.
+            <strong>Fractional CTO services typically cost $48K-$120K/year</strong> and can reduce avoidable rework by improving architecture, accountability, sequencing, vendor oversight, and owner-side decision quality.
           </p>
           <div class="text-center">
             <a href="/index.html#contact" class="inline-block px-8 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-opacity-90 transition text-lg">
-              Get a Free Technology Assessment
+              Talk Through the Cost Drivers
             </a>
-            <p class="text-sm text-gray-600 mt-3">30-minute call. We'll identify your top 3 cost drivers and give you a roadmap—even if you don't hire us.</p>
+            <p class="text-sm text-gray-600 mt-3">30-minute call. We will identify the clearest cost drivers and the next practical owner-side decision.</p>
           </div>
         </div>
 
