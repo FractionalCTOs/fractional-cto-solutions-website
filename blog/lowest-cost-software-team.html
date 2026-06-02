@@ -1,0 +1,451 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lowest-Cost Software Team Is Not Always the Lowest-Cost Decision | Fractional CTO</title>
+  <meta name="description" content="A practical Fractional CTO perspective on software rebuilds, vendor cost, team context, regression risk, and why the cheapest path can become expensive.">
+  <meta name="keywords" content="software rebuild, development team cost, fractional CTO, Brooks Law, software project risk, vendor oversight">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Software Rebuilds</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">The Lowest-Cost Software Team Is Not Always the Lowest-Cost Decision</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2026-06-02">June 2, 2026</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          When a company is facing a major software rebuild, it is natural to compare development options by hourly rate, monthly cost, or team size. That comparison matters, but it is not the whole decision.
+        </p>
+
+        <p class="mb-6">
+          Software projects do not fail only because the code was expensive. They fail because timelines slip, requirements get misunderstood, testing gaps create regressions, and the business loses confidence in the process.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Cost, Time, and Accuracy</h2>
+        <p class="mb-6">
+          Most rebuild decisions come down to three competing priorities: cost, time, and accuracy. You can usually optimize for two. Rarely all three.
+        </p>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden mb-8">
+          <div class="grid md:grid-cols-[0.7fr_1.3fr] border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Cost</div>
+            <div class="p-5 text-gray-700">What will the team cost on paper, and what will the business spend on review, rework, support, and delay?</div>
+          </div>
+          <div class="grid md:grid-cols-[0.7fr_1.3fr] border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Time</div>
+            <div class="p-5 text-gray-700">How much ramp-up, architecture transfer, communication, QA, and decision-making will be required before the team can move safely?</div>
+          </div>
+          <div class="grid md:grid-cols-[0.7fr_1.3fr]">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Accuracy</div>
+            <div class="p-5 text-gray-700">How likely is the team to rebuild the right behavior, protect edge cases, avoid regressions, and preserve business continuity?</div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8" x-data="{
+          active: 'timeAccuracy',
+          options: {
+            costTime: {
+              label: 'Cost + Time',
+              headline: 'Fast and cheap raises the accuracy risk.',
+              tradeoff: 'This can work for isolated tasks, prototypes, or well-defined execution work. In a high-context rebuild, it often pushes the missing cost into QA, rework, support, and delayed trust.',
+              decision: 'Use this only when scope is narrow, acceptance criteria are objective, and regressions would not threaten the business.',
+              scores: { cost: 92, time: 86, accuracy: 42 }
+            },
+            costAccuracy: {
+              label: 'Cost + Accuracy',
+              headline: 'Accurate and cost-conscious usually takes longer.',
+              tradeoff: 'This path can be responsible when the business has time to slow down, document behavior, transfer architecture, and let a lower-cost team ramp carefully.',
+              decision: 'Use this when deadline pressure is low and the business can afford a longer discovery, build, and validation cycle.',
+              scores: { cost: 84, time: 46, accuracy: 82 }
+            },
+            timeAccuracy: {
+              label: 'Time + Accuracy',
+              headline: 'Fast and accurate usually means paying for context.',
+              tradeoff: 'This is often the right path for a risky rebuild. The most context-rich people stay close to the work, decision cycles shrink, and the team optimizes for getting the system right the first time.',
+              decision: 'Use this when regressions, support burden, customer trust, or business continuity matter more than the lowest invoice.',
+              scores: { cost: 45, time: 88, accuracy: 90 }
+            }
+          },
+          get current() {
+            return this.options[this.active];
+          },
+          scoreWidth(name) {
+            return this.current.scores[name] + '%';
+          }
+        }">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">Choose the Two You Want to Protect</h3>
+              <p class="text-gray-700 mb-0">The third priority usually carries the tradeoff.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 md:min-w-[28rem]" role="group" aria-label="Software rebuild tradeoff options">
+              <template x-for="(option, key) in options" :key="key">
+                <button
+                  type="button"
+                  @click="active = key"
+                  :aria-pressed="active === key"
+                  class="min-h-12 px-4 py-3 rounded-md border text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
+                  :class="active === key ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'"
+                  x-text="option.label">
+                </button>
+              </template>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-[1fr_0.8fr] gap-6">
+            <div class="border-l-4 border-brand-red pl-5">
+              <p class="text-sm font-semibold text-brand-red mb-2" x-text="current.label"></p>
+              <p class="text-2xl font-bold text-brand-dark mb-3" x-text="current.headline"></p>
+              <p class="text-gray-700 mb-4" x-text="current.tradeoff"></p>
+              <p class="font-semibold text-brand-dark mb-0" x-text="current.decision"></p>
+            </div>
+
+            <div class="space-y-4" aria-label="Priority strength">
+              <div>
+                <div class="flex justify-between text-sm font-semibold text-brand-dark mb-2">
+                  <span>Cost Control</span>
+                  <span x-text="current.scores.cost + '%'"></span>
+                </div>
+                <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red rounded-full transition-all duration-300" :style="'width: ' + scoreWidth('cost')"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-semibold text-brand-dark mb-2">
+                  <span>Timeline Protection</span>
+                  <span x-text="current.scores.time + '%'"></span>
+                </div>
+                <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red rounded-full transition-all duration-300" :style="'width: ' + scoreWidth('time')"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-semibold text-brand-dark mb-2">
+                  <span>Accuracy Confidence</span>
+                  <span x-text="current.scores.accuracy + '%'"></span>
+                </div>
+                <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red rounded-full transition-all duration-300" :style="'width: ' + scoreWidth('accuracy')"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mb-6">
+          A lower-cost development team may reduce the upfront spend, but that does not automatically make the project less expensive. If the team lacks context, the business may pay for that gap through ramp-up time, architecture transfer, communication overhead, additional QA, rework, and delayed delivery.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">More Developers Do Not Always Mean More Speed</h2>
+        <p class="mb-6">
+          Frederick Brooks wrote about this decades ago in <em>The Mythical Man-Month</em>. The principle still holds: adding people to a complex software project does not automatically make it move faster. Often, it increases the coordination burden.
+        </p>
+
+        <div class="bg-white border-l-4 border-brand-red p-6 mb-8">
+          <p class="font-semibold text-brand-dark mb-2">Brooks's Law, stated plainly:</p>
+          <p class="text-gray-700">Adding people to a late or complex software project can make the project slower when communication, training, review, and integration costs outweigh the extra hands.</p>
+        </div>
+
+        <p class="mb-6">
+          This does not mean larger teams or offshore teams are bad. They can be the right fit in many situations. But they are not always the right fit for a high-context rebuild where architecture, regression risk, testing discipline, and business continuity matter.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Context Is a Real Asset</h2>
+        <p class="mb-6">
+          In a high-risk rebuild, the most valuable person is often not the cheapest developer. It is the person who already understands the system, the architecture, the tradeoffs, and the failure points.
+        </p>
+
+        <p class="mb-6">
+          That person's value is not only in writing code. Their value is in reducing uncertainty. They know which workflows are fragile, which requirements are implied but undocumented, where regressions are likely to appear, and which technical decisions will create support problems later.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Review-Only Trap</h2>
+        <p class="mb-6">
+          Moving the most context-rich engineer into a review-only role can look efficient on paper. In practice, it can remove them from the work where they create the most leverage.
+        </p>
+
+        <p class="mb-6">
+          Senior developers usually create the most value when they are close to the critical implementation decisions. If they are mostly correcting other people's work after the fact, the business may lose the benefit of their judgment at the exact moment it needs that judgment most.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">A Better Decision Question</h2>
+        <p class="mb-6">
+          The better question is not, "Who is cheapest?"
+        </p>
+
+        <p class="mb-6">
+          The better question is, "Which path gives us the highest chance of getting this right without losing more time?"
+        </p>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+          <h3 class="text-xl font-bold mb-4 text-brand-dark">Before choosing a rebuild team, ask:</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li>Who understands the existing architecture and business behavior?</li>
+            <li>Where are regressions most likely to happen?</li>
+            <li>What testing discipline is required before release?</li>
+            <li>How much review burden will fall on the current team?</li>
+            <li>Who owns final architecture and implementation decisions?</li>
+            <li>What happens if the lower-cost path slips by 60 or 90 days?</li>
+          </ul>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8" x-data="{
+          safeguards: {
+            architecture: false,
+            tests: false,
+            edgeCases: false,
+            contextEngineer: false,
+            releaseOwner: false,
+            scheduleMiss: false
+          },
+          labels: {
+            architecture: 'Current architecture is documented',
+            tests: 'Regression tests or release checks are in place',
+            edgeCases: 'Business edge cases are understood by the build team',
+            contextEngineer: 'The most context-rich engineer stays hands-on',
+            releaseOwner: 'Release ownership is clear',
+            scheduleMiss: 'The business can absorb a 60-90 day miss'
+          },
+          get completed() {
+            return Object.values(this.safeguards).filter(Boolean).length;
+          },
+          get riskPoints() {
+            return Object.keys(this.safeguards).length - this.completed;
+          },
+          get riskLevel() {
+            if (this.riskPoints <= 1) return 'low';
+            if (this.riskPoints <= 3) return 'watch';
+            return 'high';
+          },
+          get result() {
+            const results = {
+              low: {
+                label: 'Low Risk',
+                headline: 'Proceed with normal controls.',
+                copy: 'The basic safeguards are in place. Keep the team close to the release path, but the rebuild does not need to be slowed down just to create control.',
+                color: 'text-green-700',
+                bg: 'bg-green-50',
+                border: 'border-green-500'
+              },
+              watch: {
+                label: 'Watch Closely',
+                headline: 'Add senior review before committing.',
+                copy: 'There are enough gaps to create rework or release friction. Tighten scope, testing, ownership, and context transfer before treating the bid as low-risk.',
+                color: 'text-yellow-700',
+                bg: 'bg-yellow-50',
+                border: 'border-yellow-500'
+              },
+              high: {
+                label: 'High Risk',
+                headline: 'Slow down and protect the system first.',
+                copy: 'The rebuild is missing important safeguards. A cheaper path may still work, but only after architecture, regression risk, ownership, and release accountability are made explicit.',
+                color: 'text-red-700',
+                bg: 'bg-red-50',
+                border: 'border-red-500'
+              }
+            };
+            return results[this.riskLevel];
+          }
+        }">
+          <div class="grid lg:grid-cols-[1fr_0.85fr] gap-6">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">Rebuild Risk Check</h3>
+              <p class="text-gray-700 mb-5">Check the safeguards already in place before choosing a lower-cost or larger rebuild team.</p>
+
+              <div class="space-y-3">
+                <template x-for="(label, key) in labels" :key="key">
+                  <label class="flex items-start gap-3 rounded-md border border-gray-200 bg-gray-50 p-4 cursor-pointer hover:border-brand-red transition">
+                    <input
+                      type="checkbox"
+                      class="mt-1 h-4 w-4 rounded border-gray-300 text-brand-red focus:ring-brand-red"
+                      x-model="safeguards[key]">
+                    <span class="text-gray-800 font-medium" x-text="label"></span>
+                  </label>
+                </template>
+              </div>
+            </div>
+
+            <div class="rounded-lg border-l-4 p-6 self-start transition"
+              :class="result.bg + ' ' + result.border">
+              <p class="text-sm font-semibold mb-2" :class="result.color" x-text="completed + '/6 safeguards checked'"></p>
+              <p class="text-3xl font-bold mb-2" :class="result.color" x-text="result.label"></p>
+              <p class="text-xl font-bold text-brand-dark mb-3" x-text="result.headline"></p>
+              <p class="text-gray-700 mb-0" x-text="result.copy"></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="team-model-finder" class="bg-white border border-gray-200 rounded-lg p-6 mb-8" x-data="{
+          system: 'fragile',
+          complexity: 'complex',
+          deadline: 'high',
+          context: 'concentrated',
+          regression: 'high',
+          recommendations: {
+            seniorOwner: {
+              label: 'Have one senior engineer own the rebuild',
+              summary: 'When the core system is fragile and complex, a good senior engineer can often isolate failure points, simplify the architecture, and make the system less fragile faster than a larger team can coordinate around it.',
+              protect: 'Keep one senior owner in the core system. Add help only for bounded testing, documentation, cleanup, and isolated implementation tasks so the team does not create a Mythical Man-Month problem.'
+            },
+            supportTeam: {
+              label: 'Use a small support lane around the senior owner',
+              summary: 'The deadline pressure is real, but the work is bounded enough that a few extra hands can help without turning coordination into the project.',
+              protect: 'Let the senior engineer own the hardest system decisions while support handles test coverage, documentation, cleanup, and narrow implementation tasks.'
+            },
+            outsideTeam: {
+              label: 'Use an outside team after standards are clear',
+              summary: 'The system is stable enough, the knowledge is documented enough, and the regression risk is low enough for a broader team to execute safely.',
+              protect: 'Keep acceptance criteria, repository ownership, release checks, and decision authority clear so lower-cost execution does not become later rework.'
+            },
+            stabilizeFirst: {
+              label: 'Pause and stabilize before rebuilding',
+              summary: 'If the system is truly out of control, speed may be misleading. A rebuild can still be right, but the first move is to step back and create enough stability to make good decisions.',
+              protect: 'Document core behavior, identify regression hotspots, assign release ownership, and create a smaller validated path before expanding the team.'
+            }
+          },
+          get modelKey() {
+            if (this.deadline === 'low' && this.regression === 'high' && (this.system === 'fragile' || this.context === 'concentrated')) return 'stabilizeFirst';
+            if (this.system === 'fragile' && this.deadline === 'high' && (this.complexity === 'complex' || this.context === 'concentrated' || this.regression === 'high')) return 'seniorOwner';
+            if (this.system === 'fragile' && this.regression === 'high' && this.context === 'concentrated') return 'seniorOwner';
+            if (this.system === 'fragile' && this.deadline === 'high') return 'supportTeam';
+            if (this.deadline === 'high' && (this.regression === 'high' || this.context === 'concentrated')) return 'supportTeam';
+            if (this.system === 'stable' && this.context === 'documented' && this.regression === 'low') return 'outsideTeam';
+            if (this.context === 'concentrated' || (this.system === 'fragile' && this.complexity === 'complex')) return 'seniorOwner';
+            if (this.regression === 'high') return 'stabilizeFirst';
+            return 'outsideTeam';
+          },
+          get model() {
+            return this.recommendations[this.modelKey];
+          }
+        }">
+          <div class="grid lg:grid-cols-[1fr_0.9fr] gap-6">
+            <div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">Team Model Finder</h3>
+              <p class="text-gray-700 mb-5">Choose the conditions that best describe the rebuild.</p>
+
+              <div class="space-y-5">
+                <div>
+                  <p class="text-sm font-semibold text-brand-dark mb-2">Current system condition</p>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" @click="system = 'fragile'" :aria-pressed="system === 'fragile'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="system === 'fragile' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Fragile</button>
+                    <button type="button" @click="system = 'stable'" :aria-pressed="system === 'stable'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="system === 'stable' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Stable</button>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-sm font-semibold text-brand-dark mb-2">System complexity</p>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" @click="complexity = 'complex'" :aria-pressed="complexity === 'complex'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="complexity === 'complex' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Complex</button>
+                    <button type="button" @click="complexity = 'bounded'" :aria-pressed="complexity === 'bounded'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="complexity === 'bounded' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Bounded</button>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-sm font-semibold text-brand-dark mb-2">Deadline pressure</p>
+                  <div class="grid grid-cols-3 gap-2">
+                    <button type="button" @click="deadline = 'high'" :aria-pressed="deadline === 'high'" class="min-h-11 rounded-md border px-3 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="deadline === 'high' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">High</button>
+                    <button type="button" @click="deadline = 'moderate'" :aria-pressed="deadline === 'moderate'" class="min-h-11 rounded-md border px-3 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="deadline === 'moderate' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Moderate</button>
+                    <button type="button" @click="deadline = 'low'" :aria-pressed="deadline === 'low'" class="min-h-11 rounded-md border px-3 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="deadline === 'low' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Low</button>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-sm font-semibold text-brand-dark mb-2">Architecture knowledge</p>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" @click="context = 'concentrated'" :aria-pressed="context === 'concentrated'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="context === 'concentrated' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Concentrated</button>
+                    <button type="button" @click="context = 'documented'" :aria-pressed="context === 'documented'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="context === 'documented' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Documented</button>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-sm font-semibold text-brand-dark mb-2">Regression risk</p>
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" @click="regression = 'high'" :aria-pressed="regression === 'high'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="regression === 'high' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">High</button>
+                    <button type="button" @click="regression = 'low'" :aria-pressed="regression === 'low'" class="min-h-11 rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2" :class="regression === 'low' ? 'bg-brand-dark text-white border-brand-dark' : 'bg-gray-50 text-brand-dark border-gray-200 hover:border-brand-red'">Low</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-l-4 border-brand-red bg-gray-50 p-6 self-start">
+              <p class="text-sm font-semibold text-brand-red mb-2">Recommended model</p>
+              <p class="text-3xl font-bold text-brand-dark mb-3" x-text="model.label"></p>
+              <p class="text-gray-700 mb-4" x-text="model.summary"></p>
+              <p class="font-semibold text-brand-dark mb-0" x-text="model.protect"></p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          Sometimes the right answer is a bigger team. Sometimes it is a lower-cost team. But often, during a high-risk rebuild, the best answer is to keep the most context-rich person close to the work and optimize for accuracy first.
+        </p>
+
+        <p class="mb-6">
+          The expensive outcome is not paying more for the right person.
+        </p>
+
+        <p class="mb-6">
+          The expensive outcome is paying less, losing time, creating regressions, and having to rebuild trust in the project all over again.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Facing a rebuild or vendor decision?</p>
+          <p class="mb-4">A fractional CTO can help compare the technical risk, cost model, testing burden, and delivery path before the business commits.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>

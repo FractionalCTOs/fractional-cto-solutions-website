@@ -92,9 +92,15 @@
   </url>
   <url>
     <loc>https://fractionalctosolutions.com/blog/</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fractionalctosolutions.com/blog/lowest-cost-software-team/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fractionalctosolutions.com/blog/refactor-vs-burn-it-down/</loc>
@@ -193,8 +199,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://fractionalctosolutions.com/blog/low-bid-development-oversight/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <loc>https://fractionalctosolutions.com/blog/low-bid-software-decisions/</loc>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

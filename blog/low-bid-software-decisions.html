@@ -1,0 +1,152 @@
+---
+activePage: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF11844YR0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZF11844YR0');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Real Cost of Low-Bid Software Decisions | Fractional CTO</title>
+  <meta name="description" content="Low software bids can be useful, but only when scope, ownership, testing, continuity, and technical risk are evaluated before work begins.">
+  <meta name="keywords" content="low bid development, software project risk, technical due diligence, fractional CTO, software decision-making">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0D2432',
+              red: '#EF4136',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+{% include "header.liquid" %}
+
+  <article class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="text-sm text-brand-red font-semibold mb-4">Project Risk</div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">The Real Cost of Low-Bid Software Decisions</h1>
+        <div class="flex items-center text-gray-600 space-x-4">
+          <span>By Jeff Wray</span>
+          <span>•</span>
+          <time datetime="2025-01-22">January 22, 2025</time>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-700 mb-8">
+          A low software bid is not automatically a bad decision. The risk appears when the bid is treated as a complete plan instead of one input into a larger technical and business decision.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Spreadsheet Misses the Operating Cost</h2>
+        <p class="mb-6">
+          A proposal can look attractive because the hourly rate or fixed price is lower. But software cost is not only the invoice. It is also the time leadership spends clarifying requirements, recovering from missed assumptions, handling regressions, and supporting the system later.
+        </p>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden mb-8">
+          <div class="grid md:grid-cols-[0.7fr_1.3fr] border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Decision Fit</div>
+            <div class="p-5 text-gray-700">Is this the right team and delivery model for the business risk, system complexity, and timeline?</div>
+          </div>
+          <div class="grid md:grid-cols-[0.7fr_1.3fr] border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Delivery Standard</div>
+            <div class="p-5 text-gray-700">Are scope, acceptance criteria, testing, data handling, and release readiness defined before work begins?</div>
+          </div>
+          <div class="grid md:grid-cols-[0.7fr_1.3fr] border-b border-gray-200">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Ownership</div>
+            <div class="p-5 text-gray-700">Where do repositories, cloud accounts, credentials, documentation, and deployment history live?</div>
+          </div>
+          <div class="grid md:grid-cols-[0.7fr_1.3fr]">
+            <div class="bg-gray-50 p-5 font-semibold text-brand-dark">Continuity</div>
+            <div class="p-5 text-gray-700">Can another qualified team maintain the system if the original vendor is unavailable?</div>
+          </div>
+        </div>
+
+        <p class="mb-6">
+          The goal is not to put a senior technical leader in the middle of every ticket. The goal is to make the right call about scope, team fit, standards, and risk before the project becomes cleanup work.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">Where Low-Bid Decisions Usually Drift</h2>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">1. Requirements Become Assumptions</h3>
+        <p class="mb-6">
+          The vendor builds what was easiest to infer, not necessarily what the business needed. The gap does not show up until user acceptance, compliance review, or the first customer escalation.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">2. Technical Judgment Arrives Too Late</h3>
+        <p class="mb-6">
+          If senior technical judgment only enters after the work is mostly built, leadership may discover architecture, security, maintainability, and testing problems after most of the budget is gone.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">3. Access and Documentation Are Treated as Cleanup</h3>
+        <p class="mb-6">
+          Repository access, deployment notes, data flows, runbooks, and support documentation need to be part of delivery, not a favor requested at the end.
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-brand-dark">4. The Business Cannot Compare Options</h3>
+        <p class="mb-6">
+          Sometimes the right answer is to build. Sometimes it is to buy, simplify scope, stabilize what exists, or hire differently. Low bids can make every problem look like an implementation task.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">A Better Cost Calculation</h2>
+        <div class="bg-white border-l-4 border-brand-red p-6 mb-8">
+          <p class="font-semibold mb-3 text-brand-dark">Before accepting a proposal, estimate:</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>Vendor invoice</li>
+            <li>Leadership time to clarify scope and decisions</li>
+            <li>Testing and remediation effort</li>
+            <li>Security and compliance cleanup</li>
+            <li>Documentation and handoff work</li>
+            <li>Delay risk if the first version misses the business need</li>
+          </ul>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">When a Lower-Cost Vendor Can Work Well</h2>
+        <p class="mb-6">
+          Lower-cost execution can be useful when the work is clearly scoped, the acceptance criteria are objective, the repository and cloud model are company-controlled, and the business has already decided that this team is a fit for the risk level of the work.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6 text-brand-dark">The Bottom Line</h2>
+        <p class="mb-6">
+          The question is not whether the vendor is expensive or inexpensive. The question is whether ownership has enough technical clarity to choose the right path before the company pays for rework, regressions, and lost time.
+        </p>
+
+        <div class="border-l-4 border-brand-red bg-white p-6 mt-12">
+          <p class="font-semibold text-lg mb-2 text-brand-dark">Need help evaluating a software decision?</p>
+          <p class="mb-4">A fractional CTO can help compare the options, technical risk, ownership model, and delivery path before the company commits.</p>
+          <a href="/index.html#contact" class="text-brand-red font-semibold hover:underline">
+            Contact Jeff
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include "footer.liquid" %}
+
+</body>
+</html>
